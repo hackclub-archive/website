@@ -1,12 +1,6 @@
 package hackedu
 
-import (
-	"fmt"
-	"net/http"
-)
+import ()
 
 func init() {
-	http.HandleFunc("/api/hello_world", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, world!")
-	})
 }
