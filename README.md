@@ -35,7 +35,7 @@ Run test suite:
 $ goapp test
 ```
 
-# LICENSE
+## LICENSE
 
 The MIT License (MIT)
 
