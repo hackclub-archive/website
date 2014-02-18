@@ -9,8 +9,8 @@ import (
 )
 
 type School struct {
-	Name     string `json:"latitude,omitempty"`
-	Location Location
+	Name     string   `json:"name,omitempty"`
+	Location Location `json:"location,omitempty"`
 }
 
 type Location struct {
