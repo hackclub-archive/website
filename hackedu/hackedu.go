@@ -15,7 +15,7 @@ func serveError(c appengine.Context, w http.ResponseWriter, err error) {
 }
 
 func init() {
-	http.HandleFunc("/schools", schoolsHandler)
+	http.HandleFunc("/v1/schools", schoolsHandler)
 }
 
 func schoolsHandler(w http.ResponseWriter, r *http.Request) {
