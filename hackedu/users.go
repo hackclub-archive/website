@@ -14,45 +14,58 @@ import (
 const emailRegex = ".+\\@.+\\..+"
 
 type User struct {
-	CreatedAt time.Time
-	Name      string
-	Email     string
-	Password  []byte
+	CreatedAt      time.Time   `json:"created_at,omitempty"`
+	FirstName      string      `json:"first_name,omitempty"`
+	LastName       string      `json:"last_name,omitempty"`
+	Email          string      `json:"email,omitempty"`
+	Password       string      `json:"password,omitempty"`
+	PasswordVerify string      `json:"password_verify,omitempty"`
+	HashedPassword []byte      `json:"-"`
+	Application    Application `json:"application,omitempty"`
 }
 
-func RegisterUser(c appengine.Context, name, email, password string) (*User,
-	*datastore.Key, error) {
-	hashedPassword, err := scrypt.Key([]byte(password), []byte("saltgoeshere"),
+func RegisterUser(c appengine.Context, user *User) (*datastore.Key, error) {
+
+	if len(user.Password) < 6 {
+		return nil, errors.New("Your password must be at least 6 characters long")
+	}
+
+	if user.Password != user.PasswordVerify {
+		return nil, errors.New("Password does not match password verify.")
+	}
+
+	if !(len(user.FirstName) > 0) {
+		return nil, errors.New("A first name is required.")
+	}
+
+	if !(len(user.FirstName) > 0) {
+		return nil, errors.New("A last name is required.")
+	}
+
+	if match, _ := regexp.MatchString(emailRegex, user.Email); !match {
+		return nil, errors.New("A valid email is required.")
+	}
+
+	// TODO: Check if email has already been taken
+
+	user.CreatedAt = time.Now()
+
+	hashedPassword, err := scrypt.Key([]byte(user.Password),
+		[]byte(user.CreatedAt.String()+user.Email+"douglasadams42"),
 		16384, 8, 1, 32)
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
 
-	if !(len(name) > 0) {
-		return nil, nil, errors.New("A name is required.")
-	}
-
-	if match, _ := regexp.MatchString(emailRegex, email); !match {
-		return nil, nil, errors.New("A valid email is required.")
-	}
-
-	if len(password) < 6 {
-		return nil, nil,
-			errors.New("Your password must be at least 6 characters long")
-	}
-
-	user := &User{
-		CreatedAt: time.Now(),
-		Name:      name,
-		Email:     email,
-		Password:  hashedPassword,
-	}
+	user.HashedPassword = hashedPassword
+	user.Password = ""
+	user.PasswordVerify = ""
 
 	key, err := datastore.Put(c, datastore.NewIncompleteKey(c, "user", nil),
 		user)
 	if err != nil {
-		return user, key, err
+		return key, err
 	}
 
-	return user, key, nil
+	return key, nil
 }

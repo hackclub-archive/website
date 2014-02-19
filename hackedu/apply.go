@@ -1,8 +1,10 @@
 package hackedu
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
+
+	"appengine"
 )
 
 type Application struct {
@@ -15,5 +17,25 @@ type Application struct {
 }
 
 func Apply(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("hi!")
+	c := appengine.NewContext(r)
+
+	decoder := json.NewDecoder(r.Body)
+	var u User
+	err := decoder.Decode(&u)
+	if err != nil {
+		serveError(c, w, err)
+		return
+	}
+
+	_, err = RegisterUser(c, &u)
+	if err != nil {
+		serveError(c, w, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(u)
+	if err != nil {
+		serveError(c, w, err)
+		return
+	}
 }

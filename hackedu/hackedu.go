@@ -26,5 +26,7 @@ func schoolsHandler(w http.ResponseWriter, r *http.Request) {
 
 func applyHandler(w http.ResponseWriter, r *http.Request) {
 	middleware(w, r)
-	Apply(w, r)
+	if r.Method == "POST" {
+		Apply(w, r)
+	}
 }
