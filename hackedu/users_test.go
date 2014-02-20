@@ -75,7 +75,7 @@ var _ = Describe("Users", func() {
 				})
 			})
 
-			PContext("and an invalid applicatino", func() {
+			PContext("and an invalid application", func() {
 				PIt("should not create a new user in the database", func() {
 				})
 
