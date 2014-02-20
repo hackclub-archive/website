@@ -38,7 +38,7 @@ func RegisterUser(c appengine.Context, user *User) (*datastore.Key, error) {
 		return nil, errors.New("A first name is required.")
 	}
 
-	if !(len(user.FirstName) > 0) {
+	if !(len(user.LastName) > 0) {
 		return nil, errors.New("A last name is required.")
 	}
 
