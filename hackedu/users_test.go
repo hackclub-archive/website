@@ -1,64 +1,52 @@
-package hackedu
+package hackedu_test
 
 import (
-	"bytes"
-	"strings"
-	"testing"
-
-	"appengine/aetest"
-	"appengine/datastore"
+	. "github.com/hackedu/backend/hackedu"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
 )
 
-func TestRegisterValidUser(t *testing.T) {
-	c, err := aetest.NewContext(nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-	defer c.Close()
+var _ = PDescribe("Users", func() {
 
-	name := "foo"
-	email := "foo@bar.com"
-	password := "foobarfoobar"
+	PDescribe("Registration", func() {
+		PContext("With valid information", func() {
+			PContext("and a valid application", func() {
+				PIt("should create a new user in the database", func() {
+				})
 
-	user, key, err := RegisterUser(c, name, email, password)
-	if err != nil {
-		t.Errorf("%s", err.Error())
-	}
+				PIt("should set the CreatedAt variable", func() {
+				})
 
-	user2 := &User{}
-	if err = datastore.Get(c, key, user2); err != nil {
-		t.Errorf("Failed to retrieve user from datastore. Err: %s", err.Error())
-	}
+				PIt("should clear the Password and PasswordVerify fields", func() {
+				})
 
-	if user.Name != user2.Name || user.Email != user2.Email ||
-		!bytes.Equal(user.Password, user2.Password) {
-		t.Errorf("Retrieved invalid user. Expected: %+v, actual %+v", user, user2)
-	}
-}
+				PIt("should not return an error", func() {
+				})
+			})
 
-func TestRegisterInvalidUser(t *testing.T) {
-	c, err := aetest.NewContext(nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-	defer c.Close()
+			PContext("and an invalid applicatino", func() {
+				PIt("should not create a new user in the database", func() {
+				})
 
-	name := "foo"
-	email := "foo@bar.com"
-	password := "foobarfoobar"
+				PIt("should return an error", func() {
+				})
+			})
 
-	_, _, err = RegisterUser(c, "", email, password)
-	if !strings.Contains(err.Error(), "name") {
-		t.Errorf("Expected error to contain name, actual: %s", err.Error())
-	}
+			PContext("but no application", func() {
+				PIt("should not create a new user in the database", func() {
+				})
 
-	_, _, err = RegisterUser(c, name, "foo", password)
-	if !strings.Contains(err.Error(), "email") {
-		t.Errorf("Expected error to contain email, actual: %s", err.Error())
-	}
+				PIt("should return an error", func() {
+				})
+			})
+		})
 
-	_, _, err = RegisterUser(c, name, email, "short")
-	if !strings.Contains(err.Error(), "password") {
-		t.Errorf("Expected error to contain password, actual: %s", err.Error())
-	}
-}
+		PContext("With invalid information", func() {
+			PIt("should not create a new user in the database", func() {
+			})
+
+			PIt("should return an error", func() {
+			})
+		})
+	})
+})
