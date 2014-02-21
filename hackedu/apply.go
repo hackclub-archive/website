@@ -5,35 +5,49 @@ import (
 	"net/http"
 
 	"appengine"
+	"appengine/datastore"
 )
 
-type Application struct {
-	HighSchool         string `json:"high_school,omitempty"`
-	InterestingProject string `json:"interesting_project,omitempty"`
-	SystemHacked       string `json:"system_hacked,omitempty"`
-	Passion            string `json:"passion,omitempty"`
-	Story              string `json:"story,omitempty"`
-	Why                string `json:"why,omitempty"`
+type ApplicationForm struct {
+	Application Application `json:"application,omitempty"`
+	User        User        `json:"user,omitempty"`
 }
 
 func Apply(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
 
 	decoder := json.NewDecoder(r.Body)
-	var u User
-	err := decoder.Decode(&u)
+	var applicationForm ApplicationForm
+	err := decoder.Decode(&applicationForm)
 	if err != nil {
 		serveError(c, w, err)
 		return
 	}
 
-	_, err = RegisterUser(c, &u)
+	user := applicationForm.User
+	application := applicationForm.Application
+
+	userKey, err := RegisterUser(c, &user)
 	if err != nil {
 		serveError(c, w, err)
 		return
 	}
 
-	err = json.NewEncoder(w).Encode(u)
+	applicationKey, err := ConstructApplication(c, &application)
+	if err != nil {
+		serveError(c, w, err)
+		return
+	}
+
+	user.Application = applicationKey
+
+	_, err = datastore.Put(c, userKey, &user)
+	if err != nil {
+		serveError(c, w, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(user)
 	if err != nil {
 		serveError(c, w, err)
 		return

@@ -71,7 +71,7 @@ var _ = Describe("Users", func() {
 				})
 
 				It("should set the Approved field to false", func() {
-					Expect(registeredUser.Approved).to(Equal(false))
+					Expect(registeredUser.Approved).To(Equal(false))
 				})
 
 				PIt("should set the application's datastore key", func() {
