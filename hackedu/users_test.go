@@ -70,6 +70,9 @@ var _ = Describe("Users", func() {
 					Expect(registeredUser.PasswordVerify).To(Equal(""))
 				})
 
+				PIt("should set the application's datastore key", func() {
+				})
+
 				It("should not return an error", func() {
 					Expect(registerError).To(BeNil())
 				})
