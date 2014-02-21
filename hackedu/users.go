@@ -21,6 +21,7 @@ type User struct {
 	Password       string         `json:"password,omitempty"`
 	PasswordVerify string         `json:"password_verify,omitempty"`
 	HashedPassword []byte         `json:"-"`
+	Approved       bool           `json:"approved,omitempty"`
 	Application    *datastore.Key `json:"application,omitempty"`
 }
 
@@ -59,6 +60,7 @@ func RegisterUser(c appengine.Context, user *User) (*datastore.Key, error) {
 	user.HashedPassword = hashedPassword
 	user.Password = ""
 	user.PasswordVerify = ""
+	user.Approved = false
 
 	key, err := datastore.Put(c, datastore.NewIncompleteKey(c, "user", nil),
 		user)

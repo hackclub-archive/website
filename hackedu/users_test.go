@@ -70,6 +70,10 @@ var _ = Describe("Users", func() {
 					Expect(registeredUser.PasswordVerify).To(Equal(""))
 				})
 
+				It("should set the Approved field to false", func() {
+					Expect(registeredUser.Approved).to(Equal(false))
+				})
+
 				PIt("should set the application's datastore key", func() {
 				})
 
