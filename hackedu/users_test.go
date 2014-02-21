@@ -73,6 +73,9 @@ var _ = Describe("Users", func() {
 				PIt("should set the application's datastore key", func() {
 				})
 
+				PIt("should email me with the user's info on registration", func() {
+				})
+
 				It("should not return an error", func() {
 					Expect(registerError).To(BeNil())
 				})
