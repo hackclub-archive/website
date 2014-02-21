@@ -93,6 +93,27 @@ High School: ` + application.HighSchool + `
 		return
 	}
 
+	msg = &mail.Message{
+		Sender:  "Zach Latta <zach@zachlatta.com>",
+		To:      []string{user.Email},
+		Subject: "hackEDU Application",
+		Body: `
+Hey ` + user.FirstName + `!
+
+Thanks for applying for hackEDU. We've received your application and you can
+expect to hear from us shortly. If you have any questions, please don't
+hesitate to email me at zach@zachlatta.com.
+
+Best regards,
+Zach Latta
+`,
+	}
+
+	if err := mail.Send(c, msg); err != nil {
+		serveError(c, w, errors.New("Could not send email"))
+		return
+	}
+
 	err = json.NewEncoder(w).Encode(user)
 	if err != nil {
 		serveError(c, w, err)
