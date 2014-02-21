@@ -14,14 +14,14 @@ import (
 const emailRegex = ".+\\@.+\\..+"
 
 type User struct {
-	CreatedAt      time.Time   `json:"created_at,omitempty"`
-	FirstName      string      `json:"first_name,omitempty"`
-	LastName       string      `json:"last_name,omitempty"`
-	Email          string      `json:"email,omitempty"`
-	Password       string      `json:"password,omitempty"`
-	PasswordVerify string      `json:"password_verify,omitempty"`
-	HashedPassword []byte      `json:"-"`
-	Application    Application `json:"application,omitempty"`
+	CreatedAt      time.Time      `json:"created_at,omitempty"`
+	FirstName      string         `json:"first_name,omitempty"`
+	LastName       string         `json:"last_name,omitempty"`
+	Email          string         `json:"email,omitempty"`
+	Password       string         `json:"password,omitempty"`
+	PasswordVerify string         `json:"password_verify,omitempty"`
+	HashedPassword []byte         `json:"-"`
+	Application    *datastore.Key `json:"application,omitempty"`
 }
 
 func RegisterUser(c appengine.Context, user *User) (*datastore.Key, error) {
