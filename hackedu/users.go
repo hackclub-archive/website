@@ -51,8 +51,7 @@ func RegisterUser(c appengine.Context, user *User) (*datastore.Key, error) {
 	user.CreatedAt = time.Now()
 
 	hashedPassword, err := scrypt.Key([]byte(user.Password),
-		[]byte(user.CreatedAt.String()+user.Email+"douglasadams42"),
-		16384, 8, 1, 32)
+		[]byte(user.CreatedAt.String()+user.LastName+user.Email), 16384, 8, 1, 32)
 	if err != nil {
 		return nil, err
 	}
