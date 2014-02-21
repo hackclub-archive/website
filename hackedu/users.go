@@ -20,6 +20,8 @@ type User struct {
 	Email          string         `json:"email,omitempty"`
 	Password       string         `json:"password,omitempty"`
 	PasswordVerify string         `json:"password_verify,omitempty"`
+	GitHub         string         `json:"github,omitempty"`
+	Twitter        string         `json:"twitter,omitempty"`
 	HashedPassword []byte         `json:"-"`
 	Approved       bool           `json:"approved,omitempty"`
 	Application    *datastore.Key `json:"application,omitempty"`
