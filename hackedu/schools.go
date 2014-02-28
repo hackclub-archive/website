@@ -1,16 +1,19 @@
 package hackedu
 
 import (
-	"encoding/json"
-	"fmt"
 	"net/http"
+	"time"
 
-	"appengine"
+	"github.com/crhym3/go-endpoints/endpoints"
+
+	"appengine/datastore"
 )
 
 type School struct {
-	Name     string   `json:"name,omitempty"`
-	Location Location `json:"location,omitempty"`
+	Key       *datastore.Key `json:"id" datastore:"-"`
+	CreatedAt time.Time      `json:"created_at,omitempty"`
+	Name      string         `json:"name,omitempty"`
+	Location  Location       `json:"location,omitempty"`
 }
 
 type Location struct {
@@ -18,33 +21,36 @@ type Location struct {
 	Longitude float32 `json:"longitude,omitempty"`
 }
 
-func Schools(w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
+// SchoolsList is a response type of SchoolService.List method
+type SchoolsList struct {
+	Items []*School `json:"schools"`
+}
 
-	austin := School{
-		Name: "Austin High School",
-		Location: Location{
-			Latitude:  30.27382,
-			Longitude: -97.76745,
-		},
+// Request type for SchoolService.List
+type SchoolsListReq struct {
+	Limit int `json:"limit" endpoints="d=10"`
+}
+
+// SchoolService can create, list, and delete schools from the datastore
+type SchoolService struct {
+}
+
+func (ss *SchoolService) List(r *http.Request, req *SchoolsListReq, resp *SchoolsList) error {
+	if req.Limit <= 0 {
+		req.Limit = 10
 	}
 
-	thunderridge := School{
-		Name: "Thunderridge High School",
-		Location: Location{
-			Latitude:  39.5347968,
-			Longitude: -105.01200670000003,
-		},
-	}
-
-	schools := []School{austin, thunderridge}
-
-	bytes, err := json.Marshal(schools)
+	c := endpoints.NewContext(r)
+	q := datastore.NewQuery("school").Order("-CreatedAt").Limit(req.Limit)
+	schools := make([]*School, 0, req.Limit)
+	keys, err := q.GetAll(c, &schools)
 	if err != nil {
-		serveError(c, w, err)
+		return err
 	}
 
-	fmt.Println(string(bytes))
-
-	w.Write(bytes)
+	for i, k := range keys {
+		schools[i].Key = k
+	}
+	resp.Items = schools
+	return nil
 }

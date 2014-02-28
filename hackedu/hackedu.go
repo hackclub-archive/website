@@ -3,6 +3,7 @@ package hackedu
 import (
 	"io"
 	"net/http"
+	"github.com/crhym3/go-endpoints/endpoints"
 
 	"appengine"
 )
@@ -15,13 +16,28 @@ func serveError(c appengine.Context, w http.ResponseWriter, err error) {
 }
 
 func init() {
-	http.HandleFunc("/v1/schools", schoolsHandler)
+	schoolService := &SchoolService{}
+	api, err := endpoints.RegisterService(
+		schoolService,
+		"school",
+		"v1",
+		"Schools API",
+		true,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	info := api.MethodByName("List").Info()
+	info.Name, info.HttpMethod, info.Path, info.Desc = "schools.list", "GET", "schools", "List schools."
+
 	http.HandleFunc("/v1/apply", applyHandler)
+
+	endpoints.HandleHttp()
 }
 
 func schoolsHandler(w http.ResponseWriter, r *http.Request) {
 	middleware(w, r)
-	Schools(w, r)
 }
 
 func applyHandler(w http.ResponseWriter, r *http.Request) {
