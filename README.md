@@ -5,10 +5,6 @@ It looks like you've stumbled upon hackEDU's backend. The various clients
 
 ## Getting Started
 
-Prerequisites:
-
-* [Go Google App Engine SDK](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go)
-
 Enter source directory:
 
 ```
@@ -18,7 +14,7 @@ $ cd hackedu
 Install dependencies:
 
 ```
-$ goapp get
+$ go get
 ```
 
 ## Usage
@@ -26,13 +22,7 @@ $ goapp get
 Start development server:
 
 ```
-$ goapp serve
-```
-
-Run test suite:
-
-```
-$ goapp test
+$ go run server.go
 ```
 
 ## LICENSE
