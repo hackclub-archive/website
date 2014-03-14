@@ -1,11 +1,11 @@
 
 -- +goose Up
 CREATE TABLE School (
-  Id integer not null primary key autoincrement,
-  CreatedAt datetime,
-  Name text,
-  Latitude real,
-  Longitude real 
+  Id serial not null primary key,
+  CreatedAt date not null,
+  Name text not null,
+  Latitude real not null,
+  Longitude real not null 
 );
 
 

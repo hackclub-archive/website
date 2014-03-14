@@ -11,20 +11,17 @@ import (
 const emailRegex = ".+\\@.+\\..+"
 
 type User struct {
-	Id        int       `json:"userId"`
-	CreatedAt time.Time `json:"createdAt"`
-	FirstName string    `json:"firstName" binding:"required"`
-	LastName  string    `json:"lastName" binding:"required"`
-	Email     string    `json:"email" binding:"required"`
-	GitHub    string    `json:"github,omitempty"`
-	Twitter   string    `json:"twitter,omitempty"`
-	Password  string    `json:"password,omitempty" binding:"required"
-                             sql:"-"`
-	PasswordVerify string `json:"passwordVerify,omitempty"
-                               binding:"required" sql:"-"`
+	Id             int          `json:"userId"`
+	CreatedAt      time.Time    `json:"createdAt"`
+	FirstName      string       `json:"firstName" binding:"required"`
+	LastName       string       `json:"lastName" binding:"required"`
+	Email          string       `json:"email" binding:"required"`
+	GitHub         string       `json:"github,omitempty"`
+	Twitter        string       `json:"twitter,omitempty"`
+	Password       string       `json:"password,omitempty" binding:"required" db:"-"`
+	PasswordVerify string       `json:"passwordVerify,omitempty" binding:"required" db:"-"`
 	HashedPassword []byte       `json:"-"`
-	Application    *Application `json:"application,omitempty" binding:"required"
-                                     sql:"-"`
+	Application    *Application `json:"application,omitempty" binding:"required" db:"-"`
 }
 
 func (u User) Validate(errors *binding.Errors, r *http.Request) {

@@ -1,6 +1,6 @@
 development:
-  driver: sqlite3
-  open: $DB_DSN
+  driver: postgres
+  open: postgres://docker:docker@$DB_1_PORT_5432_TCP_ADDR/docker
 
 production:
   driver: postgres

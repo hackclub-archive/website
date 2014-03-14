@@ -1,20 +1,20 @@
 
 -- +goose Up
-CREATE TABLE User (
-  Id integer not null primary key autoincrement,
-  CreatedAt datetime not null,
+CREATE TABLE Users (
+  Id serial not null primary key,
+  CreatedAt date not null,
   FirstName text not null,
   LastName text not null,
   Email text not null,
   GitHub text,
   Twitter text,
-  HashedPassword varbinary(1024) not null
+  HashedPassword bytea not null
 );
 
 CREATE TABLE Application (
-  Id integer not null primary key autoincrement,
+  Id serial not null primary key,
   UserId integer not null,
-  CreatedAt datetime not null,
+  CreatedAt date not null,
   HighSchool text not null,
   InterestingProject text not null,
   SystemHacked text not null,
@@ -24,9 +24,9 @@ CREATE TABLE Application (
 );
 
 ALTER TABLE Application
-  ADD FOREIGN KEY (UserId) REFERENCES User(Id)
+  ADD FOREIGN KEY (UserId) REFERENCES Users(Id)
 
 
 -- +goose Down
-DROP TABLE User;
+DROP TABLE Users;
 DROP TABLE Application;
