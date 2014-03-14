@@ -25,3 +25,9 @@ _testmain.go
 
 *.exe
 *.test
+
+###############
+#   hackEDU   #
+###############
+
+.config.fish
