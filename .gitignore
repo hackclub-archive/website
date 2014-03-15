@@ -33,3 +33,4 @@ _testmain.go
 .config.fish
 gin-bin
 backend
+config/config.yml
