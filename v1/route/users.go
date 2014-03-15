@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+
 	"code.google.com/p/go.crypto/scrypt"
 
 	"github.com/coopernurse/gorp"
