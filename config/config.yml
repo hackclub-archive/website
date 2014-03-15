@@ -1,0 +1,6 @@
+# Project configuration goes here
+
+SMTP_USERNAME:
+SMTP_PASSWORD:
+SMTP_HOST:
+SMTP_PORT:
