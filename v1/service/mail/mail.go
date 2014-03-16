@@ -3,7 +3,7 @@ package mail
 
 import (
 	"bytes"
-	"log"
+	"errors"
 	"net/smtp"
 	"text/template"
 
@@ -42,13 +42,11 @@ func Send(msg *Message) error {
 	t := template.New("emailTemplate")
 	t, err := t.Parse(emailTemplate)
 	if err != nil {
-		log.Println("Error parsing mail template", err)
-		return err
+		return errors.New("Error parsing mail template: " + err.Error())
 	}
 	err = t.Execute(&doc, msg)
 	if err != nil {
-		log.Println("Error executing mail template", err)
-		return err
+		return errors.New("Error executing mail template: " + err.Error())
 	}
 
 	err = smtp.SendMail(
@@ -58,9 +56,8 @@ func Send(msg *Message) error {
 		msg.To,
 		doc.Bytes(),
 	)
-
 	if err != nil {
-		return err
+		return errors.New("Error sending email: " + err.Error())
 	}
 
 	return nil
