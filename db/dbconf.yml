@@ -4,4 +4,4 @@ development:
 
 production:
   driver: postgres
-  open: $DB_DSN
+  open: $DATABASE_URL

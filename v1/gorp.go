@@ -34,9 +34,9 @@ func connect(driver string) *sql.DB {
 		os.Getenv("DB_1_PORT_5432_TCP_ADDR"))
 
 	if os.Getenv("ENV") == "PRODUCTION" {
-		dsn = os.Getenv("DB_DSN")
+		dsn = os.Getenv("DATABASE_URL")
 		if dsn == "" {
-			panic("DB_DSN env variable not set")
+			panic("DATABASE_URL env variable not set")
 		}
 	}
 
