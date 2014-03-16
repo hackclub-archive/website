@@ -25,7 +25,7 @@ func AddUser(user model.User, db gorp.SqlExecutor, log *log.Logger) (int, string
 
 	hashedPassword, err := hashPassword(user.Password, salt)
 	if err != nil {
-		log.Println(err)
+		log.Println("Error hashing password", err)
 		return http.StatusInternalServerError, "Error while creating user."
 	}
 
@@ -81,7 +81,7 @@ Twitter: ` + user.Twitter + `
 	}
 
 	if err := mail.Send(msg); err != nil {
-		log.Println(err)
+		log.Println("Could not send email", err)
 		return http.StatusInternalServerError, "Could not send email"
 	}
 
@@ -103,12 +103,13 @@ Zach Latta
 	}
 
 	if err := mail.Send(msg); err != nil {
+		log.Println("Could not send email", err)
 		return http.StatusInternalServerError, "Could not send email"
 	}
 
 	json, err := json.Marshal(user)
 	if err != nil {
-		log.Println(err)
+		log.Println("Could not marshal user to JSON", err)
 		return http.StatusInternalServerError, "Error while creating user."
 	}
 
