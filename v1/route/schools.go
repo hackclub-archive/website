@@ -9,7 +9,7 @@ import (
 	"github.com/hackedu/backend/v1/model"
 )
 
-func GetSchools(db gorp.SqlExecutor) (int, string) {
+func GetSchools(db gorp.SqlExecutor, log *log.Logger) (int, string) {
 	var schools []model.School
 	_, err := db.Select(&schools, "SELECT * FROM School ORDER BY Id")
 	if err != nil {

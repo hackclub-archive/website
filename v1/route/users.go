@@ -14,7 +14,7 @@ import (
 	"github.com/hackedu/backend/v1/service/mail"
 )
 
-func AddUser(user model.User, db gorp.SqlExecutor) (int, string) {
+func AddUser(user model.User, db gorp.SqlExecutor, log *log.Logger) (int, string) {
 	application := user.Application
 	user.Application = nil
 
