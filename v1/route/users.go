@@ -42,7 +42,7 @@ func AddUser(user model.User, db gorp.SqlExecutor, log *log.Logger) (int, string
 
 	msg := &mail.Message{
 		Sender:  user.FirstName + " " + user.LastName + " <" + user.Email + ">",
-		To:      []string{"Zach Latta <zach@zachlatta.com>"},
+		To:      []string{"Zach Latta <zach@hackedu.us>"},
 		Subject: "hackEDU Application",
 		Body: `# User Information
 
@@ -86,7 +86,7 @@ Twitter: ` + user.Twitter + `
 	}
 
 	msg = &mail.Message{
-		Sender: "Zach Latta <zach@zachlatta.com>",
+		Sender: "Zach Latta <zach@hackedu.us>",
 		To: []string{
 			fmt.Sprintf("%s %s <%s>", user.FirstName, user.LastName, user.Email),
 		},
@@ -95,7 +95,7 @@ Twitter: ` + user.Twitter + `
 
 Thanks for applying for hackEDU. We've received your application and you can
 expect to hear from us shortly. If you have any questions, please don't
-hesitate to email me at zach@zachlatta.com.
+hesitate to email me at zach@hackedu.us.
 
 Best regards,
 Zach Latta
