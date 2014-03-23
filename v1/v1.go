@@ -9,7 +9,7 @@ import (
 	"github.com/hackedu/backend/v1/model"
 	"github.com/hackedu/backend/v1/route"
 	"github.com/martini-contrib/binding"
-	"github.com/zachlatta/cors"
+	"github.com/martini-contrib/cors"
 )
 
 func Setup(m *martini.ClassicMartini) {
