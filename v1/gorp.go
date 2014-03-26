@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/codegangsta/martini"
 	"github.com/coopernurse/gorp"
 	"github.com/hackedu/backend/v1/model"
 	_ "github.com/lib/pq"
@@ -33,7 +34,7 @@ func connect(driver string) *sql.DB {
 	dsn := fmt.Sprintf("postgres://docker:docker@%s/docker",
 		os.Getenv("DB_1_PORT_5432_TCP_ADDR"))
 
-	if os.Getenv("ENV") == "PRODUCTION" {
+	if martini.Env == martini.Prod {
 		dsn = os.Getenv("DATABASE_URL")
 		if dsn == "" {
 			panic("DATABASE_URL env variable not set")
