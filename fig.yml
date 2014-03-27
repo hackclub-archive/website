@@ -11,8 +11,3 @@ web:
     - "3000:3000"
   links:
     - db
-  environment:
-    SMTP_USERNAME: zachlatta
-    SMTP_PASSWORD: Xk$azw0O@RVzHFIG%qa0N2wW2e
-    SMTP_HOST: smtp.sendgrid.com
-    SMTP_PORT: 587
