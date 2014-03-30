@@ -21,10 +21,12 @@ func Setup(m *martini.ClassicMartini) {
 	}))
 	m.MapTo(Dbm, (*gorp.SqlExecutor)(nil))
 
-	m.Get("/v1/schools", route.GetSchools)
+	m.Group("/v1", func(r martini.Router) {
+		r.Get("/schools", route.GetSchools)
 
-	m.Post("/v1/users", binding.Bind(model.User{}), route.AddUser)
-	m.Get("/v1/users/:id", route.GetUser)
+		r.Post("/users", binding.Bind(model.User{}), route.AddUser)
+		r.Get("/users/:id", route.GetUser)
+	})
 
 	// OPTIONS catchall for CORS.
 	m.Options("/**", func() int {
