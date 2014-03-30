@@ -24,8 +24,10 @@ func Setup(m *martini.ClassicMartini) {
 	m.Group("/v1", func(r martini.Router) {
 		r.Get("/schools", route.GetSchools)
 
-		r.Post("/users", binding.Bind(model.User{}), route.AddUser)
-		r.Get("/users/:id", route.GetUser)
+		r.Group("/users", func(r martini.Router) {
+			r.Post("", binding.Bind(model.User{}), route.AddUser)
+			r.Get("/:id", route.GetUser)
+		})
 	})
 
 	// OPTIONS catchall for CORS.
