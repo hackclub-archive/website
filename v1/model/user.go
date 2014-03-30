@@ -11,8 +11,7 @@ import (
 const emailRegex = ".+\\@.+\\..+"
 
 type User struct {
-	// TODO: Change userId to id
-	Id             int          `json:"userId"`
+	Id             int          `json:"id"`
 	CreatedAt      time.Time    `json:"createdAt"`
 	FirstName      string       `json:"firstName" binding:"required"`
 	LastName       string       `json:"lastName" binding:"required"`
