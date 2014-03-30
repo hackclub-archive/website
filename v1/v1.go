@@ -24,6 +24,7 @@ func Setup(m *martini.ClassicMartini) {
 	m.Get("/v1/schools", route.GetSchools)
 
 	m.Post("/v1/users", binding.Bind(model.User{}), route.AddUser)
+	m.Get("/v1/users/:id", route.GetUser)
 
 	// OPTIONS catchall for CORS.
 	m.Options("/**", func() int {

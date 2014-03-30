@@ -11,6 +11,7 @@ import (
 const emailRegex = ".+\\@.+\\..+"
 
 type User struct {
+	// TODO: Change userId to id
 	Id             int          `json:"userId"`
 	CreatedAt      time.Time    `json:"createdAt"`
 	FirstName      string       `json:"firstName" binding:"required"`
@@ -39,3 +40,5 @@ func (u User) Validate(errors *binding.Errors, r *http.Request) {
 		errors.Fields["Email"] = "A valid email is required."
 	}
 }
+
+// TODO: Add prehook for setting created at time
