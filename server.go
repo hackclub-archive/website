@@ -9,6 +9,7 @@ func main() {
 	m := martini.Classic()
 
 	v1.Setup(m)
+	defer v1.Dbm.Db.Close()
 
 	m.Run()
 }
