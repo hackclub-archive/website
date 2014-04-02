@@ -11,8 +11,8 @@ import (
 
 	"code.google.com/p/go.crypto/scrypt"
 
-	"github.com/codegangsta/martini"
 	"github.com/coopernurse/gorp"
+	"github.com/go-martini/martini"
 	"github.com/hackedu/backend/v1/model"
 	"github.com/hackedu/backend/v1/service/mail"
 )

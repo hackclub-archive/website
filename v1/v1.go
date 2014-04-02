@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/codegangsta/martini"
 	"github.com/coopernurse/gorp"
+	"github.com/go-martini/martini"
 	"github.com/hackedu/backend/v1/model"
 	"github.com/hackedu/backend/v1/route"
 	"github.com/martini-contrib/binding"

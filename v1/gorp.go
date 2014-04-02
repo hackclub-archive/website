@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
+
 	"github.com/coopernurse/gorp"
 	"github.com/hackedu/backend/v1/model"
 	_ "github.com/lib/pq"
