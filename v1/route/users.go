@@ -116,7 +116,7 @@ Zach Latta
 		return http.StatusInternalServerError, "Error while creating user."
 	}
 
-	return http.StatusOK, string(json)
+	return http.StatusCreated, string(json)
 }
 
 func hashPassword(password, salt string) ([]byte, error) {
