@@ -1,0 +1,8 @@
+Hey {{.FirstName}}!
+
+Thanks for applying for hackEDU. We've received your application and you can
+expect to hear from us shortly. If you have any questions, please don't
+hesitate to email me at zach@hackedu.us.
+
+Best regards,
+Zach Latta

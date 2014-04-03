@@ -1,0 +1,32 @@
+# User Information
+
+Name: {{.FirstName}} {{.LastName}}
+Email: {{.Email}}
+GitHub: {{.GitHub}}
+Twitter: {{.Twitter}}
+
+# Application
+
+## High School
+
+{{.Application.HighSchool}}
+
+## Interesting Project
+
+{{.Application.InterestingProject}}
+
+## System Hacked
+
+{{.Application.SystemHacked}}
+
+## Passion
+
+{{.Application.Passion}}
+
+## Story 
+
+{{.Application.Story}}
+
+## Why
+
+{{.Application.Why}}
