@@ -7,23 +7,17 @@ It looks like you've stumbled upon hackEDU's backend. The various clients
 
 Enter source directory:
 
-```
-$ cd hackedu
-```
+    $ cd hackedu
 
 Install dependencies:
 
-```
-$ go get
-```
+    $ go get
 
 ## Usage
 
 Start development server:
 
-```
-$ go run server.go
-```
+    $ go run server.go
 
 ## LICENSE
 
