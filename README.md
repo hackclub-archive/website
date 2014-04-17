@@ -13,6 +13,8 @@ Install dependencies:
 
     $ go get
 
+Set configuration variables in `config/config.yml` or in the environment.
+
 ## Usage
 
 Start development server:
