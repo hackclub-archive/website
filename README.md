@@ -1,7 +1,7 @@
 # backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest)
 
 It looks like you've stumbled upon hackEDU's backend. The various clients
-(currently web and Eclipse) communicate with me for all things dynamic.
+communicate with me for all things dynamic.
 
 ## Getting Started
 
