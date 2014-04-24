@@ -1,4 +1,4 @@
-package v1
+package main
 
 import (
 	"database/sql"
@@ -8,7 +8,7 @@ import (
 	"github.com/go-martini/martini"
 
 	"github.com/coopernurse/gorp"
-	"github.com/hackedu/backend/v1/model"
+	"github.com/hackedu/backend/model"
 	_ "github.com/lib/pq"
 )
 

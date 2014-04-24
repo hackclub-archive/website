@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/coopernurse/gorp"
-	"github.com/hackedu/backend/v1/model"
+	"github.com/hackedu/backend/model"
 )
 
 func GetSchools(db gorp.SqlExecutor, log *log.Logger) (int, string) {

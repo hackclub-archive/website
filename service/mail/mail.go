@@ -8,7 +8,7 @@ import (
 	"net/smtp"
 	"text/template"
 
-	"github.com/hackedu/backend/v1/helper"
+	"github.com/hackedu/backend/helper"
 )
 
 var auth smtp.Auth
@@ -40,7 +40,7 @@ Subject: {{.Subject}}
 {{.Body}}
 `
 
-const tmplPath = "v1/template/email/"
+const tmplPath = "template/email/"
 
 // Send sends an email message.
 func Send(msg *Message) error {

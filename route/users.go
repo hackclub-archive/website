@@ -13,8 +13,8 @@ import (
 
 	"github.com/coopernurse/gorp"
 	"github.com/go-martini/martini"
-	"github.com/hackedu/backend/v1/model"
-	"github.com/hackedu/backend/v1/service/mail"
+	"github.com/hackedu/backend/model"
+	"github.com/hackedu/backend/service/mail"
 )
 
 func AddUser(user model.User, db gorp.SqlExecutor, log *log.Logger) (int, string) {
