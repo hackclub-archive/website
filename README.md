@@ -1,4 +1,4 @@
-# backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest)
+# backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest) ![Analytics](https://ga-beacon.appspot.com/UA-47724303-2/backend/readme?pixel)
 
 It looks like you've stumbled upon hackEDU's backend. The various clients
 communicate with me for all things dynamic.
