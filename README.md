@@ -5,21 +5,25 @@ communicate with me for all things dynamic.
 
 ## Getting Started
 
+Prerequisites:
+
+* [Fig](https://github.com/orchardup/fig)
+
 Enter source directory:
 
     $ cd hackedu
 
-Install dependencies:
-
-    $ go get
-
 Set configuration variables in `config/config.yml` or in the environment.
+
+Build development image:
+
+    $ fig build
 
 ## Usage
 
 Start development server:
 
-    $ go run server.go
+    $ fig up
 
 ## LICENSE
 
