@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/hackedu/backend/db"
 )
 
 func Log(handler http.Handler) http.Handler {
@@ -19,6 +20,12 @@ func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
+	}
+
+	err := db.Init("postgres",
+		os.ExpandEnv("postgres://docker:docker@$DB_1_PORT_5432_TCP_ADDR/docker"))
+	if err != nil {
+		panic(err)
 	}
 
 	r := mux.NewRouter()

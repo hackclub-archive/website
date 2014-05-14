@@ -1,0 +1,7 @@
+development:
+  driver: postgres
+  open: postgres://docker:docker@$DB_1_PORT_5432_TCP_ADDR/docker
+
+production:
+  driver: postgres
+  open: $DATABASE_URL
