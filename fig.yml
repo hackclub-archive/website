@@ -1,9 +1,3 @@
-db:
-  image: orchardup/postgresql
-  ports:
-    - "5432"
-redis:
-  image: orchardup/redis
 web:
   build: .
   command: gin
@@ -11,5 +5,3 @@ web:
     - .:/go/src/github.com/hackedu/backend
   ports:
     - "3000:3000"
-  links:
-    - db
