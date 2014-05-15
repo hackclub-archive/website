@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/hackedu/backend/db"
+	"github.com/hackedu/backend/database"
 )
 
 func Log(handler http.Handler) http.Handler {
@@ -22,7 +22,7 @@ func main() {
 		port = "3000"
 	}
 
-	err := db.Init("postgres",
+	err := database.Init("postgres",
 		os.ExpandEnv("postgres://docker:docker@$DB_1_PORT_5432_TCP_ADDR/docker"))
 	if err != nil {
 		panic(err)
