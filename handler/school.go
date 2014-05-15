@@ -26,3 +26,13 @@ func School(w http.ResponseWriter, r *http.Request) *AppError {
 
 	return renderJSON(w, school, http.StatusOK)
 }
+
+func Schools(w http.ResponseWriter, r *http.Request) *AppError {
+	schools, err := database.GetSchools()
+	if err != nil {
+		return &AppError{err, "error fetching schools",
+			http.StatusInternalServerError}
+	}
+
+	return renderJSON(w, schools, http.StatusOK)
+}

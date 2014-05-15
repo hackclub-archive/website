@@ -31,6 +31,7 @@ func main() {
 	defer database.Close()
 
 	r := mux.NewRouter()
+	r.Handle("/schools", handler.AppHandler(handler.Schools)).Methods("GET")
 	r.Handle("/schools/{id}", handler.AppHandler(handler.School)).Methods("GET")
 	http.Handle("/", r)
 	http.ListenAndServe(":"+port, Log(http.DefaultServeMux))

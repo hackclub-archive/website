@@ -16,6 +16,16 @@ func GetSchool(id int64) (*model.School, error) {
 	return &school, nil
 }
 
+// GetSchools gets all of the schools from the database ordered by id.
+func GetSchools() ([]*model.School, error) {
+	schools := []*model.School{}
+	err := db.Select(&schools, "SELECT * FROM schools ORDER BY id")
+	if err != nil {
+		return nil, err
+	}
+	return schools, nil
+}
+
 // SaveSchool saves the provided school to the database. If the school is a
 // new school, then the school.Created field is set to the current time. The
 // school.Updated field is set to the current time regardless.
