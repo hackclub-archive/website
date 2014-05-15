@@ -22,13 +22,13 @@ var regexpURL = regexp.MustCompile(`/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w
 
 // School represents a school that hackEDU is in.
 type School struct {
-	ID        int64     `db:"id" 		   json:"id"`
-	Created   time.Time `db:"created"  json:"created"`
-	Updated   time.Time `db:"updated"  json:"updated"`
-	Name      string    `db:"name"     json:"name"`
-	Website   string    `db:"website"  json:"website"`
-	Latitude  float64   `db:"latitude" json:"latitude"`
-	Longitude float64   `db:"latitude" json:"latitude"`
+	ID        int64     `db:"id"        json:"id"`
+	Created   time.Time `db:"created"   json:"created"`
+	Updated   time.Time `db:"updated"   json:"updated"`
+	Name      string    `db:"name"      json:"name"`
+	Website   string    `db:"website"   json:"website"`
+	Latitude  float64   `db:"latitude"  json:"latitude"`
+	Longitude float64   `db:"longitude" json:"longitude"`
 }
 
 // NewSchool creates a new school from provided JSON data. It unmarshales the

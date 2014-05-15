@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/hackedu/backend/database"
+	"github.com/hackedu/backend/handler"
 )
 
 func Log(handler http.Handler) http.Handler {
@@ -30,6 +31,7 @@ func main() {
 	defer database.Close()
 
 	r := mux.NewRouter()
+	r.Handle("/schools/{id}", handler.AppHandler(handler.School)).Methods("GET")
 	http.Handle("/", r)
 	http.ListenAndServe(":"+port, Log(http.DefaultServeMux))
 }
