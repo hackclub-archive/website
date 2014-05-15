@@ -27,6 +27,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer database.Close()
 
 	r := mux.NewRouter()
 	http.Handle("/", r)
