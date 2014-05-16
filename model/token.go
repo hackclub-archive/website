@@ -6,10 +6,12 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 
+// Token represents a JSON Web Token (JWT) as returned to the user.
 type Token struct {
 	Body string `json:"token"`
 }
 
+// NewToken creates a new Token from a provided user.
 func NewToken(user *User) (*Token, error) {
 	token := jwt.New(jwt.GetSigningMethod("HS256"))
 	token.Claims["id"] = user.ID

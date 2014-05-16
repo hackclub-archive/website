@@ -9,6 +9,7 @@ import (
 	"github.com/hackedu/backend/database"
 )
 
+// School returns the school with the specified ID.
 func School(w http.ResponseWriter, r *http.Request) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
@@ -27,6 +28,7 @@ func School(w http.ResponseWriter, r *http.Request) *AppError {
 	return renderJSON(w, school, http.StatusOK)
 }
 
+// Schools returns a list of all of the schools.
 func Schools(w http.ResponseWriter, r *http.Request) *AppError {
 	schools, err := database.GetSchools()
 	if err != nil {

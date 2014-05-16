@@ -36,6 +36,9 @@ type User struct {
 	Password  string    `db:"password"   json:"-"`
 }
 
+// RequestUser represents a user of hackEDU as passed by the frontend.
+// RequestUser will need to be transformed into a User to be stored into the
+// database.
 type RequestUser struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
