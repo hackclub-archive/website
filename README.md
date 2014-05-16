@@ -3,6 +3,10 @@
 It looks like you've stumbled upon hackEDU's backend. The various clients
 communicate with me for all things dynamic.
 
+Watch out, I'm still under heavy development. In fact, I'm not even deployed
+yet! The current version of https://hackedu.us is all the way back on
+3b3027ae753d1f7b55e35320007a95659c8ef7fd.
+
 ## Getting Started
 
 Prerequisites:
@@ -12,8 +16,6 @@ Prerequisites:
 Enter source directory:
 
     $ cd hackedu
-
-Set configuration variables in `config/config.yml` or in the environment.
 
 Build development image:
 
