@@ -36,7 +36,7 @@ type User struct {
 	Password  string    `db:"password"   json:"-"`
 }
 
-type intermediateUser struct {
+type RequestUser struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
 	Email     string `json:"email"`
@@ -51,34 +51,34 @@ type intermediateUser struct {
 //
 // NewUser does not save the user to the database.
 func NewUser(jsonReader io.Reader) (*User, error) {
-	var iU intermediateUser
-	if err := json.NewDecoder(jsonReader).Decode(&iU); err != nil {
+	var rU RequestUser
+	if err := json.NewDecoder(jsonReader).Decode(&rU); err != nil {
 		return nil, err
 	}
 
-	if err := iU.validate(); err != nil {
+	if err := rU.validate(); err != nil {
 		return nil, err
 	}
 
-	b, err := bcrypt.GenerateFromPassword([]byte(iU.Password),
+	b, err := bcrypt.GenerateFromPassword([]byte(rU.Password),
 		bcrypt.DefaultCost)
 	if err != nil {
 		return nil, err
 	}
 
 	user := User{
-		FirstName: iU.FirstName,
-		LastName:  iU.LastName,
-		Email:     iU.Email,
-		GitHub:    iU.GitHub,
-		Twitter:   iU.Twitter,
+		FirstName: rU.FirstName,
+		LastName:  rU.LastName,
+		Email:     rU.Email,
+		GitHub:    rU.GitHub,
+		Twitter:   rU.Twitter,
 		Password:  string(b),
 	}
 
 	return &user, nil
 }
 
-func (u *intermediateUser) validate() error {
+func (u *RequestUser) validate() error {
 	switch {
 	case len(u.FirstName) == 0:
 		return ErrInvalidFirstName
