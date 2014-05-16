@@ -3,6 +3,7 @@ package model
 import (
 	"encoding/json"
 	"errors"
+	"io"
 	"regexp"
 	"time"
 )
@@ -31,14 +32,13 @@ type School struct {
 	Longitude float64   `db:"longitude" json:"longitude"`
 }
 
-// NewSchool creates a new school from provided JSON data. It unmarshales the
+// NewSchool creates a new school from provided JSON reader. It decodes the
 // JSON, validates the fields, then returns the created school.
 //
 // NewSchool does not commit the created school to the database.
-func NewSchool(jsonData []byte) (*School, error) {
+func NewSchool(jsonReader io.Reader) (*School, error) {
 	var school School
-	err := json.Unmarshal(jsonData, &school)
-	if err != nil {
+	if err := json.NewDecoder(jsonReader).Decode(&school); err != nil {
 		return nil, err
 	}
 

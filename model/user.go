@@ -3,6 +3,7 @@ package model
 import (
 	"encoding/json"
 	"errors"
+	"io"
 	"regexp"
 	"time"
 
@@ -44,14 +45,14 @@ type intermediateUser struct {
 	Password  string `json:"password"`
 }
 
-// NewUser creates a new user from provided JSON. It unmarshales the JSON,
+// NewUser creates a new user from provided JSON reader. It decodes the JSON,
 // validates the fields, generates a hash from the provided password string
 // using bcrypt, and then returns the created user.
 //
 // NewUser does not save the user to the database.
-func NewUser(jsonData []byte) (*User, error) {
+func NewUser(jsonReader io.Reader) (*User, error) {
 	var iU intermediateUser
-	if err := json.Unmarshal(jsonData, &iU); err != nil {
+	if err := json.NewDecoder(jsonReader).Decode(&iU); err != nil {
 		return nil, err
 	}
 
