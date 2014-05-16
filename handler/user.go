@@ -3,10 +3,10 @@ package handler
 import (
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"net/http"
 
 	"code.google.com/p/go.crypto/bcrypt"
-
 	"github.com/hackedu/backend/database"
 	"github.com/hackedu/backend/model"
 )
@@ -14,7 +14,8 @@ import (
 // Authenticate checks the provided user information against the information
 // in the database. If it all checks out, then a JWT is generated and
 // returned.
-func Authenticate(w http.ResponseWriter, r *http.Request) *AppError {
+func Authenticate(w http.ResponseWriter, r *http.Request,
+	u *model.User) *AppError {
 	defer r.Body.Close()
 
 	var requestUser model.RequestUser
@@ -48,4 +49,15 @@ func Authenticate(w http.ResponseWriter, r *http.Request) *AppError {
 	}
 
 	return renderJSON(w, token, http.StatusOK)
+}
+
+// CurrentUser gets the current authenticated user.
+func CurrentUser(w http.ResponseWriter, r *http.Request,
+	u *model.User) *AppError {
+	if u == nil {
+		return &AppError{errors.New("user not authorized"), "not authorized",
+			http.StatusUnauthorized}
+	}
+
+	return renderJSON(w, u, http.StatusOK)
 }

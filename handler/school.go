@@ -7,10 +7,11 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/hackedu/backend/database"
+	"github.com/hackedu/backend/model"
 )
 
 // School returns the school with the specified ID.
-func School(w http.ResponseWriter, r *http.Request) *AppError {
+func School(w http.ResponseWriter, r *http.Request, _ *model.User) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
@@ -29,7 +30,7 @@ func School(w http.ResponseWriter, r *http.Request) *AppError {
 }
 
 // Schools returns a list of all of the schools.
-func Schools(w http.ResponseWriter, r *http.Request) *AppError {
+func Schools(w http.ResponseWriter, r *http.Request, _ *model.User) *AppError {
 	schools, err := database.GetSchools()
 	if err != nil {
 		return &AppError{err, "error fetching schools",
