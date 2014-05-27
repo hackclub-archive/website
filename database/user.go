@@ -48,9 +48,18 @@ func SaveUser(u *model.User) error {
 	}
 	u.Updated = time.Now()
 
-	tx := db.MustBegin()
-	tx.NamedExec("INSERT INTO users (created, updated, first_name, last_name, email, github, twitter, password) VALUES (:created, :updated, :first_name, :last_name, :email, :github, :twitter, :password)", u)
-	tx.Commit()
+	rows, err := db.Query("INSERT INTO users (created, updated, first_name, last_name, email, github, twitter, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id", u.Created, u.Updated, u.FirstName, u.LastName, u.Email, u.GitHub, u.Twitter, u.Password)
+	if err != nil {
+		return err
+	}
+	for rows.Next() {
+		if err := rows.Scan(&u.ID); err != nil {
+			return err
+		}
+	}
+	if err := rows.Err(); err != nil {
+		return err
+	}
 
 	return nil
 }

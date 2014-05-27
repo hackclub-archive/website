@@ -53,6 +53,26 @@ func Authenticate(w http.ResponseWriter, r *http.Request,
 	return renderJSON(w, token, http.StatusOK)
 }
 
+// CreateUser creates a new user from JSON in the request body.
+func CreateUser(w http.ResponseWriter, r *http.Request,
+	u *model.User) *AppError {
+	defer r.Body.Close()
+	user, err := model.NewUser(r.Body)
+	if err != nil {
+		return &AppError{err, err.Error(), http.StatusBadRequest}
+	}
+
+	err = database.SaveUser(user)
+	if err != nil {
+		if err == model.ErrInvalidEmail {
+			return &AppError{err, err.Error(), http.StatusBadRequest}
+		}
+		return &AppError{err, "error saving user", http.StatusInternalServerError}
+	}
+
+	return renderJSON(w, user, http.StatusOK)
+}
+
 // GetUser gets the user specified by ID in the url.
 func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	vars := mux.Vars(r)

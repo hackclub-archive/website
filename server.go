@@ -35,6 +35,7 @@ func main() {
 
 	r := mux.NewRouter()
 
+	r.Handle("/users", handler.AppHandler(handler.CreateUser)).Methods("POST")
 	r.Handle("/users/authenticate",
 		handler.AppHandler(handler.Authenticate)).Methods("POST")
 	r.Handle("/users/me",
