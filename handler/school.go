@@ -29,8 +29,9 @@ func School(w http.ResponseWriter, r *http.Request, _ *model.User) *AppError {
 	return renderJSON(w, school, http.StatusOK)
 }
 
-// Schools returns a list of all of the schools.
-func Schools(w http.ResponseWriter, r *http.Request, _ *model.User) *AppError {
+// GetSchools returns a list of all of the schools.
+func GetSchools(w http.ResponseWriter, r *http.Request,
+	_ *model.User) *AppError {
 	schools, err := database.GetSchools()
 	if err != nil {
 		return &AppError{err, "error fetching schools",
