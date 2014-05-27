@@ -3,7 +3,6 @@ package handler
 import (
 	"database/sql"
 	"encoding/json"
-	"errors"
 	"net/http"
 	"strconv"
 
@@ -23,17 +22,15 @@ func Authenticate(w http.ResponseWriter, r *http.Request,
 	var requestUser model.RequestUser
 	err := json.NewDecoder(r.Body).Decode(&requestUser)
 	if err != nil {
-		return &AppError{err, "bad request", http.StatusBadRequest}
+		return ErrUnmarshalling(err)
 	}
 
 	userFromDB, err := database.GetUserByEmail(requestUser.Email)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return &AppError{err, "user not found", http.StatusNotFound}
+			return ErrNotFound(err)
 		}
-
-		return &AppError{err, "error retrieving user",
-			http.StatusInternalServerError}
+		return ErrDatabase(err)
 	}
 
 	err = userFromDB.ComparePassword(requestUser.Password)
@@ -57,22 +54,21 @@ func Authenticate(w http.ResponseWriter, r *http.Request,
 func CreateUser(w http.ResponseWriter, r *http.Request,
 	u *model.User) *AppError {
 	if u == nil || u.Type != model.UserAdmin {
-		err := errors.New("not authorized")
-		return &AppError{err, err.Error(), http.StatusUnauthorized}
+		return ErrNotAuthorized()
 	}
 
 	defer r.Body.Close()
 	user, err := model.NewUser(r.Body)
 	if err != nil {
-		return &AppError{err, err.Error(), http.StatusBadRequest}
+		return ErrCreatingModel(err)
 	}
 
 	err = database.SaveUser(user)
 	if err != nil {
 		if err == model.ErrInvalidEmail {
-			return &AppError{err, err.Error(), http.StatusBadRequest}
+			return ErrCreatingModel(err)
 		}
-		return &AppError{err, "error saving user", http.StatusInternalServerError}
+		return ErrDatabase(err)
 	}
 
 	return renderJSON(w, user, http.StatusOK)
@@ -83,22 +79,21 @@ func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
-		return &AppError{err, "invalid id", http.StatusBadRequest}
+		return ErrInvalidID(err)
 	}
 
 	if id == u.ID {
 		return renderJSON(w, u, http.StatusOK)
 	}
 
-	return &AppError{err, "unauthorized", http.StatusBadRequest}
+	return ErrNotAuthorized()
 }
 
 // GetCurrentUser gets the current authenticated user.
 func GetCurrentUser(w http.ResponseWriter, r *http.Request,
 	u *model.User) *AppError {
 	if u == nil {
-		return &AppError{errors.New("user not authorized"), "not authorized",
-			http.StatusUnauthorized}
+		return ErrNotAuthorized()
 	}
 
 	return renderJSON(w, u, http.StatusOK)

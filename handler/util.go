@@ -56,10 +56,11 @@ func getUserFromToken(r *http.Request) (*model.User, *AppError) {
 	userID := int64(token.Claims["id"].(float64))
 
 	user, err := database.GetUser(userID)
-	if err == sql.ErrNoRows {
-		return nil, &AppError{err, "user from token not found",
-			http.StatusNotFound}
-	} else if err != nil {
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, &AppError{err, "user from token not found",
+				http.StatusNotFound}
+		}
 		return nil, &AppError{err, "error fetching user from database",
 			http.StatusInternalServerError}
 	}

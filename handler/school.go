@@ -2,7 +2,6 @@ package handler
 
 import (
 	"database/sql"
-	"errors"
 	"net/http"
 	"strconv"
 
@@ -15,20 +14,18 @@ import (
 func CreateSchool(w http.ResponseWriter, r *http.Request,
 	u *model.User) *AppError {
 	if u == nil || u.Type != model.UserAdmin {
-		err := errors.New("not authorized")
-		return &AppError{err, err.Error(), http.StatusUnauthorized}
+		return ErrNotAuthorized()
 	}
 
 	defer r.Body.Close()
 	school, err := model.NewSchool(r.Body)
 	if err != nil {
-		return &AppError{err, err.Error(), http.StatusBadRequest}
+		return ErrCreatingModel(err)
 	}
 
 	err = database.SaveSchool(school)
 	if err != nil {
-		return &AppError{err, "error saving to database",
-			http.StatusInternalServerError}
+		return ErrDatabase(err)
 	}
 
 	return renderJSON(w, school, http.StatusOK)
@@ -40,15 +37,15 @@ func GetSchool(w http.ResponseWriter, r *http.Request,
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
-		return &AppError{err, "invalid id", http.StatusBadRequest}
+		return ErrInvalidID(err)
 	}
 
 	school, err := database.GetSchool(id)
-	if err == sql.ErrNoRows {
-		return &AppError{err, "school not found", http.StatusNotFound}
-	} else if err != nil {
-		return &AppError{err, "error fetching school",
-			http.StatusInternalServerError}
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return ErrNotFound(err)
+		}
+		return ErrDatabase(err)
 	}
 
 	return renderJSON(w, school, http.StatusOK)
@@ -59,8 +56,7 @@ func GetSchools(w http.ResponseWriter, r *http.Request,
 	_ *model.User) *AppError {
 	schools, err := database.GetSchools()
 	if err != nil {
-		return &AppError{err, "error fetching schools",
-			http.StatusInternalServerError}
+		return ErrDatabase(err)
 	}
 
 	return renderJSON(w, schools, http.StatusOK)
