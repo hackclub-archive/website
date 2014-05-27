@@ -42,7 +42,8 @@ func main() {
 	r.Handle("/users/{id}", handler.AppHandler(handler.GetUser)).Methods("GET")
 
 	r.Handle("/schools", handler.AppHandler(handler.GetSchools)).Methods("GET")
-	r.Handle("/schools/{id}", handler.AppHandler(handler.School)).Methods("GET")
+	r.Handle("/schools/{id}",
+		handler.AppHandler(handler.GetSchool)).Methods("GET")
 
 	http.Handle("/", r)
 	http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux))

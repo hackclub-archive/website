@@ -10,8 +10,9 @@ import (
 	"github.com/hackedu/backend/model"
 )
 
-// School returns the school with the specified ID.
-func School(w http.ResponseWriter, r *http.Request, _ *model.User) *AppError {
+// GetSchool returns the school with the specified ID.
+func GetSchool(w http.ResponseWriter, r *http.Request,
+	_ *model.User) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
