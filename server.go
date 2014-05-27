@@ -46,5 +46,5 @@ func main() {
 		handler.AppHandler(handler.GetSchool)).Methods("GET")
 
 	http.Handle("/", r)
-	http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux))
+	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux)))
 }
