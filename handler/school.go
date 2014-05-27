@@ -2,6 +2,7 @@ package handler
 
 import (
 	"database/sql"
+	"errors"
 	"net/http"
 	"strconv"
 
@@ -9,6 +10,29 @@ import (
 	"github.com/hackedu/backend/database"
 	"github.com/hackedu/backend/model"
 )
+
+// CreateSchool creates a school from JSON in the request body.
+func CreateSchool(w http.ResponseWriter, r *http.Request,
+	u *model.User) *AppError {
+	if u == nil || u.Type != model.UserAdmin {
+		err := errors.New("not authorized")
+		return &AppError{err, err.Error(), http.StatusUnauthorized}
+	}
+
+	defer r.Body.Close()
+	school, err := model.NewSchool(r.Body)
+	if err != nil {
+		return &AppError{err, err.Error(), http.StatusBadRequest}
+	}
+
+	err = database.SaveSchool(school)
+	if err != nil {
+		return &AppError{err, "error saving to database",
+			http.StatusInternalServerError}
+	}
+
+	return renderJSON(w, school, http.StatusOK)
+}
 
 // GetSchool returns the school with the specified ID.
 func GetSchool(w http.ResponseWriter, r *http.Request,
