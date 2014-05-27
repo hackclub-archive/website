@@ -6,38 +6,61 @@ import (
 	"github.com/hackedu/backend/model"
 )
 
+const schoolGetByIDStmt = `SELECT id, created, updated, name, website,
+latitude, longitude FROM schools WHERE id=$1`
+
+const schoolGetAllStmt = `SELECT id, created, updated, name, website,
+latitude, longitude FROM schools ORDER BY id`
+
+const schoolCreateStmt = `INSERT INTO schools (created, updated, name, website, latitude, longitude) VALUES ($1 ,$2, $3, $4, $5, $6) RETURNING id`
+
 // GetSchool gets a school from the database with the provided ID.
 func GetSchool(id int64) (*model.School, error) {
-	var school model.School
-	err := db.Get(&school, "SELECT * FROM schools WHERE id=$1", id)
-	if err != nil {
+	s := new(model.School)
+	row := db.QueryRow(schoolGetByIDStmt, id)
+	if err := row.Scan(&s.ID, &s.Created, &s.Updated, &s.Name, &s.Website,
+		&s.Latitude, &s.Longitude); err != nil {
 		return nil, err
 	}
-	return &school, nil
+	return s, nil
 }
 
 // GetSchools gets all of the schools from the database ordered by id.
 func GetSchools() ([]*model.School, error) {
 	schools := []*model.School{}
-	err := db.Select(&schools, "SELECT * FROM schools ORDER BY id")
+	rows, err := db.Query(schoolGetAllStmt)
 	if err != nil {
 		return nil, err
 	}
+	for rows.Next() {
+		s := new(model.School)
+		if err := rows.Scan(&s.ID, &s.Created, &s.Updated, &s.Name, &s.Website,
+			&s.Latitude, &s.Longitude); err != nil {
+			return nil, err
+		}
+
+		schools = append(schools, s)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
 	return schools, nil
 }
 
 // SaveSchool saves the provided school to the database. If the school is a
 // new school, then the school.Created field is set to the current time. The
 // school.Updated field is set to the current time regardless.
-func SaveSchool(school *model.School) error {
-	if school.ID == 0 {
-		school.Created = time.Now()
+func SaveSchool(s *model.School) error {
+	if s.ID == 0 {
+		s.Created = time.Now()
 	}
-	school.Updated = time.Now()
+	s.Updated = time.Now()
 
-	tx := db.MustBegin()
-	tx.NamedExec("INSERT INTO schools (created, updated, name, website, latitude, longitude) VALUES (:created, :updated, :name, :website, :latitude, :longitude)", school)
-	tx.Commit()
+	row := db.QueryRow(schoolCreateStmt, s.Created, s.Updated, s.Name, s.Website, s.Latitude, s.Longitude)
+	if err := row.Scan(&s.ID); err != nil {
+		return err
+	}
 
 	return nil
 }

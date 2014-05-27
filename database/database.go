@@ -1,16 +1,16 @@
 package database
 
 import (
-	"github.com/jmoiron/sqlx"
+	"database/sql"
 	_ "github.com/lib/pq" // Postgres driver
 )
 
-var db *sqlx.DB
+var db *sql.DB
 
 // Init initializes the internal database handle.
 func Init(name, datasource string) error {
 	var err error
-	db, err = sqlx.Open(name, datasource)
+	db, err = sql.Open(name, datasource)
 	if err != nil {
 		return err
 	}

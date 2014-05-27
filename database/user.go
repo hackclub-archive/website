@@ -7,28 +7,36 @@ import (
 	"github.com/hackedu/backend/model"
 )
 
+const userGetByIDStmt = `SELECT id, created, updated, first_name, last_name,
+email, github, twitter, password FROM users WHERE id = $1`
+
+const userGetByEmailStmt = `SELECT id, created, updated, first_name, last_name,
+email, github, twitter, password FROM users WHERE email ilike $1`
+
 const userCreateStmt = `INSERT INTO users (created, updated, first_name,
 last_name, email, github, twitter, password) VALUES ($1, $2, $3, $4, $5, $6,
 $7, $8) RETURNING id`
 
 // GetUser gets the user from the database with the provided ID.
 func GetUser(id int64) (*model.User, error) {
-	user := model.User{}
-	err := db.Get(&user, "SELECT * FROM users WHERE id=$1", id)
-	if err != nil {
+	u := new(model.User)
+	row := db.QueryRow(userGetByIDStmt, id)
+	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
+		&u.Email, &u.GitHub, &u.Twitter, &u.Password); err != nil {
 		return nil, err
 	}
-	return &user, nil
+	return u, nil
 }
 
 // GetUserByEmail gets the user from the database with the provided email.
 func GetUserByEmail(email string) (*model.User, error) {
-	user := model.User{}
-	err := db.Get(&user, "SELECT * FROM users WHERE email=$1", email)
-	if err != nil {
+	u := new(model.User)
+	row := db.QueryRow(userGetByEmailStmt, email)
+	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
+		&u.Email, &u.GitHub, &u.Twitter, &u.Password); err != nil {
 		return nil, err
 	}
-	return &user, nil
+	return u, nil
 }
 
 // SaveUser saves the provided user to the database. If the user is a new
