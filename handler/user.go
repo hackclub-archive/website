@@ -56,6 +56,11 @@ func Authenticate(w http.ResponseWriter, r *http.Request,
 // CreateUser creates a new user from JSON in the request body.
 func CreateUser(w http.ResponseWriter, r *http.Request,
 	u *model.User) *AppError {
+	if u == nil || u.Type != model.UserAdmin {
+		err := errors.New("not authorized")
+		return &AppError{err, err.Error(), http.StatusUnauthorized}
+	}
+
 	defer r.Body.Close()
 	user, err := model.NewUser(r.Body)
 	if err != nil {
