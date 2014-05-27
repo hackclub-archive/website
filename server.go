@@ -15,6 +15,15 @@ func httpLog(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
 		log.Printf("%s %s %s", r.RemoteAddr, r.Method, r.URL)
+
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers",
+			"Content-Type, Authorization")
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		handler.ServeHTTP(w, r)
 		log.Printf("Completed in %s", time.Now().Sub(start).String())
 	})
