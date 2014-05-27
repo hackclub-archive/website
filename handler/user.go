@@ -68,8 +68,8 @@ func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	return &AppError{err, "unauthorized", http.StatusBadRequest}
 }
 
-// CurrentUser gets the current authenticated user.
-func CurrentUser(w http.ResponseWriter, r *http.Request,
+// GetCurrentUser gets the current authenticated user.
+func GetCurrentUser(w http.ResponseWriter, r *http.Request,
 	u *model.User) *AppError {
 	if u == nil {
 		return &AppError{errors.New("user not authorized"), "not authorized",

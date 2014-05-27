@@ -37,7 +37,7 @@ func main() {
 
 	r.Handle("/users/authenticate",
 		handler.AppHandler(handler.Authenticate)).Methods("POST")
-	r.Handle("/users/me", handler.AppHandler(handler.CurrentUser)).Methods("GET")
+	r.Handle("/users/me", handler.AppHandler(handler.GetCurrentUser)).Methods("GET")
 	r.Handle("/users/{id}", handler.AppHandler(handler.GetUser)).Methods("GET")
 
 	r.Handle("/schools", handler.AppHandler(handler.Schools)).Methods("GET")
