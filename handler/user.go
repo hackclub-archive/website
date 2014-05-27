@@ -53,8 +53,8 @@ func Authenticate(w http.ResponseWriter, r *http.Request,
 	return renderJSON(w, token, http.StatusOK)
 }
 
-// User gets the user specified by ID in the url.
-func User(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
+// GetUser gets the user specified by ID in the url.
+func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
