@@ -10,6 +10,17 @@ import (
 	"code.google.com/p/go.crypto/bcrypt"
 )
 
+type userType int
+
+const (
+	// UserAdmin is the user's type when the user is an admin
+	UserAdmin userType = iota
+	// UserAdmin is the user's type when the user is a club organizer
+	UserOrganizer
+	// UserAdmin is the user's type when the user is a student in a club
+	UserStudent
+)
+
 var (
 	// ErrInvalidFirstName is returned when the user's first name is invalid.
 	ErrInvalidFirstName = errors.New("invalid first name")
@@ -17,6 +28,8 @@ var (
 	ErrInvalidLastName = errors.New("invalid last name")
 	// ErrInvalidEmail is returned when the user's email is invalid.
 	ErrInvalidEmail = errors.New("invalid email address")
+	// ErrInvalidType is returned when the user's type is invalid.
+	ErrInvalidType = errors.New("invalid type")
 	// ErrInvalidPassword is returned when the user's password is invalid.
 	ErrInvalidPassword = errors.New("invalid password")
 )
@@ -31,6 +44,7 @@ type User struct {
 	FirstName string    `db:"first_name" json:"firstName"`
 	LastName  string    `db:"last_name"  json:"lastName"`
 	Email     string    `db:"email"      json:"email"`
+	Type      userType  `db:"type"       json:"type"`
 	GitHub    string    `db:"github"     json:"github"`
 	Twitter   string    `db:"twitter"    json:"twitter"`
 	Password  string    `db:"password"   json:"-"`
@@ -40,12 +54,13 @@ type User struct {
 // RequestUser will need to be transformed into a User to be stored into the
 // database.
 type RequestUser struct {
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Email     string `json:"email"`
-	GitHub    string `json:"github"`
-	Twitter   string `json:"twitter"`
-	Password  string `json:"password"`
+	FirstName string   `json:"firstName"`
+	LastName  string   `json:"lastName"`
+	Email     string   `json:"email"`
+	Type      userType `json:"type"`
+	GitHub    string   `json:"github"`
+	Twitter   string   `json:"twitter"`
+	Password  string   `json:"password"`
 }
 
 // NewUser creates a new user from provided JSON reader. It decodes the JSON,
@@ -73,6 +88,7 @@ func NewUser(jsonReader io.Reader) (*User, error) {
 		FirstName: rU.FirstName,
 		LastName:  rU.LastName,
 		Email:     rU.Email,
+		Type:      rU.Type,
 		GitHub:    rU.GitHub,
 		Twitter:   rU.Twitter,
 		Password:  string(b),
@@ -95,6 +111,9 @@ func (u *RequestUser) validate() error {
 		return ErrInvalidEmail
 	case regexpEmail.MatchString(u.Email) == false:
 		return ErrInvalidEmail
+	case !(u.Type == UserAdmin || u.Type == UserOrganizer ||
+		u.Type == UserStudent):
+		return ErrInvalidType
 	case len(u.Password) < 6:
 		return ErrInvalidPassword
 	case len(u.Password) > 256:

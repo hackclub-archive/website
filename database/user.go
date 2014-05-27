@@ -8,21 +8,21 @@ import (
 )
 
 const userGetByIDStmt = `SELECT id, created, updated, first_name, last_name,
-email, github, twitter, password FROM users WHERE id = $1`
+email, type, github, twitter, password FROM users WHERE id = $1`
 
 const userGetByEmailStmt = `SELECT id, created, updated, first_name, last_name,
-email, github, twitter, password FROM users WHERE email ilike $1`
+email, type, github, twitter, password FROM users WHERE email ilike $1`
 
 const userCreateStmt = `INSERT INTO users (created, updated, first_name,
-last_name, email, github, twitter, password) VALUES ($1, $2, $3, $4, $5, $6,
-$7, $8) RETURNING id`
+last_name, email, type, github, twitter, password) VALUES ($1, $2, $3, $4, $5,
+$6, $7, $8, $9) RETURNING id`
 
 // GetUser gets the user from the database with the provided ID.
 func GetUser(id int64) (*model.User, error) {
 	u := new(model.User)
 	row := db.QueryRow(userGetByIDStmt, id)
 	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
-		&u.Email, &u.GitHub, &u.Twitter, &u.Password); err != nil {
+		&u.Email, &u.Type, &u.GitHub, &u.Twitter, &u.Password); err != nil {
 		return nil, err
 	}
 	return u, nil
@@ -33,7 +33,7 @@ func GetUserByEmail(email string) (*model.User, error) {
 	u := new(model.User)
 	row := db.QueryRow(userGetByEmailStmt, email)
 	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
-		&u.Email, &u.GitHub, &u.Twitter, &u.Password); err != nil {
+		&u.Email, &u.Type, &u.GitHub, &u.Twitter, &u.Password); err != nil {
 		return nil, err
 	}
 	return u, nil
@@ -61,7 +61,7 @@ func SaveUser(u *model.User) error {
 	u.Updated = time.Now()
 
 	rows, err := db.Query(userCreateStmt, u.Created, u.Updated, u.FirstName,
-		u.LastName, u.Email, u.GitHub, u.Twitter, u.Password)
+		u.LastName, u.Email, u.Type, u.GitHub, u.Twitter, u.Password)
 	if err != nil {
 		return err
 	}
