@@ -7,6 +7,10 @@ import (
 	"github.com/hackedu/backend/model"
 )
 
+const userCreateStmt = `INSERT INTO users (created, updated, first_name,
+last_name, email, github, twitter, password) VALUES ($1, $2, $3, $4, $5, $6,
+$7, $8) RETURNING id`
+
 // GetUser gets the user from the database with the provided ID.
 func GetUser(id int64) (*model.User, error) {
 	user := model.User{}
@@ -48,7 +52,8 @@ func SaveUser(u *model.User) error {
 	}
 	u.Updated = time.Now()
 
-	rows, err := db.Query("INSERT INTO users (created, updated, first_name, last_name, email, github, twitter, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id", u.Created, u.Updated, u.FirstName, u.LastName, u.Email, u.GitHub, u.Twitter, u.Password)
+	rows, err := db.Query(userCreateStmt, u.Created, u.Updated, u.FirstName,
+		u.LastName, u.Email, u.GitHub, u.Twitter, u.Password)
 	if err != nil {
 		return err
 	}
