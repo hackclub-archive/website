@@ -54,7 +54,7 @@ func SaveUser(u *model.User) error {
 		_, err := GetUserByEmail(u.Email)
 		if err != nil {
 			if err != sql.ErrNoRows {
-				return model.ErrInvalidEmail
+				return model.ErrInvalidUserEmail
 			}
 			return err
 		}

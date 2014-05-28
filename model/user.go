@@ -22,16 +22,16 @@ const (
 )
 
 var (
-	// ErrInvalidFirstName is returned when the user's first name is invalid.
-	ErrInvalidFirstName = errors.New("invalid first name")
-	// ErrInvalidLastName is returned when the user's last name is invalid.
-	ErrInvalidLastName = errors.New("invalid last name")
-	// ErrInvalidEmail is returned when the user's email is invalid.
-	ErrInvalidEmail = errors.New("invalid email address")
-	// ErrInvalidType is returned when the user's type is invalid.
-	ErrInvalidType = errors.New("invalid type")
-	// ErrInvalidPassword is returned when the user's password is invalid.
-	ErrInvalidPassword = errors.New("invalid password")
+	// ErrInvalidUserFirstName is returned when the user's first name is invalid.
+	ErrInvalidUserFirstName = errors.New("invalid first name")
+	// ErrInvalidUserLastName is returned when the user's last name is invalid.
+	ErrInvalidUserLastName = errors.New("invalid last name")
+	// ErrInvalidUserEmail is returned when the user's email is invalid.
+	ErrInvalidUserEmail = errors.New("invalid email address")
+	// ErrInvalidUserType is returned when the user's type is invalid.
+	ErrInvalidUserType = errors.New("invalid type")
+	// ErrInvalidUserPassword is returned when the user's password is invalid.
+	ErrInvalidUserPassword = errors.New("invalid password")
 )
 
 var regexpEmail = regexp.MustCompile(`^[^@]+@[^@.]+\.[^@.]+`)
@@ -100,24 +100,24 @@ func NewUser(jsonReader io.Reader) (*User, error) {
 func (u *RequestUser) validate() error {
 	switch {
 	case len(u.FirstName) == 0:
-		return ErrInvalidFirstName
+		return ErrInvalidUserFirstName
 	case len(u.FirstName) >= 255:
-		return ErrInvalidFirstName
+		return ErrInvalidUserFirstName
 	case len(u.LastName) == 0:
-		return ErrInvalidLastName
+		return ErrInvalidUserLastName
 	case len(u.LastName) >= 255:
-		return ErrInvalidLastName
+		return ErrInvalidUserLastName
 	case len(u.Email) >= 255:
-		return ErrInvalidEmail
+		return ErrInvalidUserEmail
 	case regexpEmail.MatchString(u.Email) == false:
-		return ErrInvalidEmail
+		return ErrInvalidUserEmail
 	case !(u.Type == UserAdmin || u.Type == UserOrganizer ||
 		u.Type == UserStudent):
-		return ErrInvalidType
+		return ErrInvalidUserType
 	case len(u.Password) < 6:
-		return ErrInvalidPassword
+		return ErrInvalidUserPassword
 	case len(u.Password) > 256:
-		return ErrInvalidPassword
+		return ErrInvalidUserPassword
 	default:
 		return nil
 	}

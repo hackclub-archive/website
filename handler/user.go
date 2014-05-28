@@ -65,7 +65,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request,
 
 	err = database.SaveUser(user)
 	if err != nil {
-		if err == model.ErrInvalidEmail {
+		if err == model.ErrInvalidUserEmail {
 			return ErrCreatingModel(err)
 		}
 		return ErrDatabase(err)

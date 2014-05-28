@@ -9,14 +9,15 @@ import (
 )
 
 var (
-	// ErrInvalidName is returned when the school's name is invalid
-	ErrInvalidName = errors.New("invalid name")
-	// ErrInvalidWebsite is returned when the school's website is invalid
-	ErrInvalidWebsite = errors.New("invalid website")
-	// ErrInvalidLatitude is returned when the school's latitude is invalid
-	ErrInvalidLatitude = errors.New("invalid latitude")
-	// ErrInvalidLongitude is returned when the school's longitude is invalid
-	ErrInvalidLongitude = errors.New("invalid longitude")
+	// ErrInvalidSchoolName is returned when the school's name is invalid
+	ErrInvalidSchoolName = errors.New("invalid name")
+	// ErrInvalidSchoolWebsite is returned when the school's website is invalid
+	ErrInvalidSchoolWebsite = errors.New("invalid website")
+	// ErrInvalidSchoolLatitude is returned when the school's latitude is invalid
+	ErrInvalidSchoolLatitude = errors.New("invalid latitude")
+	// ErrInvalidSchoolLongitude is returned when the school's longitude is
+	// invalid
+	ErrInvalidSchoolLongitude = errors.New("invalid longitude")
 )
 
 var regexpURL = regexp.MustCompile(`/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/`)
@@ -52,15 +53,15 @@ func NewSchool(jsonReader io.Reader) (*School, error) {
 func (s *School) validate() error {
 	switch {
 	case len(s.Name) < 6:
-		return ErrInvalidName
+		return ErrInvalidSchoolName
 	case len(s.Name) > 255:
-		return ErrInvalidName
+		return ErrInvalidSchoolName
 	case regexpURL.MatchString(s.Website) == false:
-		return ErrInvalidWebsite
+		return ErrInvalidSchoolWebsite
 	case s.Latitude == 0:
-		return ErrInvalidLatitude
+		return ErrInvalidSchoolLatitude
 	case s.Longitude == 0:
-		return ErrInvalidLongitude
+		return ErrInvalidSchoolLongitude
 	default:
 		return nil
 	}
