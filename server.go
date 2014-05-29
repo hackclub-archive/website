@@ -47,8 +47,6 @@ func main() {
 	r.Handle("/users", handler.AppHandler(handler.CreateUser)).Methods("POST")
 	r.Handle("/users/authenticate",
 		handler.AppHandler(handler.Authenticate)).Methods("POST")
-	r.Handle("/users/me",
-		handler.AppHandler(handler.GetCurrentUser)).Methods("GET")
 	r.Handle("/users/{id}", handler.AppHandler(handler.GetUser)).Methods("GET")
 	r.Handle("/users/{id}/clubs",
 		handler.AppHandler(handler.GetAllClubsForUser)).Methods("GET")

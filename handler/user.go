@@ -77,9 +77,21 @@ func CreateUser(w http.ResponseWriter, r *http.Request,
 // GetUser gets the user specified by ID in the url.
 func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	vars := mux.Vars(r)
-	id, err := strconv.ParseInt(vars["id"], 10, 64)
-	if err != nil {
-		return ErrInvalidID(err)
+	stringID := vars["id"]
+
+	var id int64
+	if stringID == "me" {
+		if u == nil {
+			return ErrNotAuthorized()
+		}
+
+		id = u.ID
+	} else {
+		var err error
+		id, err = strconv.ParseInt(vars["id"], 10, 64)
+		if err != nil {
+			return ErrInvalidID(err)
+		}
 	}
 
 	if id == u.ID {
