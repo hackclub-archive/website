@@ -21,6 +21,8 @@ type Club struct {
 	Name     string    `db:"name"      json:"name"`
 }
 
+// NewClub creates a new club from an io.Reader for JSON. It returns an error
+// if decoding the JSON or validating the provided fields fails.
 func NewClub(jsonReader io.Reader) (*Club, error) {
 	var club Club
 	if err := json.NewDecoder(jsonReader).Decode(&club); err != nil {
