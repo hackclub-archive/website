@@ -52,10 +52,9 @@ func SaveUser(u *model.User) error {
 		//
 		// Check if email is unique.
 		_, err := GetUserByEmail(u.Email)
-		if err != nil {
-			if err != sql.ErrNoRows {
-				return model.ErrInvalidUserEmail
-			}
+		if err == nil {
+			return model.ErrInvalidUserEmail
+		} else if err != sql.ErrNoRows && err != nil {
 			return err
 		}
 
