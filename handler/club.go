@@ -29,7 +29,7 @@ func CreateClub(w http.ResponseWriter, r *http.Request,
 		return ErrCreatingModel(model.ErrInvalidClubSchoolID)
 	}
 
-	err = database.SaveClub(club)
+	err = database.SaveClub(club, u)
 	if err != nil {
 		return ErrDatabase(err)
 	}

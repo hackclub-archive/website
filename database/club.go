@@ -15,6 +15,9 @@ clubs ORDER BY id`
 const clubCreateStmt = `INSERT INTO clubs (created, updated, school_id, name)
 VALUES ($1, $2, $3, $4) RETURNING id`
 
+const clubCreateRelationshipStmt = `INSERT INTO users_clubs (user_id,
+club_id) VALUES ($1, $2)`
+
 // GetClub gets a club from the database with the provided ID
 func GetClub(id int64) (*model.Club, error) {
 	c := model.Club{}
@@ -49,17 +52,32 @@ func GetClubs() ([]*model.Club, error) {
 	return clubs, nil
 }
 
-// SaveClub saves the provided club to the database. If the club is a new club,
-// then the club.Created field is set to the current time. The club.Updated
-// field is set to the current time regardless.
-func SaveClub(c *model.Club) error {
+// SaveClub saves the provided club to the database. If the club is a new
+// club, then the club.Created field is set to the current time. The
+// club.Updated field is set to the current time regardless.
+func SaveClub(c *model.Club, u *model.User) error {
 	if c.ID == 0 {
 		c.Created = time.Now()
 	}
 	c.Updated = time.Now()
 
-	row := db.QueryRow(clubCreateStmt, c.Created, c.Updated, c.SchoolID, c.Name)
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+
+	row := tx.QueryRow(clubCreateStmt, c.Created, c.Updated, c.SchoolID, c.Name)
 	if err := row.Scan(&c.ID); err != nil {
+		return err
+	}
+
+	_, err = tx.Exec(clubCreateRelationshipStmt, u.ID, c.ID)
+	if err != nil {
+		return err
+	}
+
+	err = tx.Commit()
+	if err != nil {
 		return err
 	}
 
