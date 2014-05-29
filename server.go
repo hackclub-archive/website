@@ -50,6 +50,8 @@ func main() {
 	r.Handle("/users/me",
 		handler.AppHandler(handler.GetCurrentUser)).Methods("GET")
 	r.Handle("/users/{id}", handler.AppHandler(handler.GetUser)).Methods("GET")
+	r.Handle("/users/{id}/clubs",
+		handler.AppHandler(handler.GetAllClubsForUser)).Methods("GET")
 
 	r.Handle("/schools",
 		handler.AppHandler(handler.CreateSchool)).Methods("POST")

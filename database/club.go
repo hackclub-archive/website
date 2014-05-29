@@ -12,6 +12,12 @@ clubs WHERE id=$1`
 const clubGetAllStmt = `SELECT id, created, updated, school_id, name FROM
 clubs ORDER BY id`
 
+const clubGetAllForUser = `
+SELECT c.id, c.created, c.updated, c.school_id, c.name
+FROM   clubs       c
+JOIN   users_clubs uc USING (id)
+WHERE  uc.user_id = $1`
+
 const clubCreateStmt = `INSERT INTO clubs (created, updated, school_id, name)
 VALUES ($1, $2, $3, $4) RETURNING id`
 
@@ -33,6 +39,30 @@ func GetClub(id int64) (*model.Club, error) {
 func GetClubs() ([]*model.Club, error) {
 	clubs := []*model.Club{}
 	rows, err := db.Query(clubGetAllStmt)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		c := model.Club{}
+		if err := rows.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
+			&c.Name); err != nil {
+			return nil, err
+		}
+
+		clubs = append(clubs, &c)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return clubs, nil
+}
+
+// GetClubsForUsers returns all of the clubs that the provided user has a
+// relationship with.
+func GetClubsForUser(userID int64) ([]*model.Club, error) {
+	clubs := []*model.Club{}
+	rows, err := db.Query(clubGetAllForUser, userID)
 	if err != nil {
 		return nil, err
 	}
