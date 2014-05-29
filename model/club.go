@@ -24,11 +24,10 @@ type Club struct {
 }
 
 // NewClub creates a new club from an io.Reader for JSON. It returns an error
-// if decoding the JSON or validating the provided fields fails. NewClub
-// expects a valid school ID. If an invalid one is given, an error from
-// NewClub will not be thrown and the school will fail to save to the
-// database.
-func NewClub(jsonReader io.Reader, schoolID int64) (*Club, error) {
+// if decoding the JSON or validating the provided fields fails. SchoolID must
+// be verified outside of this method because importing the database package
+// currently creates an import loop.
+func NewClub(jsonReader io.Reader) (*Club, error) {
 	var club Club
 	if err := json.NewDecoder(jsonReader).Decode(&club); err != nil {
 		return nil, err
@@ -37,8 +36,6 @@ func NewClub(jsonReader io.Reader, schoolID int64) (*Club, error) {
 	if err := club.validate(); err != nil {
 		return nil, err
 	}
-
-	club.SchoolID = schoolID
 
 	return &club, nil
 }
