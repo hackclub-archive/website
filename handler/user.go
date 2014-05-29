@@ -74,17 +74,20 @@ func CreateUser(w http.ResponseWriter, r *http.Request,
 	return renderJSON(w, user, http.StatusOK)
 }
 
-// GetUser gets the user specified by ID in the url.
+// GetUser gets the user specified by ID in the url. If the user is an admin,
+// they can see any profile. If the user is an organizer or a member, they can
+// only view their own profile. If they are not authorized, they cannot see
+// any profiles.
 func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
+	if u == nil {
+		return ErrNotAuthorized()
+	}
+
 	vars := mux.Vars(r)
 	stringID := vars["id"]
 
 	var id int64
 	if stringID == "me" {
-		if u == nil {
-			return ErrNotAuthorized()
-		}
-
 		id = u.ID
 	} else {
 		var err error
@@ -94,11 +97,15 @@ func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 		}
 	}
 
-	if id == u.ID {
+	if u.Type == model.UserAdmin {
 		return renderJSON(w, u, http.StatusOK)
-	}
+	} else {
+		if id == u.ID {
+			return renderJSON(w, u, http.StatusOK)
+		}
 
-	return ErrNotAuthorized()
+		return ErrNotAuthorized()
+	}
 }
 
 // GetCurrentUser gets the current authenticated user.
