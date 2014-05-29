@@ -9,6 +9,12 @@ import (
 const clubGetByIDStmt = `SELECT id, created, updated, school_id, name FROM
 clubs WHERE id=$1`
 
+const clubGetByIDForUser = `
+SELECT c.id, c.created, c.updated, c.school_id, c.name
+FROM   clubs       c
+JOIN   users_clubs uc USING (id)
+WHERE  c.id = $1 AND uc.user_id = $2`
+
 const clubGetAllStmt = `SELECT id, created, updated, school_id, name FROM
 clubs ORDER BY id`
 
@@ -28,6 +34,18 @@ club_id) VALUES ($1, $2)`
 func GetClub(id int64) (*model.Club, error) {
 	c := model.Club{}
 	row := db.QueryRow(clubGetByIDStmt, id)
+	if err := row.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
+		&c.Name); err != nil {
+		return nil, err
+	}
+	return &c, nil
+}
+
+// GetClubForUser gets a club from the database with the provided ID that the
+// given user ID has an association with.
+func GetClubForUser(clubID, userID int64) (*model.Club, error) {
+	c := model.Club{}
+	row := db.QueryRow(clubGetByIDForUser, clubID, userID)
 	if err := row.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
 		&c.Name); err != nil {
 		return nil, err

@@ -55,6 +55,37 @@ func GetAllClubs(w http.ResponseWriter, r *http.Request,
 	return renderJSON(w, users, http.StatusOK)
 }
 
+// GetClub gets a club specified by id.
+func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
+	if u == nil {
+		return ErrNotAuthorized()
+	}
+
+	vars := mux.Vars(r)
+	id, err := strconv.ParseInt(vars["id"], 10, 64)
+	if err != nil {
+		return ErrInvalidID(err)
+	}
+
+	var club *model.Club
+	if u.Type == model.UserAdmin {
+		club, err = database.GetClub(id)
+		if err != nil {
+			if err == sql.ErrNoRows {
+				return ErrNotFound(err)
+			}
+			return ErrDatabase(err)
+		}
+	} else {
+		club, err = database.GetClubForUser(id, u.ID)
+		if err != nil {
+			return ErrNotAuthorized()
+		}
+	}
+
+	return renderJSON(w, club, http.StatusOK)
+}
+
 // GetAllClubsForUser gets all of the clubs that the given user has an
 // association with.
 func GetAllClubsForUser(w http.ResponseWriter, r *http.Request,
