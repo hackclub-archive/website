@@ -131,3 +131,12 @@ func SaveClub(c *model.Club, u *model.User) error {
 
 	return nil
 }
+
+// AddUserToClub creates a new user association with a club.
+func AddUserToClub(userID, clubID int64) error {
+	_, err := db.Exec(clubCreateRelationshipStmt, userID, clubID)
+	if err != nil {
+		return err
+	}
+	return nil
+}

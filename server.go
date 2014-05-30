@@ -60,6 +60,8 @@ func main() {
 	r.Handle("/clubs", handler.AppHandler(handler.CreateClub)).Methods("POST")
 	r.Handle("/clubs", handler.AppHandler(handler.GetAllClubs)).Methods("GET")
 	r.Handle("/clubs/{id}", handler.AppHandler(handler.GetClub)).Methods("GET")
+	r.Handle("/clubs/{id}/members",
+		handler.AppHandler(handler.CreateClubMember)).Methods("POST")
 
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux)))

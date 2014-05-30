@@ -3,9 +3,12 @@ package model
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"regexp"
 	"time"
+
+	"crypto/rand"
 
 	"code.google.com/p/go.crypto/bcrypt"
 )
@@ -97,6 +100,42 @@ func NewUser(jsonReader io.Reader) (*User, error) {
 	return &user, nil
 }
 
+// NewUserGeneratePassword creates a new user from the provided JSON reader.
+// It decodes the JSON, validates the fields, generates a password and hashes
+// it using bcrypt, and then returns the created user.
+//
+// NewUserGeneratePassword does not save the user to the database.
+func NewUserGeneratePassword(jsonReader io.Reader) (*User, error) {
+	var rU RequestUser
+	if err := json.NewDecoder(jsonReader).Decode(&rU); err != nil {
+		return nil, err
+	}
+
+	pw := generatePassword(16)
+	fmt.Println(pw)
+	b, err := bcrypt.GenerateFromPassword([]byte(pw),
+		bcrypt.DefaultCost)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := rU.validate(); err != nil {
+		return nil, err
+	}
+
+	user := User{
+		FirstName: rU.FirstName,
+		LastName:  rU.LastName,
+		Email:     rU.Email,
+		Type:      rU.Type,
+		GitHub:    rU.GitHub,
+		Twitter:   rU.Twitter,
+		Password:  string(b),
+	}
+
+	return &user, nil
+}
+
 func (u *RequestUser) validate() error {
 	switch {
 	case len(u.FirstName) == 0:
@@ -127,4 +166,14 @@ func (u *RequestUser) validate() error {
 // in the database.
 func (u *User) ComparePassword(password string) error {
 	return bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(password))
+}
+
+func generatePassword(length int) string {
+	const alphanum = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+	var bytes = make([]byte, length)
+	rand.Read(bytes)
+	for i, b := range bytes {
+		bytes[i] = alphanum[b%byte(len(alphanum))]
+	}
+	return string(bytes)
 }

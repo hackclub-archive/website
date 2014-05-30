@@ -86,6 +86,62 @@ func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	return renderJSON(w, club, http.StatusOK)
 }
 
+// CreateClubMember creates a new user account of type student and adds them
+// to the club specified by the URL.
+//
+// The user's password is generated and emailed to them.
+func CreateClubMember(w http.ResponseWriter, r *http.Request,
+	u *model.User) *AppError {
+	if u == nil {
+		return ErrNotAuthorized()
+	}
+
+	vars := mux.Vars(r)
+	id, err := strconv.ParseInt(vars["id"], 10, 64)
+	if err != nil {
+		return ErrInvalidID(err)
+	}
+
+	var club *model.Club
+	if u.Type == model.UserAdmin {
+		club, err = database.GetClub(id)
+		if err != nil {
+			if err == sql.ErrNoRows {
+				return ErrNotFound(err)
+			}
+			return ErrDatabase(err)
+		}
+	} else {
+		club, err = database.GetClubForUser(id, u.ID)
+		if err != nil {
+			return ErrNotAuthorized()
+		}
+	}
+
+	defer r.Body.Close()
+	user, err := model.NewUserGeneratePassword(r.Body)
+	if err != nil {
+		return ErrCreatingModel(err)
+	}
+
+	user.Type = model.UserStudent
+
+	err = database.SaveUser(user)
+	if err != nil {
+		if err == model.ErrInvalidUserEmail {
+			return ErrCreatingModel(err)
+		}
+		return ErrDatabase(err)
+	}
+
+	err = database.AddUserToClub(user.ID, club.ID)
+	if err != nil {
+		return ErrDatabase(err)
+	}
+
+	return renderJSON(w, user, http.StatusOK)
+}
+
 // GetAllClubsForUser gets all of the clubs that the given user has an
 // association with.
 func GetAllClubsForUser(w http.ResponseWriter, r *http.Request,
