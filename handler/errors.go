@@ -9,6 +9,11 @@ func ErrCreatingModel(err error) *AppError {
 	return &AppError{err, err.Error(), http.StatusBadRequest}
 }
 
+func ErrForbidden() *AppError {
+	err := errors.New("forbidden")
+	return &AppError{err, err.Error(), http.StatusForbidden}
+}
+
 func ErrInvalidID(err error) *AppError {
 	return &AppError{err, "invalid id", http.StatusBadRequest}
 }

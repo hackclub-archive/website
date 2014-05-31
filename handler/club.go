@@ -96,6 +96,10 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 		return ErrNotAuthorized()
 	}
 
+	if u.Type == model.UserStudent {
+		return ErrForbidden()
+	}
+
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
@@ -124,7 +128,11 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 		return ErrCreatingModel(err)
 	}
 
-	user.Type = model.UserStudent
+	if u.Type == model.UserOrganizer && user.Type == model.UserOrganizer {
+		return ErrForbidden()
+	}
+
+	// TODO: Send email to user
 
 	err = database.SaveUser(user)
 	if err != nil {

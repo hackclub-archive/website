@@ -3,7 +3,6 @@ package model
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"regexp"
 	"time"
@@ -111,9 +110,7 @@ func NewUserGeneratePassword(jsonReader io.Reader) (*User, error) {
 		return nil, err
 	}
 
-	pw := generatePassword(16)
-	fmt.Println(pw)
-	b, err := bcrypt.GenerateFromPassword([]byte(pw),
+	b, err := bcrypt.GenerateFromPassword([]byte(generatePassword(16)),
 		bcrypt.DefaultCost)
 	if err != nil {
 		return nil, err
