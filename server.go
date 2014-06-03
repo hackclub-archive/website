@@ -9,22 +9,18 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/hackedu/backend/database"
 	"github.com/hackedu/backend/handler"
+	"github.com/hackedu/backend/middleware"
 )
 
-func httpLog(handler http.Handler) http.Handler {
+func httpLog(handler http.Handler,
+	middleware middleware.MiddlewareProcessor) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
 		log.Printf("%s %s %s", r.RemoteAddr, r.Method, r.URL)
 
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Headers",
-			"Content-Type, Authorization")
-		if r.Method == "OPTIONS" {
-			w.WriteHeader(http.StatusOK)
-			return
+		if middleware.Process(w, r) {
+			handler.ServeHTTP(w, r)
 		}
-
-		handler.ServeHTTP(w, r)
 		log.Printf("Completed in %s", time.Now().Sub(start).String())
 	})
 }
@@ -41,6 +37,10 @@ func main() {
 		panic(err)
 	}
 	defer database.Close()
+
+	m := middleware.MiddlewareProcessor{}
+
+	m.Register(&middleware.CORS{})
 
 	r := mux.NewRouter()
 
@@ -64,5 +64,5 @@ func main() {
 		handler.AppHandler(handler.CreateClubMember)).Methods("POST")
 
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux)))
+	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux, m)))
 }
