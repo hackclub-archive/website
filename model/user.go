@@ -15,8 +15,10 @@ import (
 type userType int
 
 const (
+	// UserDefault is the default user type when the user doesn't specify one
+	UserDefault userType = iota
 	// UserAdmin is the user's type when the user is an admin
-	UserAdmin userType = iota
+	UserAdmin
 	// UserAdmin is the user's type when the user is a club organizer
 	UserOrganizer
 	// UserAdmin is the user's type when the user is a student in a club
