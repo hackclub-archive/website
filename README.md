@@ -1,11 +1,6 @@
 # backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest) ![Analytics](https://ga-beacon.appspot.com/UA-47724303-2/backend/readme?pixel)
 
-It looks like you've stumbled upon hackEDU's backend. The various clients
-communicate with me for all things dynamic.
-
-Watch out, I'm still under heavy development. In fact, I'm not even deployed
-yet! The current version of https://hackedu.us is all the way back on
-3b3027ae753d1f7b55e35320007a95659c8ef7fd.
+It looks like you've stumbled upon hackEDU's backend.
 
 ## Getting Started
 
