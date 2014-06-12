@@ -12,17 +12,13 @@ import (
 	"code.google.com/p/go.crypto/bcrypt"
 )
 
-type userType int
-
 const (
-	// UserDefault is the default user type when the user doesn't specify one
-	UserDefault userType = iota
 	// UserAdmin is the user's type when the user is an admin
-	UserAdmin
+	UserAdmin = "admin"
 	// UserAdmin is the user's type when the user is a club organizer
-	UserOrganizer
+	UserOrganizer = "organizer"
 	// UserAdmin is the user's type when the user is a student in a club
-	UserStudent
+	UserStudent = "student"
 )
 
 var (
@@ -48,7 +44,7 @@ type User struct {
 	FirstName string    `db:"first_name" json:"firstName"`
 	LastName  string    `db:"last_name"  json:"lastName"`
 	Email     string    `db:"email"      json:"email"`
-	Type      userType  `db:"type"       json:"type"`
+	Type      string    `db:"type"       json:"type"`
 	GitHub    string    `db:"github"     json:"github"`
 	Twitter   string    `db:"twitter"    json:"twitter"`
 	Password  string    `db:"password"   json:"-"`
@@ -58,13 +54,13 @@ type User struct {
 // RequestUser will need to be transformed into a User to be stored into the
 // database.
 type RequestUser struct {
-	FirstName string   `json:"firstName"`
-	LastName  string   `json:"lastName"`
-	Email     string   `json:"email"`
-	Type      userType `json:"type"`
-	GitHub    string   `json:"github"`
-	Twitter   string   `json:"twitter"`
-	Password  string   `json:"password"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Email     string `json:"email"`
+	Type      string `json:"type"`
+	GitHub    string `json:"github"`
+	Twitter   string `json:"twitter"`
+	Password  string `json:"password"`
 }
 
 // NewUser creates a new user from provided JSON reader. It decodes the JSON,
