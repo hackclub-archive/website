@@ -1,5 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/hackedu/backend.png?label=ready&title=Ready)](https://waffle.io/hackedu/backend)
-# backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest) ![Analytics](https://ga-beacon.appspot.com/UA-47724303-2/backend/readme?pixel)
+# backend [![Build Status](https://drone.io/github.com/hackedu/backend/status.png)](https://drone.io/github.com/hackedu/backend/latest) [![stories in ready](https://badge.waffle.io/hackedu/backend.png?label=ready&title=ready)](https://waffle.io/hackedu/backend) ![Analytics](https://ga-beacon.appspot.com/UA-47724303-2/backend/readme?pixel)
 
 It looks like you've stumbled upon hackEDU's backend.
 
