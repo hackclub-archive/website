@@ -2,6 +2,10 @@
 
 It looks like you've stumbled upon hackEDU's backend.
 
+Links:
+
+* [Trello Board](https://trello.com/b/eHmdv28l/development)
+
 ## Getting Started
 
 Prerequisites:
