@@ -44,10 +44,11 @@ func (fn AppHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func getUserFromToken(r *http.Request) (*model.User, *AppError) {
-	token, err := jwt.ParseFromRequest(r, func(t *jwt.Token) ([]byte, error) {
-		// TODO: Use real secret
-		return []byte("secret"), nil
-	})
+	token, err := jwt.ParseFromRequest(r,
+		func(t *jwt.Token) (interface{}, error) {
+			// TODO: Use real secret
+			return []byte("secret"), nil
+		})
 	if err != nil {
 		return nil, &AppError{err, "bad authorization token",
 			http.StatusBadRequest}
