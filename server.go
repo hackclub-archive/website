@@ -44,23 +44,23 @@ func main() {
 
 	r := mux.NewRouter()
 
-	r.Handle("/users", v1.AppHandler(v1.CreateUser)).Methods("POST")
+	r.Handle("/users", v1.Handler(v1.CreateUser)).Methods("POST")
 	r.Handle("/users/authenticate",
-		v1.AppHandler(v1.Authenticate)).Methods("POST")
-	r.Handle("/users/{id}", v1.AppHandler(v1.GetUser)).Methods("GET")
+		v1.Handler(v1.Authenticate)).Methods("POST")
+	r.Handle("/users/{id}", v1.Handler(v1.GetUser)).Methods("GET")
 	r.Handle("/users/{id}/clubs",
-		v1.AppHandler(v1.GetAllClubsForUser)).Methods("GET")
+		v1.Handler(v1.GetAllClubsForUser)).Methods("GET")
 
 	r.Handle("/schools",
-		v1.AppHandler(v1.CreateSchool)).Methods("POST")
-	r.Handle("/schools", v1.AppHandler(v1.GetSchools)).Methods("GET")
-	r.Handle("/schools/{id}", v1.AppHandler(v1.GetSchool)).Methods("GET")
+		v1.Handler(v1.CreateSchool)).Methods("POST")
+	r.Handle("/schools", v1.Handler(v1.GetSchools)).Methods("GET")
+	r.Handle("/schools/{id}", v1.Handler(v1.GetSchool)).Methods("GET")
 
-	r.Handle("/clubs", v1.AppHandler(v1.CreateClub)).Methods("POST")
-	r.Handle("/clubs", v1.AppHandler(v1.GetAllClubs)).Methods("GET")
-	r.Handle("/clubs/{id}", v1.AppHandler(v1.GetClub)).Methods("GET")
+	r.Handle("/clubs", v1.Handler(v1.CreateClub)).Methods("POST")
+	r.Handle("/clubs", v1.Handler(v1.GetAllClubs)).Methods("GET")
+	r.Handle("/clubs/{id}", v1.Handler(v1.GetClub)).Methods("GET")
 	r.Handle("/clubs/{id}/members",
-		v1.AppHandler(v1.CreateClubMember)).Methods("POST")
+		v1.Handler(v1.CreateClubMember)).Methods("POST")
 
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux, m)))
