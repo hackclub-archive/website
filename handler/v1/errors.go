@@ -3,35 +3,27 @@ package v1
 import (
 	"errors"
 	"net/http"
+
+	"github.com/hackedu/backend/httputil"
 )
 
-func ErrCreatingModel(err error) *AppError {
-	return &AppError{err, err.Error(), http.StatusBadRequest}
+func ErrCreatingModel(err error) *httputil.HTTPError {
+	return &httputil.HTTPError{http.StatusBadRequest, err}
 }
 
-func ErrForbidden() *AppError {
-	err := errors.New("forbidden")
-	return &AppError{err, err.Error(), http.StatusForbidden}
+func ErrForbidden() *httputil.HTTPError {
+	return &httputil.HTTPError{http.StatusForbidden, errors.New("forbidden")}
 }
 
-func ErrInvalidID(err error) *AppError {
-	return &AppError{err, "invalid id", http.StatusBadRequest}
+func ErrInvalidID() *httputil.HTTPError {
+	return &httputil.HTTPError{http.StatusForbidden, errors.New("invalid id")}
 }
 
-func ErrNotAuthorized() *AppError {
-	err := errors.New("not authorized")
-	return &AppError{err, err.Error(), http.StatusUnauthorized}
+func ErrNotAuthorized() *httputil.HTTPError {
+	return &httputil.HTTPError{http.StatusUnauthorized,
+		errors.New("not authorized")}
 }
 
-func ErrNotFound(err error) *AppError {
-	return &AppError{err, "not found", http.StatusNotFound}
-}
-
-func ErrDatabase(err error) *AppError {
-	return &AppError{err, "internal database error",
-		http.StatusInternalServerError}
-}
-
-func ErrUnmarshalling(err error) *AppError {
-	return &AppError{err, err.Error(), http.StatusBadRequest}
+func ErrNotFound() *httputil.HTTPError {
+	return &httputil.HTTPError{http.StatusNotFound, errors.New("not found")}
 }

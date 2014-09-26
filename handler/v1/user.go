@@ -3,12 +3,14 @@ package v1
 import (
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"net/http"
 	"strconv"
 
 	"code.google.com/p/go.crypto/bcrypt"
 	"github.com/gorilla/mux"
 	"github.com/hackedu/backend/database"
+	"github.com/hackedu/backend/httputil"
 	"github.com/hackedu/backend/model"
 )
 
@@ -16,43 +18,41 @@ import (
 // in the database. If it all checks out, then a JWT is generated and
 // returned.
 func Authenticate(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+	u *model.User) error {
 	defer r.Body.Close()
 
 	var requestUser model.RequestUser
 	err := json.NewDecoder(r.Body).Decode(&requestUser)
 	if err != nil {
-		return ErrUnmarshalling(err)
+		return err
 	}
 
 	userFromDB, err := database.GetUserByEmail(requestUser.Email)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return ErrNotFound(err)
+			return ErrNotFound()
 		}
-		return ErrDatabase(err)
+		return err
 	}
 
 	err = userFromDB.ComparePassword(requestUser.Password)
 	if err == bcrypt.ErrMismatchedHashAndPassword {
-		return &AppError{err, "invalid password", http.StatusBadRequest}
+		return &httputil.HTTPError{http.StatusBadRequest,
+			errors.New("invalid password")}
 	} else if err != nil {
-		return &AppError{err, "error checking password",
-			http.StatusInternalServerError}
+		return err
 	}
 
 	token, err := model.NewToken(userFromDB)
 	if err != nil {
-		return &AppError{err, "problem creating jwt token",
-			http.StatusInternalServerError}
+		return err
 	}
 
 	return renderJSON(w, token, http.StatusOK)
 }
 
 // CreateUser creates a new user from JSON in the request body.
-func CreateUser(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+func CreateUser(w http.ResponseWriter, r *http.Request, u *model.User) error {
 	//if u == nil || u.Type != model.UserAdmin {
 	//return ErrNotAuthorized()
 	//}
@@ -68,7 +68,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request,
 		if err == model.ErrInvalidUserEmail {
 			return ErrCreatingModel(err)
 		}
-		return ErrDatabase(err)
+		return err
 	}
 
 	return renderJSON(w, user, http.StatusOK)
@@ -78,7 +78,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request,
 // they can see any profile. If the user is an organizer or a member, they can
 // only view their own profile. If they are not authorized, they cannot see
 // any profiles.
-func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
+func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) error {
 	if u == nil {
 		return ErrNotAuthorized()
 	}
@@ -93,7 +93,7 @@ func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 		var err error
 		id, err = strconv.ParseInt(vars["id"], 10, 64)
 		if err != nil {
-			return ErrInvalidID(err)
+			return err
 		}
 	}
 
@@ -110,7 +110,7 @@ func GetUser(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 
 // GetCurrentUser gets the current authenticated user.
 func GetCurrentUser(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+	u *model.User) error {
 	if u == nil {
 		return ErrNotAuthorized()
 	}

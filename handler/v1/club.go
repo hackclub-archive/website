@@ -11,8 +11,7 @@ import (
 )
 
 // CreateClub creates a new club from provided JSON.
-func CreateClub(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+func CreateClub(w http.ResponseWriter, r *http.Request, u *model.User) error {
 	if u == nil || u.Type != model.UserAdmin {
 		return ErrNotAuthorized()
 	}
@@ -33,7 +32,7 @@ func CreateClub(w http.ResponseWriter, r *http.Request,
 
 	err = database.SaveClub(club, u)
 	if err != nil {
-		return ErrDatabase(err)
+		return err
 	}
 
 	return renderJSON(w, club, http.StatusOK)
@@ -41,22 +40,21 @@ func CreateClub(w http.ResponseWriter, r *http.Request,
 
 // GetAllClubs gets all of the clubs from the database. Only administers can
 // use this call.
-func GetAllClubs(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+func GetAllClubs(w http.ResponseWriter, r *http.Request, u *model.User) error {
 	if u == nil || u.Type != model.UserAdmin {
 		return ErrNotAuthorized()
 	}
 
 	users, err := database.GetClubs()
 	if err != nil {
-		return ErrDatabase(err)
+		return err
 	}
 
 	return renderJSON(w, users, http.StatusOK)
 }
 
 // GetClub gets a club specified by id.
-func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
+func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) error {
 	if u == nil {
 		return ErrNotAuthorized()
 	}
@@ -64,7 +62,7 @@ func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
-		return ErrInvalidID(err)
+		return ErrInvalidID()
 	}
 
 	var club *model.Club
@@ -72,9 +70,9 @@ func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 		club, err = database.GetClub(id)
 		if err != nil {
 			if err == sql.ErrNoRows {
-				return ErrNotFound(err)
+				return ErrNotFound()
 			}
-			return ErrDatabase(err)
+			return err
 		}
 	} else {
 		club, err = database.GetClubForUser(id, u.ID)
@@ -91,7 +89,7 @@ func GetClub(w http.ResponseWriter, r *http.Request, u *model.User) *AppError {
 //
 // The user's password is generated and emailed to them.
 func CreateClubMember(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+	u *model.User) error {
 	if u == nil {
 		return ErrNotAuthorized()
 	}
@@ -103,7 +101,7 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 	vars := mux.Vars(r)
 	id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
-		return ErrInvalidID(err)
+		return ErrInvalidID()
 	}
 
 	var club *model.Club
@@ -111,9 +109,9 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 		club, err = database.GetClub(id)
 		if err != nil {
 			if err == sql.ErrNoRows {
-				return ErrNotFound(err)
+				return ErrNotFound()
 			}
-			return ErrDatabase(err)
+			return err
 		}
 	} else {
 		club, err = database.GetClubForUser(id, u.ID)
@@ -139,12 +137,12 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 		if err == model.ErrInvalidUserEmail {
 			return ErrCreatingModel(err)
 		}
-		return ErrDatabase(err)
+		return err
 	}
 
 	err = database.AddUserToClub(user.ID, club.ID)
 	if err != nil {
-		return ErrDatabase(err)
+		return err
 	}
 
 	return renderJSON(w, user, http.StatusOK)
@@ -153,7 +151,7 @@ func CreateClubMember(w http.ResponseWriter, r *http.Request,
 // GetAllClubsForUser gets all of the clubs that the given user has an
 // association with.
 func GetAllClubsForUser(w http.ResponseWriter, r *http.Request,
-	u *model.User) *AppError {
+	u *model.User) error {
 	if u == nil {
 		return ErrNotAuthorized()
 	}
@@ -168,7 +166,7 @@ func GetAllClubsForUser(w http.ResponseWriter, r *http.Request,
 		var err error
 		id, err = strconv.ParseInt(vars["id"], 10, 64)
 		if err != nil {
-			return ErrInvalidID(err)
+			return ErrInvalidID()
 		}
 
 		if id != u.ID {
@@ -178,7 +176,7 @@ func GetAllClubsForUser(w http.ResponseWriter, r *http.Request,
 
 	users, err := database.GetClubsForUser(id)
 	if err != nil {
-		return ErrDatabase(err)
+		return err
 	}
 
 	return renderJSON(w, users, http.StatusOK)
