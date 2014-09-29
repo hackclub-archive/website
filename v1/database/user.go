@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/hackedu/backend/model"
+	"github.com/hackedu/backend/v1/user"
 )
 
 const userGetByIDStmt = `SELECT id, created, updated, first_name, last_name,
@@ -18,8 +18,8 @@ last_name, email, type, github, twitter, password) VALUES ($1, $2, $3, $4, $5,
 $6, $7, $8, $9) RETURNING id`
 
 // GetUser gets the user from the database with the provided ID.
-func GetUser(id int64) (*model.User, error) {
-	u := new(model.User)
+func GetUser(id int64) (*user.User, error) {
+	u := new(user.User)
 	row := db.QueryRow(userGetByIDStmt, id)
 	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
 		&u.Email, &u.Type, &u.GitHub, &u.Twitter, &u.Password); err != nil {
@@ -29,8 +29,8 @@ func GetUser(id int64) (*model.User, error) {
 }
 
 // GetUserByEmail gets the user from the database with the provided email.
-func GetUserByEmail(email string) (*model.User, error) {
-	u := new(model.User)
+func GetUserByEmail(email string) (*user.User, error) {
+	u := new(user.User)
 	row := db.QueryRow(userGetByEmailStmt, email)
 	if err := row.Scan(&u.ID, &u.Created, &u.Updated, &u.FirstName, &u.LastName,
 		&u.Email, &u.Type, &u.GitHub, &u.Twitter, &u.Password); err != nil {
@@ -44,8 +44,8 @@ func GetUserByEmail(email string) (*model.User, error) {
 // user.Updated field is set to the current time regardless.
 //
 // If the user is a new user, then SaveUser also verifies that the user's
-// email is unique and returns model.ErrInvalidEmail accordingly.
-func SaveUser(u *model.User) error {
+// email is unique and returns user.ErrInvalidEmail accordingly.
+func SaveUser(u *user.User) error {
 	if u.ID == 0 {
 		// TODO: Should do this in the user.validate() method, but with the
 		// current architecture of the application, that causes an import cycle.
@@ -53,7 +53,7 @@ func SaveUser(u *model.User) error {
 		// Check if email is unique.
 		_, err := GetUserByEmail(u.Email)
 		if err == nil {
-			return model.ErrInvalidUserEmail
+			return user.ErrInvalidUserEmail
 		} else if err != sql.ErrNoRows && err != nil {
 			return err
 		}
