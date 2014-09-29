@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/hackedu/backend/v1"
 	"github.com/hackedu/backend/v1/database"
+	"github.com/hackedu/backend/v1/middleware"
 )
 
 func main() {
@@ -43,6 +44,9 @@ func main() {
 		v1.Handler(v1.CreateClubMember)).Methods("POST")
 
 	n := negroni.New()
+
+	n.Use(negroni.HandlerFunc(middleware.CORS))
+
 	n.UseHandler(r)
 	n.Run(":" + port)
 }
