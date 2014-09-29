@@ -10,13 +10,15 @@ import (
 	"net/http"
 	"runtime/debug"
 
+	"code.google.com/p/go.net/context"
+
 	"github.com/dgrijalva/jwt-go"
-	"github.com/hackedu/backend/database"
+	"github.com/hackedu/backend/v1/database"
+	"github.com/hackedu/backend/v1/user"
 	"github.com/hackedu/backend/httputil"
-	"github.com/hackedu/backend/model"
 )
 
-type Handler func(http.ResponseWriter, *http.Request, *model.User) error
+type Handler func(context.Context, http.ResponseWriter, *http.Request) error
 
 func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer func() {
@@ -30,15 +32,27 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		rb  httputil.ResponseBuffer
 		err error
 	)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
 	if r.Header.Get("Authorization") != "" {
-		var user *model.User
-		user, err = getUserFromToken(r)
-		if err == nil {
-			err = h(&rb, r, user)
+		u, err := getUserFromToken(r)
+		if err != nil {
+			if e, ok := err.(*httputil.HTTPError); ok {
+				if e.Status >= 500 {
+					logError(r, err, nil)
+				}
+				handleAPIError(w, r, e.Status, e.Err, true)
+			} else {
+				logError(r, err, nil)
+				handleAPIError(w, r, http.StatusInternalServerError, err, false)
+			}
 		}
-	} else {
-		err = h(&rb, r, nil)
+
+		ctx = user.NewContext(ctx, u)
 	}
+
+	err = h(ctx, &rb, r)
 	if err == nil {
 		rb.WriteTo(w)
 	} else if e, ok := err.(*httputil.HTTPError); ok {
@@ -52,7 +66,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func getUserFromToken(r *http.Request) (*model.User, error) {
+func getUserFromToken(r *http.Request) (*user.User, error) {
 	token, err := jwt.ParseFromRequest(r,
 		func(t *jwt.Token) (interface{}, error) {
 			// TODO: Use real secret

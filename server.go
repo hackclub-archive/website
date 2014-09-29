@@ -1,29 +1,13 @@
 package main
 
 import (
-	"log"
-	"net/http"
 	"os"
-	"time"
 
+	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/hackedu/backend/database"
-	"github.com/hackedu/backend/handler/v1"
-	"github.com/hackedu/backend/middleware"
+	"github.com/hackedu/backend/v1"
+	"github.com/hackedu/backend/v1/database"
 )
-
-func httpLog(handler http.Handler,
-	middleware middleware.MiddlewareProcessor) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		start := time.Now()
-		log.Printf("%s %s %s", r.RemoteAddr, r.Method, r.URL)
-
-		if middleware.Process(w, r) {
-			handler.ServeHTTP(w, r)
-		}
-		log.Printf("Completed in %s", time.Now().Sub(start).String())
-	})
-}
 
 func main() {
 	port := os.Getenv("PORT")
@@ -37,10 +21,6 @@ func main() {
 		panic(err)
 	}
 	defer database.Close()
-
-	m := middleware.MiddlewareProcessor{}
-
-	m.Register(&middleware.CORS{})
 
 	r := mux.NewRouter()
 
@@ -62,6 +42,7 @@ func main() {
 	r.Handle("/clubs/{id}/members",
 		v1.Handler(v1.CreateClubMember)).Methods("POST")
 
-	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":"+port, httpLog(http.DefaultServeMux, m)))
+	n := negroni.New()
+	n.UseHandler(r)
+	n.Run(":" + port)
 }

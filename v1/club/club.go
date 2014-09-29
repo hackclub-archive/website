@@ -1,4 +1,4 @@
-package model
+package club
 
 import (
 	"encoding/json"
@@ -8,10 +8,10 @@ import (
 )
 
 var (
-	// ErrInvalidClubName is returned when the club's name is invalid
-	ErrInvalidClubName = errors.New("invalid name")
-	// ErrInvalidClubSchoolID is returned when the club's school ID is invalid
-	ErrInvalidClubSchoolID = errors.New("invalid school id")
+	// ErrInvalidName is returned when the club's name is invalid
+	ErrInvalidName = errors.New("invalid name")
+	// ErrInvalidSchoolID is returned when the club's school ID is invalid
+	ErrInvalidSchoolID = errors.New("invalid school id")
 )
 
 // Club represents a club participating in hackEDU.
@@ -43,7 +43,7 @@ func NewClub(jsonReader io.Reader) (*Club, error) {
 func (c *Club) validate() error {
 	switch {
 	case len(c.Name) == 0 || len(c.Name) > 255:
-		return ErrInvalidClubName
+		return ErrInvalidName
 	default:
 		return nil
 	}
