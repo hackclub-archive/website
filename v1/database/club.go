@@ -3,7 +3,8 @@ package database
 import (
 	"time"
 
-	"github.com/hackedu/backend/model"
+	"github.com/hackedu/backend/v1/club"
+	"github.com/hackedu/backend/v1/user"
 )
 
 const clubGetByIDStmt = `SELECT id, created, updated, school_id, name FROM
@@ -31,8 +32,8 @@ const clubCreateRelationshipStmt = `INSERT INTO users_clubs (user_id,
 club_id) VALUES ($1, $2)`
 
 // GetClub gets a club from the database with the provided ID
-func GetClub(id int64) (*model.Club, error) {
-	c := model.Club{}
+func GetClub(id int64) (*club.Club, error) {
+	c := club.Club{}
 	row := db.QueryRow(clubGetByIDStmt, id)
 	if err := row.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
 		&c.Name); err != nil {
@@ -43,8 +44,8 @@ func GetClub(id int64) (*model.Club, error) {
 
 // GetClubForUser gets a club from the database with the provided ID that the
 // given user ID has an association with.
-func GetClubForUser(clubID, userID int64) (*model.Club, error) {
-	c := model.Club{}
+func GetClubForUser(clubID, userID int64) (*club.Club, error) {
+	c := club.Club{}
 	row := db.QueryRow(clubGetByIDForUser, clubID, userID)
 	if err := row.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
 		&c.Name); err != nil {
@@ -54,14 +55,14 @@ func GetClubForUser(clubID, userID int64) (*model.Club, error) {
 }
 
 // GetClubs gets all of the clubs from the database ordered by id.
-func GetClubs() ([]*model.Club, error) {
-	clubs := []*model.Club{}
+func GetClubs() ([]*club.Club, error) {
+	clubs := []*club.Club{}
 	rows, err := db.Query(clubGetAllStmt)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		c := model.Club{}
+		c := club.Club{}
 		if err := rows.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
 			&c.Name); err != nil {
 			return nil, err
@@ -78,14 +79,14 @@ func GetClubs() ([]*model.Club, error) {
 
 // GetClubsForUsers returns all of the clubs that the provided user has a
 // relationship with.
-func GetClubsForUser(userID int64) ([]*model.Club, error) {
-	clubs := []*model.Club{}
+func GetClubsForUser(userID int64) ([]*club.Club, error) {
+	clubs := []*club.Club{}
 	rows, err := db.Query(clubGetAllForUser, userID)
 	if err != nil {
 		return nil, err
 	}
 	for rows.Next() {
-		c := model.Club{}
+		c := club.Club{}
 		if err := rows.Scan(&c.ID, &c.Created, &c.Updated, &c.SchoolID,
 			&c.Name); err != nil {
 			return nil, err
@@ -103,7 +104,7 @@ func GetClubsForUser(userID int64) ([]*model.Club, error) {
 // SaveClub saves the provided club to the database. If the club is a new
 // club, then the club.Created field is set to the current time. The
 // club.Updated field is set to the current time regardless.
-func SaveClub(c *model.Club, u *model.User) error {
+func SaveClub(c *club.Club, u *user.User) error {
 	if c.ID == 0 {
 		c.Created = time.Now()
 	}
