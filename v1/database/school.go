@@ -3,7 +3,7 @@ package database
 import (
 	"time"
 
-	"github.com/hackedu/backend/v1/school"
+	"github.com/hackedu/hackedu/v1/school"
 )
 
 const schoolGetByIDStmt = `SELECT id, created, updated, name, website,

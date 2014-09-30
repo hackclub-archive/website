@@ -5,9 +5,9 @@ import (
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/hackedu/backend/v1"
-	"github.com/hackedu/backend/v1/database"
-	"github.com/hackedu/backend/v1/middleware"
+	"github.com/hackedu/hackedu/v1"
+	"github.com/hackedu/hackedu/v1/database"
+	"github.com/hackedu/hackedu/v1/middleware"
 )
 
 func main() {
