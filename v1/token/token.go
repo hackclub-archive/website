@@ -1,9 +1,10 @@
-package model
+package token
 
 import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
+	"github.com/hackedu/backend/v1/user"
 )
 
 // Token represents a JSON Web Token (JWT) as returned to the user.
@@ -15,11 +16,11 @@ type Token struct {
 }
 
 // NewToken creates a new Token from a provided user.
-func NewToken(user *User) (*Token, error) {
+func NewToken(u *user.User) (*Token, error) {
 	expires := time.Now().Add(time.Hour * 72)
 
 	token := jwt.New(jwt.GetSigningMethod("HS256"))
-	token.Claims["id"] = user.ID
+	token.Claims["id"] = u.ID
 	token.Claims["exp"] = expires.Unix()
 
 	// TODO: Sign the token with an actual secret
@@ -28,6 +29,6 @@ func NewToken(user *User) (*Token, error) {
 		return nil, err
 	}
 
-	return &Token{UserID: user.ID, UserType: user.Type, Token: tokenString,
+	return &Token{UserID: u.ID, UserType: u.Type, Token: tokenString,
 		Expires: expires}, nil
 }

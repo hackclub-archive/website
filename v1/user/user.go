@@ -1,4 +1,4 @@
-package model
+package user
 
 import (
 	"encoding/json"
@@ -10,15 +10,16 @@ import (
 	"crypto/rand"
 
 	"code.google.com/p/go.crypto/bcrypt"
+	"code.google.com/p/go.net/context"
 )
 
 const (
-	// UserAdmin is the user's type when the user is an admin
-	UserAdmin = "admin"
-	// UserAdmin is the user's type when the user is a club organizer
-	UserOrganizer = "organizer"
-	// UserAdmin is the user's type when the user is a student in a club
-	UserStudent = "student"
+	// Admin is the user's type when the user is an admin
+	Admin = "admin"
+	// Admin is the user's type when the user is a club organizer
+	Organizer = "organizer"
+	// Admin is the user's type when the user is a student in a club
+	Student = "student"
 )
 
 var (
@@ -145,8 +146,7 @@ func (u *RequestUser) validate() error {
 		return ErrInvalidUserEmail
 	case regexpEmail.MatchString(u.Email) == false:
 		return ErrInvalidUserEmail
-	case !(u.Type == UserAdmin || u.Type == UserOrganizer ||
-		u.Type == UserStudent):
+	case !(u.Type == Admin || u.Type == Organizer || u.Type == Student):
 		return ErrInvalidUserType
 	case len(u.Password) < 6:
 		return ErrInvalidUserPassword
@@ -171,4 +171,19 @@ func generatePassword(length int) string {
 		bytes[i] = alphanum[b%byte(len(alphanum))]
 	}
 	return string(bytes)
+}
+
+type key int
+
+const userKey key = 0
+
+// NewContext returns a new Context carrying user.
+func NewContext(ctx context.Context, user *User) context.Context {
+	return context.WithValue(ctx, userKey, user)
+}
+
+// FromContext returns the User value stored in ctx, if any.
+func FromContext(ctx context.Context) (*User, bool) {
+	u, ok := ctx.Value(userKey).(*User)
+	return u, ok
 }
