@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/hackedu/backend/v1/user"
+	"github.com/hackedu/hackedu/v1/user"
 )
 
 const userGetByIDStmt = `SELECT id, created, updated, first_name, last_name,

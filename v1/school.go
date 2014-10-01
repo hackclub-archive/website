@@ -8,9 +8,9 @@ import (
 	"code.google.com/p/go.net/context"
 
 	"github.com/gorilla/mux"
-	"github.com/hackedu/backend/v1/database"
-	"github.com/hackedu/backend/v1/school"
-	"github.com/hackedu/backend/v1/user"
+	"github.com/hackedu/hackedu/v1/database"
+	"github.com/hackedu/hackedu/v1/school"
+	"github.com/hackedu/hackedu/v1/user"
 )
 
 // CreateSchool creates a school from JSON in the request body.

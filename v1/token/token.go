@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/hackedu/backend/v1/user"
+	"github.com/hackedu/hackedu/v1/user"
 )
 
 // Token represents a JSON Web Token (JWT) as returned to the user.

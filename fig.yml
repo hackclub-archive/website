@@ -6,7 +6,7 @@ web:
   build: .
   command: gin
   volumes:
-    - .:/go/src/github.com/hackedu/backend
+    - .:/go/src/github.com/hackedu/hackedu
   ports:
     - "3000:3000"
   links:

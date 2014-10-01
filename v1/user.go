@@ -10,10 +10,10 @@ import (
 	"code.google.com/p/go.crypto/bcrypt"
 	"code.google.com/p/go.net/context"
 	"github.com/gorilla/mux"
-	"github.com/hackedu/backend/v1/database"
-	"github.com/hackedu/backend/v1/token"
-	"github.com/hackedu/backend/v1/user"
-	"github.com/hackedu/backend/httputil"
+	"github.com/hackedu/hackedu/v1/database"
+	"github.com/hackedu/hackedu/v1/token"
+	"github.com/hackedu/hackedu/v1/user"
+	"github.com/hackedu/hackedu/httputil"
 )
 
 // Authenticate checks the provided user information against the information
