@@ -1,6 +1,7 @@
 # hackedu [![Build Status](https://drone.io/github.com/hackedu/hackedu/status.png)](https://drone.io/github.com/hackedu/hackedu/latest) [![stories in ready](https://badge.waffle.io/hackedu/hackedu.png?label=ready&title=ready)](https://waffle.io/hackedu/hackedu) ![Analytics](https://ga-beacon.appspot.com/UA-47724303-2/hackedu/readme?pixel)
 
-It looks like you've stumbled upon hackEDU's hackedu.
+hackEDU helps students start programming clubs at their high schools. This is
+our website.
 
 ## Getting Started
 
