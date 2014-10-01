@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/hackedu/backend/httputil"
+	"github.com/hackedu/hackedu/httputil"
 )
 
 func ErrCreatingModel(err error) *httputil.HTTPError {

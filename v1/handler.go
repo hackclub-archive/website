@@ -13,9 +13,9 @@ import (
 	"code.google.com/p/go.net/context"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/hackedu/backend/v1/database"
-	"github.com/hackedu/backend/v1/user"
-	"github.com/hackedu/backend/httputil"
+	"github.com/hackedu/hackedu/v1/database"
+	"github.com/hackedu/hackedu/v1/user"
+	"github.com/hackedu/hackedu/httputil"
 )
 
 type Handler func(context.Context, http.ResponseWriter, *http.Request) error
