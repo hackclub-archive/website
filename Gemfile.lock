@@ -15,7 +15,10 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rake (10.3.2)
     sass (3.4.5)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -38,7 +41,9 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  rake
   sass
+  shotgun
   sinatra
   sinatra-assetpack
   sinatra-partial

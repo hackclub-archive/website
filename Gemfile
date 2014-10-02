@@ -4,8 +4,10 @@ gem 'sinatra'
 gem 'sinatra-assetpack'
 gem 'sinatra-partial'
 gem 'sass'
+gem 'rake'
 
 group :development do
+  gem 'shotgun'
   gem 'better_errors'
 end
 
