@@ -33,6 +33,11 @@ class HackEDU < Sinatra::Base
       '/js/app.js'
     ]
 
+    js :landing_map_jumbotron, [
+      'https://maps.googleapis.com/maps/api/js',
+      '/js/index.js'
+    ]
+
     css :application, [
       '/scss/foundation_and_overrides.css',
       '/scss/main.css'
