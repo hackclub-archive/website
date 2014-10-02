@@ -8,7 +8,7 @@ $include-html-global-classes: false;
   font-family: "Amaranth", "Open Sans", "Helvetica Neue",  sans-serif;
 }
 
-.angular-google-map-container {
+#landing-map-jumbotron {
   height: 200px;
 
   @media #{$medium-up} {
