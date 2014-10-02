@@ -37,7 +37,7 @@
 
     <!-- TODO: Replace with real sponsor images -->
     <div class="row logos">
-      <% sponsors.each do |sponsor| %>
+      <% @sponsors.each do |sponsor| %>
         <div class="small-6 medium-4 columns"
           ng-repeat="sponsor in sponsors">
           <img src="<%= sponsor[:logo] %>" alt="<%= sponsor[:name] %>">
