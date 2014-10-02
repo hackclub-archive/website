@@ -1,2 +1,2 @@
 require './hackedu'
-run HackEDU
+run HackEDU::Application
