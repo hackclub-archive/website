@@ -5,6 +5,7 @@ gem 'sinatra-assetpack', git: 'git://github.com/rstacruz/sinatra-assetpack'
 gem 'sinatra-partial'
 gem 'sass'
 gem 'rake'
+gem 'sequel'
 
 group :development do
   gem 'shotgun'

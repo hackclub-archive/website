@@ -5,3 +5,9 @@ web:
     - .:/usr/src/app/
   ports:
     - 9393:9393
+  links:
+    - db
+db:
+  image: postgres
+  ports:
+    - "5432"
