@@ -4,92 +4,52 @@ require 'sinatra/partial'
 require 'better_errors'
 require 'sass'
 
+require_relative 'routes/landing'
+
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
 end
 
-class HackEDU < Sinatra::Base
-  register Sinatra::AssetPack
-  register Sinatra::Partial
+module HackEDU
+  class Application < Sinatra::Base
+    register Sinatra::AssetPack
+    register Sinatra::Partial
 
-  set :partial_template_engine, :erb
+    register HackEDU::Routes::Landing
 
-  assets do
-    serve '/js', from: 'js'
-    serve '/scss', from: 'scss'
-    serve '/bower_components', from: 'bower_components'
+    set :partial_template_engine, :erb
 
-    js :modernizr, [
-      '/bower_components/modernizr/modernizr.js'
-    ]
+    assets do
+      serve '/js', from: 'js'
+      serve '/scss', from: 'scss'
+      serve '/bower_components', from: 'bower_components'
 
-    js :libs, [
-      '/bower_components/jquery/dist/jquery.js',
-      '/bower_components/foundation/js/foundation.js'
-    ]
+      js :modernizr, [
+        '/bower_components/modernizr/modernizr.js'
+      ]
 
-    js :application, [
-      '/js/app.js'
-    ]
+      js :libs, [
+        '/bower_components/jquery/dist/jquery.js',
+        '/bower_components/foundation/js/foundation.js'
+      ]
 
-    js :landing_map_jumbotron, [
-      'https://maps.googleapis.com/maps/api/js',
-      '/js/index.js'
-    ]
+      js :application, [
+        '/js/app.js'
+      ]
 
-    css :application, [
-      '/scss/foundation_and_overrides.css',
-      '/scss/main.css'
-    ]
+      js :landing_map_jumbotron, [
+        'https://maps.googleapis.com/maps/api/js',
+        '/js/index.js'
+      ]
 
-    js_compression :jsmin
-    css_compression :scss
-  end
+      css :application, [
+        '/scss/foundation_and_overrides.css',
+        '/scss/main.css'
+      ]
 
-  get '/' do
-    sponsors = [
-      {
-        name: 'Test',
-        logo: '/images/open_source.svg'
-      },
-      {
-        name: 'Test 2',
-        logo: '/images/open_source.svg'
-      },
-      {
-        name: 'Test 3',
-        logo: '/images/open_source.svg'
-      }
-    ]
-    erb :index, locals: { sponsors: sponsors }
-  end
-
-  get '/contact' do
-    erb :contact
-  end
-
-  get '/attributions' do
-    icons = [
-      {
-        name: 'Books',
-        url: 'http://thenounproject.com/term/books/21509/',
-        author: 'Piotrek Chuchla',
-        author_url: 'http://www.piotrekchuchla.com'
-      },
-      {
-        name: 'Community',
-        url: 'http://thenounproject.com/term/community/5040/',
-        author: 'Dmitry Baranovskiy',
-        author_url: 'http://dmitry.baranovskiy.com'
-      },
-      {
-        name: 'Open Source',
-        url: 'http://thenounproject.com/term/open-source/8233/',
-        author: 'Oriol Carbonell',
-        author_url: 'http://www.hiperic.com'
-      }
-    ]
-    erb :attributions, locals: { icons: icons }
+      js_compression :jsmin
+      css_compression :scss
+    end
   end
 end
