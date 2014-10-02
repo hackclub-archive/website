@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'sinatra-assetpack'
+gem 'sinatra-assetpack', git: 'git://github.com/rstacruz/sinatra-assetpack'
 gem 'sinatra-partial'
 gem 'sass'
 gem 'rake'
