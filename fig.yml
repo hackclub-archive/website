@@ -1,0 +1,7 @@
+web:
+  build: .
+  command: bundle exec shotgun -o 0.0.0.0
+  volumes:
+    - .:/usr/local/app
+  ports:
+    - 9393:9393
