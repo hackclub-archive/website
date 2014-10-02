@@ -3,7 +3,7 @@ module HackEDU
     module Landing
       def self.registered(app)
         app.get '/' do
-          sponsors = [
+          @sponsors = [
             {
               name: 'Test',
               logo: '/images/open_source.svg'
@@ -17,7 +17,7 @@ module HackEDU
               logo: '/images/open_source.svg'
             }
           ]
-          erb :index, locals: { sponsors: sponsors }
+          erb :index
         end
 
         app.get '/contact' do
@@ -25,7 +25,7 @@ module HackEDU
         end
 
         app.get '/attributions' do
-          icons = [
+          @icons = [
             {
               name: 'Books',
               url: 'http://thenounproject.com/term/books/21509/',
@@ -45,7 +45,7 @@ module HackEDU
               author_url: 'http://www.hiperic.com'
             }
           ]
-          erb :attributions, locals: { icons: icons }
+          erb :attributions
         end
       end
     end
