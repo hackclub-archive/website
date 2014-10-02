@@ -64,4 +64,8 @@ class HackEDU < Sinatra::Base
     ]
     erb :index, locals: { sponsors: sponsors }
   end
+
+  get '/contact' do
+    erb :contact
+  end
 end
