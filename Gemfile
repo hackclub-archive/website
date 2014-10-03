@@ -6,6 +6,7 @@ gem 'sinatra-partial'
 gem 'sass'
 gem 'rake'
 gem 'sequel'
+gem 'pg'
 
 group :development do
   gem 'shotgun'

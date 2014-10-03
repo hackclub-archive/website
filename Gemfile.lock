@@ -20,6 +20,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     jsmin (1.0.1)
+    pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -47,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  pg
   rake
   sass
   sequel
