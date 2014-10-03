@@ -14,7 +14,31 @@ After you've cloned the repo and gone into the project directory:
 
     $ fig up
 
+Now run the database migrations
+
+    $ fig run web bundle exec rake db:migrate
+
 And you're done! The app is now accessible at http://localhost:9393.
+
+#### Migrations
+
+##### Generate Migration
+
+Run the following rake task:
+
+    $ bundle exec rake generate:migration[migration_name]
+
+Example:
+
+    $ bundle exec rake generate:migration[create_applications]
+
+##### Run Migrations
+
+    $ bundle exec rake db:migrate
+
+##### Nuke Database (Drop All Tables)
+
+    $ bundle exec rake db:nuke
 
 ## License
 

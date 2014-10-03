@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'sinatra/partial'
+require 'sequel'
 require 'better_errors'
 require 'sass'
 
-require_relative 'routes/landing'
+require_relative 'routes/init'
+require_relative 'models/init'
 
 configure :development do
   use BetterErrors::Middleware
