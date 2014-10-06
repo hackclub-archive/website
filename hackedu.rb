@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'sinatra/partial'
-require 'sequel'
 require 'better_errors'
 require 'sass'
 
@@ -20,7 +19,7 @@ module HackEDU
 
     register HackEDU::Routes::Landing
 
-    set :partial_template_engine, :erb
+    set :partial_template_engine, :haml
 
     assets do
       serve '/js', from: 'js'

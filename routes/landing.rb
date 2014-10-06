@@ -1,3 +1,5 @@
+require 'haml'
+
 module HackEDU
   module Routes
     module Landing
@@ -17,11 +19,11 @@ module HackEDU
               logo: '/images/open_source.svg'
             }
           ]
-          erb :index
+          haml :index
         end
 
         app.get '/contact' do
-          erb :contact
+          haml :contact
         end
 
         app.get '/attributions' do
@@ -45,7 +47,7 @@ module HackEDU
               author_url: 'http://www.hiperic.com'
             }
           ]
-          erb :attributions
+          haml :attributions
         end
       end
     end
