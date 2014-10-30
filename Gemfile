@@ -17,4 +17,5 @@ group :development, :test do
   gem 'binding_of_caller'
 
   gem 'rspec-rails'
+  gem 'guard-rspec'
 end
