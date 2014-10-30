@@ -18,6 +18,7 @@ gem 'rails-assets-Hover'
 gem 'rails-assets-underscore'
 gem 'gmaps4rails'
 gem 'simple_form'
+gem 'pluggable_js'
 
 group :development, :test do
   gem 'spring'
@@ -26,6 +27,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'guard-livereload'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'capybara'

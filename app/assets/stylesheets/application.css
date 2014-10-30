@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require Hover
+ *= require foundation_and_overrides
+
  */
