@@ -32,3 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
 end
+
+group :production do
+  gem 'unicorn'
+end
