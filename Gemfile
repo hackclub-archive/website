@@ -24,6 +24,7 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener'
 
   gem 'rspec-rails'
   gem 'guard-rspec'
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'faker'
+  gem 'email_spec'
 end
 
 group :production do
