@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe ClubApplicationMailer, type: :mailer do
   include EmailSpec::Helpers
   include EmailSpec::Matchers
-  include ActionMailer::MailHelper 
 
   shared_examples 'a club application email' do
     it 'contains all of the fields in the application' do
       application.attributes.each_pair do |name, field|
         unless ['id', 'created_at', 'updated_at'].include? name
-          expect(subject).to have_body_text(/#{block_format field}/) 
+          expect(subject).to have_body_text(/#{field}/) 
         end
       end
     end
