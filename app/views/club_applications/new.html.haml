@@ -1,0 +1,47 @@
+= provide :title, 'Apply'
+
+.row
+  %h1 Apply
+
+.row
+  = simple_form_for @application, url: apply_path do |f|
+    %fieldset
+      %legend Information
+      .row
+        .small-6.columns
+          = f.input :first_name, placeholder: 'Zaphod'
+        .small-6.columns
+          = f.input :last_name, placeholder: 'Beeblebrox'
+      .row
+        .columns
+          = f.input :email, placeholder: 'zaphod@beeblebrox.com'
+      .row
+        .large-6.columns
+          .row.collapse
+            %label GitHub
+            .small-4.columns
+              %span.prefix github.com/
+            .small-8.columns
+              = f.input :github, label: false, placeholder: 'zaphod'
+        .large-6.columns
+          .row.collapse
+            %label Twitter
+            .small-4.columns
+              %span.prefix twitter.com/
+            .small-8.columns
+              = f.input :twitter, label: false, placeholder: 'zaphod'
+    %fieldset
+      %legend Application
+      .row
+        .columns
+          = f.input :high_school
+      .row
+        .columns
+          = f.input :interesting_project, label: 'Please tell us about an interesting project, preferably outside of class, that you created or worked on.'
+      .row
+        .columns
+          = f.input :system_hacked, label: 'Please tell us about the time you most successfully hacked some (non-computer) system to your advantage.'
+      .row
+        .columns
+          = f.input :steps_taken, label: 'What steps have you taken so far in starting your club?'
+    = f.button :submit, 'Submit Application'
