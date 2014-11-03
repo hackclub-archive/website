@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe ClubApplicationsController, type: :controller do
   describe 'POST #create' do
-    let(:params) { FactoryGirl.attributes_for(:club_application) }
+    let(:params) { attributes_for(:club_application) }
     let(:invalid_params) {
-      FactoryGirl.attributes_for(:club_application_with_no_high_school) }
+      attributes_for(:club_application_with_no_high_school) }
 
     context 'with valid fields' do
       it 'saves the new application to the database' do
