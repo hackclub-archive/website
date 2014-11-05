@@ -77,7 +77,6 @@ $include-html-global-classes: false;
     background-color: #fff;
     color: scale-color($hackedu-green, $lightness: -10%);
     font-size: rem-calc(20);
-    font-weight: bold;
 
     @media #{$medium-up} {
       font-size: rem-calc(24);
