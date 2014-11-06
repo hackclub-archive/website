@@ -1,2 +1,0 @@
-development: postgres://docker:docker@$DB_1_PORT_5432_TCP_ADDR/docker
-production: $DATABASE_URL
