@@ -21,7 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: <%= ENV['DATABASE_ADAPTER'].presence || 'postgres' %>
+  adapter: <%= ENV['DATABASE_ADAPTER'].presence || 'postgresql' %>
   encoding: <%= ENV['DATABASE_ENCODING'].presence || 'utf8' %>
   reconnect: <%= ENV['DATABASE_RECONNECT'].presence || 'true' %>
   database: <%= ENV['DATABASE_NAME'].presence || 'hackedu' %>
