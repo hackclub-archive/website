@@ -1,0 +1,17 @@
+.row
+  - if flash[:success]
+    .alert-box.success{'data-alert' => ''}
+      = flash[:success]
+      %a.close{href: '#'} &times;
+  - if flash[:warning]
+    .alert-box.warning{'data-alert' => ''}
+      = flash[:warning]
+      %a.close{href: '#'} &times;
+  - if flash[:info]
+    .alert-box.info{'data-alert' => ''}
+      = flash[:info]
+      %a.close{href: '#'} &times;
+  - if flash[:alert]
+    .alert-box.alert{'data-alert' => ''}
+      = flash[:alert]
+      %a.close{href: '#'} &times;

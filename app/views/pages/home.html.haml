@@ -1,0 +1,47 @@
+#home-map-jumbotron
+.introduction.main-section
+  .row
+    %h1
+      hackEDU is a nonprofit organization that helps high school students
+      start and lead programming clubs at their schools.
+.pillars.main-section
+  .row
+    %h1 What We Do
+    .medium-4.columns
+      = image_tag 'books.svg'
+      %h1 Resources
+      %p
+        hackEDU provides open-ended curriculum, mentors, and any resources
+        needed to students starting and running clubs.
+    .medium-4.columns
+      = image_tag 'community.svg'
+      %h1 Community
+      %p
+        We care about building a global community of students creating
+        peer-to-peer learning environments.
+    .medium-4.columns
+      = image_tag 'open_source.svg'
+      %h1 Open Source
+      %p
+        We're a new type of startup. Everything from our website to our
+        financials is open source under a permissive license.
+-#.sponsors.main-section
+  -#.row
+    -#%h1 Sponsors
+    -#.row.logos
+      -#/ TODO: Replace with real sponsor images
+      -#-#- @sponsors.each do |sponsor|
+        -#-#.small-6.medium-4.columns
+          -#-#%img{alt: sponsor[:name], src: sponsor[:logo]}/
+.call-to-action.main-section
+  .row
+    %h1 Get Involved
+    = link_to 'Start a Hack Club', apply_path, class: 'button outline-outward'
+.rackspace
+  .row
+    %p
+      hackEDU is generously hosted by
+      = link_to 'Rackspace', 'https://www.rackspace.com/'
+      %span.right
+        = link_to 'GitHub', 'https://github.com/hackedu'
+        = link_to 'Attributions', attributions_path
