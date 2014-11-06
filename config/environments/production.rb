@@ -80,4 +80,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.smtp_settings = {
+    address: Figaro.env.SMTP_ADDRESS,
+    port: Figaro.env.SMTP_PORT,
+    authentication: :plain,
+    user_name: Figaro.env.SMTP_USERNAME,
+    password: Figaro.env.SMTP_PASSWORD,
+    domain: Figaro.env.SMTP_DOMAIN,
+    enable_starttls_auto: true
+  }
 end

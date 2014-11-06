@@ -2,6 +2,18 @@
 
 You've stumbled upon hackEDU's website.
 
+## Deployment
+
+The following variables need to be set in `config/application.yml` or the
+environment for the application to work:
+
+* SECRET_KEY_BASE
+* SMTP_ADDRESS
+* SMTP_PORT
+* SMTP_USERNAME
+* SMTP_PASSWORD
+* SMTP_DOMAIN
+
 ## License
 
 The MIT License (MIT)
