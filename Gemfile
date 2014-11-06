@@ -19,6 +19,7 @@ gem 'rails-assets-underscore'
 gem 'gmaps4rails'
 gem 'simple_form'
 gem 'pluggable_js'
+gem 'figaro'
 
 group :development, :test do
   gem 'spring'
