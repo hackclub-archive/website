@@ -21,5 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: <%= ENV['DATABASE_ADAPTER'].presence || 'postgres' %>
+  encoding: <%= ENV['DATABASE_ENCODING'].presence || 'utf8' %>
+  reconnect: <%= ENV['DATABASE_RECONNECT'].presence || 'true' %>
+  database: <%= ENV['DATABASE_NAME'].presence || 'hackedu' %>
+  pool: <%= ENV['DATABASE_POOL'].presence || '5' %>
+  username: <%= ENV['DATABASE_USERNAME'].presence %>
+  password: <%= ENV['DATABASE_PASSWORD'].presence %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>

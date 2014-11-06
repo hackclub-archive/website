@@ -119,6 +119,7 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    pg (0.17.1)
     pluggable_js (2.0.3)
       coffee-rails
       jquery-rails
@@ -248,6 +249,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  pg
   pluggable_js
   rails (= 4.1.1)
   rails-assets-Hover
