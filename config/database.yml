@@ -1,0 +1,32 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  adapter: <%= ENV['DATABASE_ADAPTER'].presence || 'postgresql' %>
+  encoding: <%= ENV['DATABASE_ENCODING'].presence || 'utf8' %>
+  reconnect: <%= ENV['DATABASE_RECONNECT'].presence || 'true' %>
+  database: <%= ENV['DATABASE_NAME'].presence || 'hackedu' %>
+  pool: <%= ENV['DATABASE_POOL'].presence || '5' %>
+  username: <%= ENV['DATABASE_USERNAME'].presence %>
+  password: <%= ENV['DATABASE_PASSWORD'].presence %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
