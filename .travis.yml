@@ -9,3 +9,5 @@ rvm:
   - ruby-head
   - jruby-head
   - ree
+env:
+  - SECRET_KEY_BASE=ASECRETKEY
