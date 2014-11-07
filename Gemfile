@@ -19,6 +19,7 @@ gem 'gmaps4rails'
 gem 'simple_form'
 gem 'pluggable_js'
 gem 'figaro'
+gem 'validates_email_format_of'
 
 group :development, :test do
   gem 'sqlite3'
