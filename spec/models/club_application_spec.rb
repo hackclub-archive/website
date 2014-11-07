@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'validates_email_format_of/rspec_matcher'
 
 RSpec.describe ClubApplication, type: :model do
   let(:club_application) { create(:club_application) }
@@ -22,6 +23,9 @@ RSpec.describe ClubApplication, type: :model do
   it { should validate_presence_of :interesting_project }
   it { should validate_presence_of :system_hacked }
   it { should validate_presence_of :steps_taken }
+
+  it { should validate_email_format_of(:email)
+                .with_message('not a valid email') }
 
   it { create(:club_application); should validate_uniqueness_of :email }
 
