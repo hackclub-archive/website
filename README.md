@@ -2,6 +2,20 @@
 
 You've stumbled upon hackEDU's website.
 
+## Getting Started
+
+After cloning the repo:
+
+    $ bundle install
+
+Run migrations:
+
+    $ rake db:migrate
+
+Start development server:
+
+    $ rails serve
+
 ## Deployment
 
 The following variables need to be set in `config/application.yml` or the
