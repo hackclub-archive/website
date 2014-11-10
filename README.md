@@ -16,6 +16,8 @@ Start development server:
 
     $ rails serve
 
+The website should now be running on your computer at http://localhost:3000.
+
 ## Deployment
 
 The following variables need to be set in `config/application.yml` or the
