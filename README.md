@@ -4,31 +4,43 @@ You've stumbled upon hackEDU's website.
 
 ## Getting Started
 
+### Prerequisites
+
+*  Ruby 2.0+ with Rails
+
+### Install dependencies
+
 After cloning the repo:
 
     $ bundle install
 
-Run migrations:
+### Database migrations
 
     $ rake db:migrate
 
-Start development server:
+### Secrets
+
+Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro).
+For Grasp to run on your system, you must create `config/application.yml`
+containing the following keys and corresponding values.
+
+* `SECRET_KEY_BASE`
+
+#### Production Secrets
+
+The following secrets are also required for production.
+
+* `SMTP_ADDRESS`
+* `SMTP_PORT`
+* `SMTP_USERNAME`
+* `SMTP_PASSWORD`
+* `SMTP_DOMAIN`
+
+### Start server
 
     $ rails serve
 
 The website should now be running on your computer at http://localhost:3000.
-
-## Deployment
-
-The following variables need to be set in `config/application.yml` or the
-environment for the application to work:
-
-* SECRET_KEY_BASE
-* SMTP_ADDRESS
-* SMTP_PORT
-* SMTP_USERNAME
-* SMTP_PASSWORD
-* SMTP_DOMAIN
 
 ## License
 
