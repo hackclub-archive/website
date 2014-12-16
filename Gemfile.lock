@@ -58,6 +58,7 @@ GEM
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
+    enum_help (0.0.12)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   email_spec
+  enum_help
   factory_girl_rails
   faker
   figaro
