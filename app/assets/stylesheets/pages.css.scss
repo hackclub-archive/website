@@ -55,24 +55,6 @@ $include-html-global-classes: false;
   }
 }
 
-.pillars {
-  background-color: $hackedu-purple;
-
-  img {
-    height: 125px;
-    margin-bottom: 15px;
-  }
-
-  h1 {
-    margin-bottom: 75px;
-  }
-
-  .columns h1 {
-    font-size: rem-calc(28);
-    margin-bottom: 0;
-  }
-}
-
 .call-to-action {
   background-color: $hackedu-green;
 
