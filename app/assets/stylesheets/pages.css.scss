@@ -24,10 +24,6 @@ $include-html-global-classes: false;
   text-align: center;
   color: #fff;
 
-  @media #{$medium-up} {
-    padding: 150px 0 150px 0;
-  }
-
   h1 {
     font-weight: bold;
     color: #fff;
@@ -36,10 +32,27 @@ $include-html-global-classes: false;
   p {
     font-size: rem-calc(20);
   }
+
+  @media #{$medium-up} {
+    padding: 150px 0 150px 0;
+  }
 }
 
 .introduction {
   background-color: $hackedu-blue;
+  padding: 25px 0 25px 0;
+
+  h1 {
+    font-size: rem-calc(20);
+  }
+
+  @media #{$medium-up} {
+    padding: 75px 0 75px 0;
+
+    h1 {
+      font-size: rem-calc(32);
+    }
+  }
 }
 
 .pillars {
