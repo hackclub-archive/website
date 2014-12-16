@@ -16,6 +16,9 @@
         .columns
           = f.input :email, placeholder: 'zaphod@beeblebrox.com'
       .row
+        .columns
+          = f.input :high_school
+      .row
         .large-6.columns
           .row.collapse
             %label GitHub
@@ -32,9 +35,6 @@
               = f.input :twitter, label: false, placeholder: 'zaphod'
     %fieldset
       %legend Application
-      .row
-        .columns
-          = f.input :high_school
       .row
         .columns
           = f.input :interesting_project, label: 'Please tell us about an interesting project, preferably outside of class, that you created or worked on.'
