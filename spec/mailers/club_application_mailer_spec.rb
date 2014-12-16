@@ -7,8 +7,13 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
   shared_examples 'a club application email' do
     it 'contains all of the fields in the application' do
       application.attributes.each_pair do |name, field|
-        unless ['id', 'created_at', 'updated_at'].include? name
+        unless ['id', 'created_at', 'updated_at', 'year'].include? name
           expect(subject).to have_body_text(/#{field}/) 
+        end
+
+        if name == 'year' # check for match for year's corresponding string
+          year_text = ClubApplication.years.key(field)
+          expect(subject).to have_body_text(/#{year_text}/)
         end
       end
     end
