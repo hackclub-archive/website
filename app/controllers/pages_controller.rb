@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
   def home
+    @clubs_hash = Gmaps4rails.build_markers(Club.all) do |club, marker|
+      marker.lat club.latitude
+      marker.lng club.longitude
+    end
   end
 
   def contact
