@@ -30,3 +30,5 @@
       %span.right
         = link_to 'GitHub', 'https://github.com/hackedu'
         = link_to 'Attributions', attributions_path
+%script
+  markersJSON = #{raw @clubs_hash.to_json}
