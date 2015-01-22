@@ -4,3 +4,4 @@
 /log/*.log
 /tmp
 /config/application.yml
+/.git
