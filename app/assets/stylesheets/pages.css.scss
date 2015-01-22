@@ -47,7 +47,7 @@ $include-html-global-classes: false;
 }
 
 .introduction {
-  background-image: image-url("group_photo.jpg");
+  background-image: asset_url("group_photo.jpg");
   background-size: cover;
   padding: 25px 0 25px 0;
 
