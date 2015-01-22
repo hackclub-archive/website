@@ -8,6 +8,8 @@ COPY Gemfile.lock /usr/src/app/
 
 RUN bundle install --system
 
+ENV RAILS_ENV production
+
 COPY . /usr/src/app/
 
 RUN bundle exec rake assets:precompile
