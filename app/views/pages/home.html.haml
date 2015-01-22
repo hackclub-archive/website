@@ -5,7 +5,6 @@
         <b>hackEDU</b> empowers high school students <b>to build things they
         care about</b> through <b>creating</b>, <b>connecting</b>, and growing
         <b>student-run</b> coding clubs in <b>high schools</b>.
-#home-map-jumbotron
 -#.sponsors.main-section
   -#.row
     -#%h1 Sponsors
@@ -14,10 +13,15 @@
       -#-#- @sponsors.each do |sponsor|
         -#-#.small-6.medium-4.columns
           -#-#%img{alt: sponsor[:name], src: sponsor[:logo]}/
-.call-to-action.main-section
+.join-us.small-section
   .row
-    %h1 Get Involved
-    = link_to 'Start a Hack Club', apply_path, class: 'button outline-outward'
+    .small-12.medium-8.medium-centered.columns
+      .row
+        .small-12.medium-6.columns
+          %h1 Join Us
+        .small-12.medium-6.columns
+          = link_to 'Start a Hack Club', apply_path, class: 'button outline-outward'
+#home-map-jumbotron
 .rackspace
   .row
     %p

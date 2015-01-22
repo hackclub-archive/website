@@ -37,6 +37,15 @@ $include-html-global-classes: false;
   }
 }
 
+.small-section {
+  @extend .main-section;
+  padding: 20px 0 20px 0;
+
+  @media #{$medium-up} {
+    padding: 50px 0 50px 0;
+  }
+}
+
 .introduction {
   background-image: image-url("group_photo.jpg");
   background-size: cover;
@@ -68,16 +77,16 @@ $include-html-global-classes: false;
   }
 }
 
-.call-to-action {
+.join-us {
   background-color: $hackedu-green;
 
   h1 {
     font-size: rem-calc(48);
-    font-weight: bold;
     margin-bottom: 15px;
 
     @media #{$medium-up} {
-      font-size: rem-calc(64);
+      font-weight: normal;
+      font-size: rem-calc(58);
     }
   }
 
