@@ -25,7 +25,6 @@ $include-html-global-classes: false;
   color: #fff;
 
   h1 {
-    font-weight: bold;
     color: #fff;
   }
 
@@ -39,7 +38,8 @@ $include-html-global-classes: false;
 }
 
 .introduction {
-  background-color: $hackedu-blue;
+  background-image: image-url("group_photo.jpg");
+  background-size: cover;
   padding: 25px 0 25px 0;
 
   h1 {
@@ -51,6 +51,19 @@ $include-html-global-classes: false;
 
     h1 {
       font-size: rem-calc(32);
+    }
+  }
+
+  @media #{$large-up} {
+    height: 500px;
+    line-height: 500px;
+
+    .vertical-align {
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: rem-calc(38);
     }
   }
 }
