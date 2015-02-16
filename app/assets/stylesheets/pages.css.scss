@@ -4,7 +4,13 @@ $include-html-global-classes: false;
 @import "foundation/components/global";
 
 .title {
+  font-family: "Open Sans", "Helvetica Neue",  sans-serif;
+}
+
+.logo-h {
   font-family: "Amaranth", "Open Sans", "Helvetica Neue",  sans-serif;
+  font-size: 110%;
+  font-weight: bold;
 }
 
 #home-map-jumbotron {
