@@ -38,19 +38,4 @@ ActiveRecord::Schema.define(version: 20150122052640) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "email",           null: false
-    t.string   "github"
-    t.string   "twitter"
-    t.string   "password_digest", null: false
-    t.string   "remember_token",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
 end
