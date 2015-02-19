@@ -9,6 +9,9 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def sponsor
+  end
+
   def attributions
     @icons = [
       {
