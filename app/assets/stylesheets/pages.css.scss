@@ -34,6 +34,9 @@ $include-html-global-classes: false;
     color: #fff;
   }
 
+  .large-paragraph {
+    font-size: 1.6875rem;
+  }
   p {
     font-size: rem-calc(20);
   }
@@ -80,6 +83,22 @@ $include-html-global-classes: false;
     h1 {
       font-size: rem-calc(38);
     }
+  }
+}
+
+.home-page-description {
+  background-color: $hackedu-blue;
+  text-align: left;
+  h3,h4 {
+    color: white;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  a:hover {
+    text-decoration: underline; 
   }
 }
 
