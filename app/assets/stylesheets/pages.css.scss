@@ -83,6 +83,22 @@ $include-html-global-classes: false;
   }
 }
 
+.home-page-description {
+  background-color: $hackedu-blue;
+  text-align: left;
+  h3,h4 {
+    color: white;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  a:hover {
+    text-decoration: underline; 
+  }
+}
+
 .join-us {
   background-color: $hackedu-green;
 
