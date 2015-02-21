@@ -83,6 +83,20 @@ $include-html-global-classes: false;
   }
 }
 
+.description {
+  background-color: $hackedu-blue;
+  text-align: left;
+  color: white;
+
+  h3 {
+    color: white;
+  }
+
+  .header {
+    font-size: rem-calc(28);
+  }
+}
+
 .join-us {
   background-color: $hackedu-green;
 
@@ -159,4 +173,3 @@ $include-html-global-classes: false;
   max-height: 300px;
   border-radius: 8px;
 }
-
