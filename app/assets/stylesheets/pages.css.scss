@@ -126,10 +126,18 @@ $include-html-global-classes: false;
 }
 
 .sponsors {
-  background-color: $hackedu-orange;
+  background-color: $hackedu-white;
 
   .logos {
-    margin-top: 100px;
+    margin-top: 80px;
+
+    img {
+      margin-bottom: 2em;
+    }
+  }
+
+  h1 {
+    color: $hackedu-black;
   }
 
   p {

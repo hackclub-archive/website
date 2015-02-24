@@ -5,14 +5,17 @@
         <b><span class="logo-h">h</span>ackEDU</b> empowers high school students <b>to build things they
         care about</b> through <b>creating</b>, <b>connecting</b>, and growing
         <b>student-run</b> coding clubs in <b>high schools</b>.
--#.sponsors.main-section
-  -#.row
-    -#%h1 Sponsors
-    -#.row.logos
-      -#/ TODO: Replace with real sponsor images
-      -#-#- @sponsors.each do |sponsor|
-        -#-#.small-6.medium-4.columns
-          -#-#%img{alt: sponsor[:name], src: sponsor[:logo]}/
+.main-section.sponsors
+  %h1 Sponsors
+  .row.logos
+    .medium-12.large-6.columns
+      %img{alt: 'codehs', src: '/assets/codehs.png'}/
+      %img{alt: 'hackreactor', src: '/assets/hackreactor.png'}/
+      %img{alt: 'workflowy', src: '/assets/workflowy.png'}/
+    .medium-12.large-6.columns
+      %img{alt: 'makeschool', src: '/assets/makeschool.svg'}/
+      %img{alt: 'nitrousio', src: '/assets/nitrousio.svg'}/
+      %img{alt: 'rackspace', src: '/assets/rackspace.svg'}/
 .description.small-section
   .row
     .small-11.small-centered.columns
