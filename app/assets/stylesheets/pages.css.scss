@@ -39,7 +39,7 @@ $include-html-global-classes: false;
   }
 
   @media #{$medium-up} {
-    padding: 150px 0 150px 0;
+    padding: 50px 0 50px 0;
   }
 }
 
@@ -126,10 +126,18 @@ $include-html-global-classes: false;
 }
 
 .sponsors {
-  background-color: $hackedu-orange;
+  background-color: $hackedu-white;
 
   .logos {
-    margin-top: 100px;
+    margin-top: 30px;
+
+    img {
+      margin-bottom: 2em;
+    }
+  }
+
+  h1 {
+    color: $hackedu-black;
   }
 
   p {
@@ -140,7 +148,7 @@ $include-html-global-classes: false;
     height: 50px;
 
     @media #{$medium-up} {
-      height: 100px;
+      height: 80px;
     }
   }
 }

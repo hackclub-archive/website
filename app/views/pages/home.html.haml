@@ -5,14 +5,6 @@
         <b><span class="logo-h">h</span>ackEDU</b> empowers high school students <b>to build things they
         care about</b> through <b>creating</b>, <b>connecting</b>, and growing
         <b>student-run</b> coding clubs in <b>high schools</b>.
--#.sponsors.main-section
-  -#.row
-    -#%h1 Sponsors
-    -#.row.logos
-      -#/ TODO: Replace with real sponsor images
-      -#-#- @sponsors.each do |sponsor|
-        -#-#.small-6.medium-4.columns
-          -#-#%img{alt: sponsor[:name], src: sponsor[:logo]}/
 .description.small-section
   .row
     .small-11.small-centered.columns
@@ -45,6 +37,16 @@
         .small-12.medium-6.columns
           = link_to 'Start a Hack Club', apply_path, class: 'button outline-outward'
 #home-map-jumbotron
+.main-section.sponsors
+  %h1 Sponsors
+  .row.logos
+    %ul.small-block-grid-1.medium-block-grid-2
+      %li= image_tag 'sponsors/codehs.png', alt: 'CodeHS'
+      %li= image_tag 'sponsors/hackreactor.png', alt: 'Hack Reactor'
+      %li= image_tag 'sponsors/workflowy.png', alt: 'Workflowy'
+      %li= image_tag 'sponsors/makeschool.svg', alt: 'Make School'
+      %li= image_tag 'sponsors/nitrousio.svg', alt: 'Nitrous.IO'
+      %li= image_tag 'sponsors/rackspace.svg', alt: 'Rackspace'
 .rackspace
   .row
     %p
