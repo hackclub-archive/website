@@ -171,6 +171,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.2.2)
     ref (1.0.5)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-assets-Hover
   rails-assets-underscore
+  redcarpet
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

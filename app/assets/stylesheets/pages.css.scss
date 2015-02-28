@@ -181,3 +181,40 @@ $include-html-global-classes: false;
   max-height: 300px;
   border-radius: 8px;
 }
+
+.pricing-table {
+  .invalid-item {
+    text-decoration: line-through;
+    color: #aeadad;
+  }
+
+  .price {
+    background-color: #FAFAFA;
+  }
+
+  .title {
+    color: white;
+    font-size: 150%;
+    background-color: rgb(212, 89, 92);
+  }
+}
+
+.sponsorship {
+  padding: 1rem;
+}
+
+.small-11.small-centered.columns {
+  padding-top: 1.6rem;
+}
+
+.h3 {
+  font-size: 1.6875rem;
+}
+
+#sponsor-clubs-map {
+  height: 100px;
+
+  @media #{$large-up} {
+    height: 250px;
+  }
+}
