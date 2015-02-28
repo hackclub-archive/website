@@ -6,7 +6,6 @@
         lat: 39
         lng: -101
       zoom: 4
-      scrollwheel: false
     internal:
       id: 'home-map-jumbotron'
     ->
@@ -20,7 +19,6 @@
         lat: 39
         lng: -101
       zoom: 3
-      scrollwheel: false
     internal:
       id: 'sponsor-clubs-map'
     ->
