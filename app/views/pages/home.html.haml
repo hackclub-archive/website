@@ -47,6 +47,37 @@
       %li= image_tag 'sponsors/makeschool.svg', alt: 'Make School'
       %li= image_tag 'sponsors/nitrousio.svg', alt: 'Nitrous.IO'
       %li= image_tag 'sponsors/rackspace.svg', alt: 'Rackspace'
+.email-form.small-section
+  .row
+    %h1 Subscribe
+    %p Get updates or get involved!
+    .small-11.medium-6.small-centered.columns
+      / MailChimp Signup Form
+      #mc_embed_signup
+      %form#mc-embedded-subscribe-form.validate{action: "//hackedu.us10.list-manage.com/subscribe/post?u=738aabcd5284a4d3df761a981&id=4c8d1b3833",
+                                                method: "post",
+                                                  name: "mc-embedded-subscribe-form",
+                                            novalidate: "",
+                                                target: "_blank"}
+        #mc_embed_signup_scroll
+          .mc-field-group
+            %input#mce-EMAIL.required.email{name: "EMAIL",
+                                            type: "email",
+                                           value: "",
+                                     placeholder: "Email Address"}
+          #mce-responses.clear
+            #mce-error-response.response{style: "display: none"}
+            #mce-success-response.response{style: "display: none"}
+          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          %div{style: "position: absolute; left: -5000px;"}
+            %input{name: "b_738aabcd5284a4d3df761a981_4c8d1b3833",
+               tabindex: "-1",
+                   type: "text",
+                  value: ""}
+          .clear
+            %input#mc-embedded-subscribe.button.outline-outward{name: "subscribe",
+                                                                type: "submit",
+                                                               value: "Submit"}
 .rackspace
   .row
     %p
