@@ -9,7 +9,6 @@ $include-html-global-classes: false;
 
 .logo-h {
   font-family: "Amaranth", "Open Sans", "Helvetica Neue",  sans-serif;
-  font-size: 110%;
   font-weight: bold;
 }
 
@@ -169,6 +168,10 @@ $include-html-global-classes: false;
     a {
       color: scale-color($text-on-black, $lightness: 10%);
       text-decoration: underline;
+    }
+
+    .logo-h {
+      font-weight: lighter;
     }
   }
 }
