@@ -41,13 +41,19 @@
   %h1 Sponsors
   .row.logos
     .medium-12.large-6.columns
-      %img{alt: 'codehs', src: '/assets/codehs.png'}/
-      %img{alt: 'hackreactor', src: '/assets/hackreactor.png'}/
-      %img{alt: 'workflowy', src: '/assets/workflowy.png'}/
+      = link_to "https://codehs.com/" do
+        %img{alt: 'codehs', src: '/assets/codehs.png'}
+      = link_to "http://www.hackreactor.com/" do
+        %img{alt: 'hack_reactor', src: '/assets/hack_reactor.png'}
+      = link_to "https://workflowy.com/" do
+        %img{alt: 'workflowy', src: '/assets/workflowy.png'}
     .medium-12.large-6.columns
-      %img{alt: 'makeschool', src: '/assets/makeschool.svg'}/
-      %img{alt: 'nitrousio', src: '/assets/nitrousio.svg'}/
-      %img{alt: 'rackspace', src: '/assets/rackspace.svg'}/
+      = link_to "https://www.makeschool.com" do
+        %img{alt: 'make_school', src: '/assets/make_school.svg'}
+      = link_to "https://www.nitrous.io/" do
+        %img{alt: 'nitrousio', src: '/assets/nitrousio.svg'}
+      = link_to "http://www.rackspace.com/" do
+        %img{alt: 'rackspace', src: '/assets/rackspace.svg'}
 .rackspace
   .row
     %p
