@@ -99,10 +99,17 @@
         = image_tag('first_code_academy.png')
 .rackspace
   .row
-    %p
-      <span class="logo-h">h</span>ackEDU is generously hosted by
-      = link_to 'Rackspace', 'https://www.rackspace.com/'
-      %span.right
+    .small-12.large-4.columns
+      %p
+        We can be reached anytime at #{mail_to 'team@hackedu.us'} or 
+        at <a href="https://webchat.freenode.net/?channels=hackedu">#hackEDU</a>
+        on freenode
+    .small-12.large-4.columns
+      %p
+        <span class="logo-h">h</span>ackEDU is generously hosted by
+        = link_to 'Rackspace', 'https://www.rackspace.com/'
+    .small-12.large-4.columns
+      %p
         = link_to 'GitHub', 'https://github.com/hackedu'
         = link_to 'Attributions', attributions_path
 %script
