@@ -156,6 +156,10 @@ $include-html-global-classes: false;
 .email-form {
   background: $hackedu-orange;
 
+  input {
+    text-align: center;
+  }
+
   input[type='submit'] {
     font-size: rem-calc(22);
     color: $hackedu-orange;
