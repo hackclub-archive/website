@@ -39,14 +39,60 @@
 #home-map-jumbotron
 .main-section.sponsors
   %h1 Sponsors
-  .row.logos
-    %ul.small-block-grid-1.medium-block-grid-2
-      %li= image_tag 'sponsors/codehs.png', alt: 'CodeHS'
-      %li= image_tag 'sponsors/hackreactor.png', alt: 'Hack Reactor'
-      %li= image_tag 'sponsors/workflowy.png', alt: 'Workflowy'
-      %li= image_tag 'sponsors/makeschool.svg', alt: 'Make School'
-      %li= image_tag 'sponsors/nitrousio.svg', alt: 'Nitrous.IO'
-      %li= image_tag 'sponsors/rackspace.svg', alt: 'Rackspace'
+  .show-for-small-only
+    .row.logos
+      .small-6.columns
+        = link_to "https://taplytics.com/" do
+          %img{alt: 'Taplytics', src: '/assets/taplytics.svg'}
+        = link_to "http://www.hackreactor.com/" do
+          %img{alt: 'Hack Reactor', src: '/assets/hack_reactor.png'}
+        = link_to "https://workflowy.com/" do
+          %img{alt: 'Workflowy', src: '/assets/workflowy.png'}
+        = link_to "http://firstcodeacademy.com/" do
+          %img{alt: 'First Code Academy', src: '/assets/first_code_academy.png'}
+      .small-6.columns
+        = link_to "https://www.makeschool.com" do
+          %img{alt: 'Make School', src: '/assets/make_school.svg'}
+        = link_to "https://www.nitrous.io/" do
+          %img{alt: 'nitrous.io', src: '/assets/nitrousio.svg'}
+        = link_to "http://www.rackspace.com/" do
+          %img{alt: 'Rackspace', src: '/assets/rackspace.svg'}
+        = link_to "https://codehs.com/" do
+          %img{alt: 'CodeHS', src: '/assets/codehs.png'}
+      .small-6.small-centered.columns
+        = link_to "https://sourcegraph.com/" do
+          %img{alt: 'Sourcegraph', src: '/assets/sourcegraph.png'}
+  .show-for-medium-up
+    .row.logos
+      .medium-4.columns
+        = link_to "https://taplytics.com/" do
+          %img{alt: 'Taplytics', src: '/assets/taplytics.svg'}
+      .medium-4.columns
+        = link_to "http://www.hackreactor.com/" do
+          %img{alt: 'Hack Reactor', src: '/assets/hack_reactor.png'}
+      .medium-4.columns
+        = link_to "https://workflowy.com/" do
+          %img{alt: 'Workflowy', src: '/assets/workflowy.png'}
+    .row.logos
+      .medium-4.columns
+        = link_to "https://sourcegraph.com/" do
+          %img{alt: 'Sourcegraph', src: '/assets/sourcegraph.png'}
+      .medium-4.columns
+        = link_to "https://www.makeschool.com" do
+          %img{alt: 'Make School', src: '/assets/make_school.svg'}
+      .medium-4.columns
+        = link_to "https://www.nitrous.io/" do
+          %img{alt: 'nitrous.io', src: '/assets/nitrousio.svg'}
+    .row.logos
+      .medium-4.columns
+        = link_to "http://www.rackspace.com/" do
+          %img{alt: 'Rackspace', src: '/assets/rackspace.svg'}
+      .medium-4.columns
+        = link_to "https://codehs.com/" do
+          %img{alt: 'CodeHS', src: '/assets/codehs.png'}
+      .medium-4.columns
+        = link_to "http://firstcodeacademy.com/" do
+          %img{alt: 'First Code Academy', src: '/assets/first_code_academy.png'}
 .email-form.small-section
   .row
     %h1 Stay in the loop
