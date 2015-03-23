@@ -128,8 +128,13 @@ $include-html-global-classes: false;
 .sponsors {
   background-color: $hackedu-white;
 
-  .columns {
+  .logos {
     margin-top: 30px;
+
+    img {
+      margin-bottom: 2em;
+      height: auto;
+    }
   }
 
   h1 {
@@ -141,10 +146,10 @@ $include-html-global-classes: false;
   }
 
   img {
-    margin-bottom: 2em;
+    height: 50px;
 
     @media #{$medium-up} {
-      width: 75%;
+      height: 80px;
     }
   }
 }
