@@ -23,8 +23,8 @@ After cloning the repo:
 ### Secrets
 
 Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro).
-For Grasp to run on your system, you must create `config/application.yml`
-containing the following keys and corresponding values.
+Create `config/application.yml` containing the following keys and 
+corresponding values.
 
 * `SECRET_KEY_BASE`
 
