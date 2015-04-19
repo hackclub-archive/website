@@ -20,7 +20,7 @@
               %h1.title
                 %a{href: '/'} <span class="logo-h">h</span>ackEDU
           %section.top-bar-section
-            %ul.right= render 'layouts/nav'
+            %ul.right= render 'layouts/nav' unless @error
         %nav.tab-bar.show-for-small
           %section.left-small
             %a.left-off-canvas-toggle.menu-icon

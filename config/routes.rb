@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   %w[sponsor attributions].each do |page|
     get page, controller: 'pages', action: page
   end
+
+  # Error page routes
+  %w( 404 500 ).each do |code|
+    get code, to: "pages#error", code: code
+  end
+
 end

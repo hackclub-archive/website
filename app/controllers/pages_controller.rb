@@ -31,6 +31,17 @@ class PagesController < ApplicationController
     @icons.map! { |i| OpenStruct.new(i) }
   end
 
+  def error
+    @error = true
+    render status_code.to_s, status: status_code
+  end
+
+  protected
+
+  def status_code
+    params[:code] || 500
+  end
+
   private
 
   def clubs_markers(clubs)
