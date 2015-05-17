@@ -1,4 +1,4 @@
-# hackedu [![Build Status](https://travis-ci.org/hackedu/hackedu.svg?branch=master)](https://travis-ci.org/hackedu/hackedu)
+# hackedu [![Build Status](https://travis-ci.org/hackedu/website.svg?branch=master)](https://travis-ci.org/hackedu/website)
 
 <img src="http://i.imgur.com/zHbn6N2.png" alt="hackEDU logo" height="60"
   align="right">
