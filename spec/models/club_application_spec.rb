@@ -16,6 +16,7 @@ RSpec.describe ClubApplication, type: :model do
   it { should respond_to :interesting_project }
   it { should respond_to :system_hacked }
   it { should respond_to :steps_taken }
+  it { should respond_to :referer }
 
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :last_name }
@@ -25,6 +26,7 @@ RSpec.describe ClubApplication, type: :model do
   it { should validate_presence_of :interesting_project }
   it { should validate_presence_of :system_hacked }
   it { should validate_presence_of :steps_taken }
+  it { should validate_presence_of :referer }
 
   it { should validate_email_format_of(:email)
                 .with_message('not a valid email') }

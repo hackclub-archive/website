@@ -22,6 +22,7 @@ class ClubApplicationsController < ApplicationController
     params.require(:club_application).permit(:first_name, :last_name, :email,
                                              :github, :twitter, :high_school,
                                              :year, :interesting_project,
-                                             :system_hacked, :steps_taken)
+                                             :system_hacked, :steps_taken,
+                                             :referer)
   end
 end
