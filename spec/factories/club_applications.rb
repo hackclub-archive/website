@@ -10,6 +10,7 @@ FactoryGirl.define do
     interesting_project { Faker::Lorem.paragraph }
     system_hacked { Faker::Lorem.paragraph }
     steps_taken { Faker::Lorem.paragraph }
+    referer { Faker::Lorem.paragraph }
 
     factory :club_application_with_no_high_school do
       high_school ''

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122052640) do
+ActiveRecord::Schema.define(version: 20150530235249) do
 
   create_table "club_applications", force: true do |t|
     t.string   "first_name",          null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150122052640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "year"
+    t.text     "referer"
   end
 
   add_index "club_applications", ["email"], name: "index_club_applications_on_email", unique: true
