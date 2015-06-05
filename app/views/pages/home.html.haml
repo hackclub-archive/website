@@ -69,8 +69,12 @@
 #home-map-jumbotron
 .main-section.sponsors
   .row
-    %h1 Sponsors
-    %ul.small-block-grid-2.medium-block-grid-3.logos
+    %h1 Supporters
+    %ul.small-12.medium-6.small-centered.columns
+      %li
+        = link_to "http://www.loganfdn.org/" do
+          = image_tag('sponsors/logan_foundation.jpg')
+    %ul.small-block-grid-2.medium-block-grid-3
       %li
         = link_to "https://taplytics.com/" do
           = image_tag('taplytics.svg')
