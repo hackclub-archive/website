@@ -69,8 +69,12 @@
 #home-map-jumbotron
 .main-section.sponsors
   .row
-    %h1 Sponsors
-    %ul.small-block-grid-2.medium-block-grid-3.logos
+    %h1 Supporters
+    %ul.small-12.medium-6.small-centered.columns
+      %li
+        = link_to "http://www.loganfdn.org/" do
+          = image_tag('sponsors/logan_foundation.jpg')
+    %ul.small-block-grid-2.medium-block-grid-3
       %li
         = link_to "https://taplytics.com/" do
           = image_tag('taplytics.svg')
@@ -95,9 +99,15 @@
       %li
         = link_to "https://codehs.com/" do
           = image_tag('codehs.png')
-      %li.last
+      %li
         = link_to "http://firstcodeacademy.com/" do
           = image_tag('first_code_academy.png')
+      %li
+        = link_to "https://codehs.com/" do
+          = image_tag('cloudapp.svg')
+      %li
+        = link_to "https://www.expensify.com/" do
+          = image_tag('expensify.png')
 .rackspace
   .row
     .small-12.large-9.columns
