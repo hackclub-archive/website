@@ -128,13 +128,6 @@ $include-html-global-classes: false;
 .sponsors {
   background-color: $hackedu-white;
 
-  .last {
-    @media #{$small-only} {
-      margin: auto;
-      float: none;
-    }
-  }
-
   li {
     margin-top: 30px;
 
