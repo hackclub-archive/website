@@ -29,14 +29,17 @@ $include-html-global-classes: false;
   }
 }
 
+.colored-section {
+  color: $hackedu-white;
+
+  h1 {
+    color: $hackedu-white;
+  }
+}
+
 .main-section {
   padding: 50px 0 50px 0;
   text-align: center;
-  color: #fff;
-
-  h1 {
-    color: #fff;
-  }
 
   p {
     font-size: rem-calc(20);
@@ -57,6 +60,7 @@ $include-html-global-classes: false;
 }
 
 .introduction {
+  @extend .colored-section;
   background-image: asset_url("group_photo.jpg");
   background-size: cover;
   padding: 25px 0 25px 0;
@@ -121,7 +125,29 @@ $include-html-global-classes: false;
   }
 }
 
+.team-profile {
+  color: $hackedu-black;
+  text-align: left;
+
+  .row {
+    margin-top: 5%;
+  }
+
+  .title-row {
+    margin-top: 0;
+  }
+
+  .subheader {
+    font-style: italic;
+  }
+
+  img {
+    width: 90%;
+  }
+}
+
 .join-us {
+  @extend .colored-section;
   background-color: $hackedu-green;
 
   h1 {
@@ -179,6 +205,7 @@ $include-html-global-classes: false;
 }
 
 .email-form {
+  @extend .colored-section;
   background: $hackedu-purple;
 
   input {
@@ -210,15 +237,6 @@ $include-html-global-classes: false;
       text-decoration: underline;
     }
   }
-}
-
-.team-profile {
-  margin-top: 20px;
-}
-
-.team-profile-img {
-  max-height: 300px;
-  border-radius: 8px;
 }
 
 .pricing-table {
