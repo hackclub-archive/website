@@ -92,6 +92,7 @@ $include-html-global-classes: false;
 }
 
 .impact {
+  @extend .colored-section;
   background-color: $hackedu-orange;
 
   .metric {
