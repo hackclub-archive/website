@@ -87,6 +87,30 @@ $include-html-global-classes: false;
   }
 }
 
+.impact {
+  background-color: $hackedu-orange;
+
+  .metric {
+    .stat {
+      font-weight: bold;
+      font-size: rem-calc(48);
+      margin-bottom: 0;
+
+      @media #{$medium-up} {
+        font-size: rem-calc(84);
+      }
+    }
+
+    .stat-desc {
+      font-size: rem-calc(24);
+
+      @media #{$medium-up} {
+        font-size: rem-calc(28);
+      }
+    }
+  }
+}
+
 .description {
   background-color: $hackedu-blue;
   text-align: left;
@@ -155,7 +179,7 @@ $include-html-global-classes: false;
 }
 
 .email-form {
-  background: $hackedu-orange;
+  background: $hackedu-purple;
 
   input {
     text-align: center;
@@ -163,7 +187,7 @@ $include-html-global-classes: false;
 
   input[type='submit'] {
     font-size: rem-calc(22);
-    color: $hackedu-orange;
+    color: $hackedu-purple;
     background: white;
   }
 }
