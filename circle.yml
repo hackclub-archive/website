@@ -1,0 +1,4 @@
+machine:
+  timezone: America/Los_Angeles
+  environment:
+    SECRET_KEY_BASE: prophet_orpheus
