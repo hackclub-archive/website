@@ -9,7 +9,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - cd /tmp
-      - git clone git://github.com/hackedu/website && cd website
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - make push
+      - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && make push
