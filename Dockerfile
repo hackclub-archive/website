@@ -1,4 +1,4 @@
-FROM rails
+FROM rails:4.1.1
 MAINTAINER Zach Latta <zach@hackedu.us>
 
 WORKDIR /usr/src/app
