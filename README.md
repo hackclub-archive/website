@@ -44,6 +44,14 @@ The following secrets are also required for production.
 
 The website should now be running on your computer at http://localhost:3000.
 
+## Deployment
+
+If you choose to use the `Procfile` for deployment, you _must_ set the
+following environment variables to appropriate values:
+
+* `PORT`
+* `RACK_ENV`
+
 ## License
 
 The MIT License (MIT)

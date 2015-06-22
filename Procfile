@@ -1,1 +1,1 @@
-web: unicorn -c config/unicorn.rb
+web: ./lib/launch_web
