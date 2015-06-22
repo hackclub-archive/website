@@ -1,4 +1,4 @@
-IMG=hackedu/hackedu
+IMG=hackedu/website
 
 .PHONY: build push
 
