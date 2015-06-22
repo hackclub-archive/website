@@ -6,16 +6,12 @@ machine:
     SECRET_KEY_BASE: prophet_orpheus
 
 dependencies:
-  cache_directories:
-    - "~/docker"
   pre:
     - sudo service docker stop; sudo curl -L -o /usr/bin/docker 'http://s3-external-1.amazonaws.com/circle-downloads/docker-1.6.0-circleci'; sudo chmod 0755 /usr/bin/docker; sudo service docker start; true
-    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && make build && mkdir -p ~/docker && docker save hackedu/website > ~/docker/image.tar
 
 deployment:
   hub:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - cd /tmp/website && make push
+      - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && make push
