@@ -16,4 +16,4 @@ RUN bundle exec rake assets:precompile
 
 EXPOSE 8080
 
-CMD ["unicorn", "-c", "config/unicorn.rb", "-E", "production"]
+CMD ["./lib/launch_web"]
