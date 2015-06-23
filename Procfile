@@ -1,1 +1,1 @@
-web: ./lib/launch_web
+web: bundle exec puma -C config/puma.rb
