@@ -16,4 +16,4 @@ RUN bundle exec rake assets:precompile
 
 EXPOSE 8080
 
-ENTRYPOINT ["unicorn", "-c", "config/unicorn.rb", "-E", "production"]
+CMD ["unicorn", "-c", "config/unicorn.rb", "-E", "production"]
