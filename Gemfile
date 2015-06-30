@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer'
 gem 'haml-rails'
 gem 'redcarpet'
+gem 'rack-ssl-enforcer'
 
 gem 'jquery-rails'
 gem 'turbolinks'
