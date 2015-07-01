@@ -224,14 +224,15 @@ $include-html-global-classes: false;
 .rackspace {
   background-color: $hackedu-black;
   color: $text-on-black;
+  padding: 10px 0 10px 0;
 
   p {
     font-size: rem-calc(14);
-    margin: 15px 0 15px 0;
+    margin: 7.5px 0 7.5px 0;
 
     @media #{$medium-up} {
       font-size: rem-calc(18);
-      margin: 30px 0 30px;
+      margin: 15px 0 15px;
     }
 
     a {
