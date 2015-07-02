@@ -1,8 +1,0 @@
-language: ruby
-rvm:
-  - 2.1.2
-  - 2.1.1
-  - 2.1.0
-env:
-  - SECRET_KEY_BASE=ASECRETKEY
-cache: bundler
