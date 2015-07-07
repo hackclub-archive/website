@@ -1,7 +1,9 @@
-# hackedu [![Circle CI](https://circleci.com/gh/hackedu/website.svg?style=svg)](https://circleci.com/gh/hackedu/website)
+<a name="top"></a>
+<a href="https://www.irccloud.com/invite?channel=%23hackedu&amp;hostname=irc.freenode.net&amp;port=6697&amp;ssl=1" target="_blank"><img src="https://www.irccloud.com/invite-svg?channel=%23hackedu&amp;hostname=irc.freenode.net&amp;port=6697&amp;ssl=1"  height="18"></a> [![Circle CI](https://circleci.com/gh/hackedu/website.svg?style=svg)](https://circleci.com/gh/hackedu/website)
+-------------------------------------------------------------------------------
+<p align="center"><img src="https://raw.githubusercontent.com/hackedu/dinosaurs/68ccf2b66be441748ee0639df01deb3ea354cfc7/code_dinosaur.png" alt="hackEDU Website" /></p>
+<h1 align="center">hackEDU's Website</h1>
 
-<img src="http://i.imgur.com/zHbn6N2.png" alt="hackEDU logo" height="60"
-  align="right">
 You've stumbled upon hackEDU's website.
 
 ## Getting Started
