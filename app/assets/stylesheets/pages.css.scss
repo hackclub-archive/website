@@ -116,6 +116,15 @@ $include-html-global-classes: false;
   }
 }
 
+.publications {
+  background: $hackedu-black;
+  color: $text-on-black;
+
+  .articles p {
+    font-size: rem-calc(36);
+  }
+}
+
 .description {
   background-color: $hackedu-blue;
   text-align: left;
