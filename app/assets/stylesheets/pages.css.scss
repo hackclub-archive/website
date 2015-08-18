@@ -120,8 +120,12 @@ $include-html-global-classes: false;
   background: $hackedu-black;
   color: $text-on-black;
 
-  .articles p {
-    font-size: rem-calc(36);
+  h3 {
+    color: lighten($text-on-black, 5%);
+  }
+
+  h3:hover {
+    color: lighten($text-on-black, 25%);
   }
 }
 
