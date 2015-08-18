@@ -108,10 +108,16 @@ $include-html-global-classes: false;
 
     .stat-desc {
       font-size: rem-calc(24);
+      margin-bottom: rem-calc(6);
 
       @media #{$medium-up} {
         font-size: rem-calc(28);
       }
+    }
+
+    .stat-comparison {
+      color: $hackedu-white;
+      font-size: rem-calc(12);
     }
   }
 }
