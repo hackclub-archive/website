@@ -8,10 +8,13 @@ machine:
 dependencies:
   pre:
     - sudo service docker stop; sudo curl -L -o /usr/bin/docker 'http://s3-external-1.amazonaws.com/circle-downloads/docker-1.6.0-circleci'; sudo chmod 0755 /usr/bin/docker; sudo service docker start; true
+    - go get github.com/remind101/emp
 
 deployment:
   hub:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && make push
+      - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && docker build -t hackedu/website:$CIRCLE_SHA1 . && docker push hackedu/website:$CIRCLE_SHA1
+      - /usr/bin/expect -c "spawn /bin/bash; send \"emp login\r\"; expect email { send $EMP_USERNAME\r }; expect password { send $EMP_PASSWORD\r }; expect \"Logged in.\";" > /dev/null
+      - emp deploy hackedu/website:$CIRCLE_SHA1
