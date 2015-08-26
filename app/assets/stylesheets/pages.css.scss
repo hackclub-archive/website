@@ -122,6 +122,34 @@ $include-html-global-classes: false;
   }
 }
 
+.publications {
+  background: $hackedu-black;
+  color: $text-on-black;
+
+  .publication {
+    height: 150px;
+    opacity: 0.6;
+    transition: 0.25s;
+
+    .helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    a > img {
+      width: 225px;
+      vertical-align: middle;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .publication:hover {
+    opacity: 1;
+  }
+}
+
 .description {
   background-color: $hackedu-blue;
   text-align: left;
