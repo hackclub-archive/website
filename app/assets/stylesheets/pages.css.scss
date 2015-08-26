@@ -122,6 +122,7 @@ $include-html-global-classes: false;
 
   .publication {
     height: 150px;
+    opacity: 0.6;
     transition: 0.25s;
 
     .helper {
@@ -139,7 +140,7 @@ $include-html-global-classes: false;
   }
 
   .publication:hover {
-    opacity: 0.6;
+    opacity: 1;
   }
 }
 
