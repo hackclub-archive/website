@@ -120,12 +120,26 @@ $include-html-global-classes: false;
   background: $hackedu-black;
   color: $text-on-black;
 
-  h3 {
-    color: lighten($text-on-black, 5%);
+  .publication {
+    height: 150px;
+    transition: 0.25s;
+
+    .helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    a > img {
+      width: 225px;
+      vertical-align: middle;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
-  h3:hover {
-    color: lighten($text-on-black, 25%);
+  .publication:hover {
+    opacity: 0.6;
   }
 }
 
