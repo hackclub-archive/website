@@ -164,6 +164,20 @@ $include-html-global-classes: false;
   .bio {
     text-align: justify;
   }
+
+  .advisor {
+    .heading {
+      h1 {
+        margin-top: 7px;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 .join-us {
