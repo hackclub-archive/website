@@ -146,6 +146,8 @@ GEM
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
+    rack-attack (4.3.0)
+      rack
     rack-ssl-enforcer (0.2.8)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -277,6 +279,7 @@ DEPENDENCIES
   pg
   pluggable_js
   puma
+  rack-attack
   rack-ssl-enforcer
   rack-timeout
   rails (= 4.1.1)

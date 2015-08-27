@@ -42,6 +42,14 @@ The following secrets are also required for production.
 * `SMTP_PASSWORD`
 * `SMTP_DOMAIN`
 
+#### Optional Variables
+
+* `REFERRERS_TO_BLOCK`
+  * A list of regular expressions of hostnames to block, separated by `|`. This
+    is used to prevent
+    [referrer spam](https://en.wikipedia.org/wiki/Referer_spam)
+    * Examples: `.*\.spam\.com|\w+.spamwow.\w+`, `bad\.referrer\.com`
+
 ### Start server
 
     $ rails serve

@@ -9,6 +9,7 @@ gem 'therubyracer'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'rack-ssl-enforcer'
+gem 'rack-attack'
 
 gem 'jquery-rails'
 gem 'turbolinks'
