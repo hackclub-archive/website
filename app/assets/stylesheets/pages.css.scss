@@ -101,7 +101,11 @@ $include-html-global-classes: false;
       font-size: rem-calc(48);
       margin-bottom: 0;
 
-      @media #{$medium-up} {
+      @media #{$medium} {
+        font-size: rem-calc(72);
+      }
+
+      @media #{$large} {
         font-size: rem-calc(84);
       }
     }
