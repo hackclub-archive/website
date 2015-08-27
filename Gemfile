@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
   gem 'email_spec'
+  gem 'rspec_junit_formatter'
 end
 
 group :production do
