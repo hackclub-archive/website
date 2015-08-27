@@ -11,6 +11,9 @@ module Hackedu
     # Redirect HTTP to HTTPS in production
     config.middleware.use Rack::SslEnforcer, only_environments: 'production'
 
+    # Block referer spam
+    config.middleware.use Rack::Attack
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
