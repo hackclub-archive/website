@@ -18,4 +18,6 @@
 //= require gmaps/google
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+window.onload = function() {
+  $(document).foundation();
+};
