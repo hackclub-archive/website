@@ -80,11 +80,14 @@
 .main-section.sponsors
   .row
     %h1 Supporters
-    %ul.small-12.medium-6.small-centered.columns
+    %ul.big-supporters.small-block-grid-1.medium-block-grid-2.columns
       %li
         = link_to "http://www.loganfdn.org/" do
           = image_tag('sponsors/logan_foundation.jpg')
-    %ul.small-block-grid-2.medium-block-grid-3
+      %li
+        = link_to "http://thielfoundation.org/" do
+          = image_tag('sponsors/thiel_foundation.svg')
+    %ul.small-supporters.small-block-grid-2.medium-block-grid-3
       %li
         = link_to "https://taplytics.com/" do
           = image_tag('taplytics.svg')

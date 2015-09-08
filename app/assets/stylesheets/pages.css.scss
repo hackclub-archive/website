@@ -269,7 +269,9 @@ $include-html-global-classes: false;
 
     img {
       margin-bottom: 2em;
-      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+      vertical-align: middle;
     }
   }
 
@@ -281,11 +283,23 @@ $include-html-global-classes: false;
     font-size: rem-calc(28);
   }
 
-  img {
+  .big-supporters li {
+    height: 150px;
+    line-height: 150px;
+
+    @media #{$medium-up} {
+      height: 200px;
+      line-height: 200px;
+    }
+  }
+
+  .small-supporters li {
     height: 50px;
+    line-height: 50px;
 
     @media #{$medium-up} {
       height: 80px;
+      line-height: 80px;
     }
   }
 }
