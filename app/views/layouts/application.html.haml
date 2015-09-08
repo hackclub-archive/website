@@ -3,7 +3,13 @@
   %head
     %meta{charset: 'utf-8'}
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
+
+    %meta{name: 'title', content: 'hackEDU'}
+    %meta{name: 'description', content: 'The international movement of free student-led coding clubs.'}
+    %meta{name: 'og:image', content: "#{ image_path('logo.png') }"}
+
     %title= full_title(yield(:title))
+
     = favicon_link_tag 'favicon.ico'
     = stylesheet_link_tag 'application', media: 'all',
         'data-turbolinks-track' => true
