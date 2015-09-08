@@ -129,11 +129,20 @@ $include-html-global-classes: false;
 .publications {
   background: $hackedu-black;
   color: $text-on-black;
+  padding: 5px 0;
+
+  @media #{$medium-up} {
+    padding: 25px 0;
+  }
 
   .publication {
-    height: 150px;
+    height: 100px;
     opacity: 0.6;
     transition: 0.25s;
+
+    @media #{$medium-up} {
+      height: 175px;
+    }
 
     .helper {
       display: inline-block;
@@ -142,10 +151,14 @@ $include-html-global-classes: false;
     }
 
     a > img {
-      width: 225px;
-      vertical-align: middle;
       margin-left: auto;
       margin-right: auto;
+      vertical-align: middle;
+      width: 75px;
+
+      @media #{$medium-up} {
+        width: 175px;
+      }
     }
   }
 
