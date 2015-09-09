@@ -63,31 +63,44 @@ $include-html-global-classes: false;
   @extend .colored-section;
   background-image: asset_url("group_photo.jpg");
   background-size: cover;
-  padding: 25px 0 25px 0;
-
-  h1 {
-    font-size: rem-calc(20);
-  }
+  padding: 25px 0;
+  text-align: left;
 
   @media #{$medium-up} {
-    padding: 75px 0 75px 0;
+    padding: 100px 0;
+  }
 
-    h1 {
+  .heading {
+    font-size: rem-calc(28);
+    font-weight: bold;
+
+    @media #{$medium-up} {
+      font-size: rem-calc(42);
+    }
+
+    @media #{$large-up} {
+      font-size: rem-calc(56);
+    }
+  }
+
+  .subheading {
+    font-size: rem-calc(18);
+    margin-top: 25px;
+
+    @media #{$medium-up} {
       font-size: rem-calc(32);
     }
   }
 
-  @media #{$large-up} {
-    height: 500px;
-    line-height: 500px;
+  .start-a-club {
+    background: $hackedu-red;
+    color: $hackedu-white;
+    margin-left: 0;
+    margin-top: 30px;
+  }
 
-    .vertical-align {
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: rem-calc(38);
-    }
+  .outline-outward:before {
+    border-color: $hackedu-red;
   }
 }
 
