@@ -163,16 +163,31 @@
             %input#mc-embedded-subscribe.button{name: "subscribe",
                                                 type: "submit",
                                                value: "Subscribe"}
-.rackspace
+.footer
   .row
-    .small-12.large-9.columns
-      %p
-        We can be reached anytime at #{mail_to 'team@hackedu.us'} or 
-        at <a href="https://webchat.freenode.net/?channels=hackedu">#hackEDU</a>
-        on freenode
-    .small-12.large-3.columns
-      %p
-        = link_to 'GitHub', 'https://github.com/hackedu'
+    .small-12.medium-9.medium-centered.columns
+      .small-12.medium-4.columns.nav
+        %h1 Get Involved
+        %ul
+          %li.link
+            #{link_to 'GitHub', 'https://github.com/hackedu'}
+          %li.link
+            #{link_to 'Join us on IRC', 'https://webchat.freenode.net/?channels=hackedu'}
+      .small-12.medium-4.columns.nav
+        %h1 Social
+        %ul
+          %li.link
+            #{link_to 'Facebook', 'https://www.facebook.com/pages/hackEDU/741805665870458'}
+          %li.link
+            #{link_to 'Twitter', 'https://twitter.com/starthackedu'}
+      .small-12.medium-4.columns.nav
+        %h1 Contact Us
+        %ul
+          %li.link #{mail_to 'team@hackedu.us'}
+          %li
+            %p
+              44 Tehama Street<br>
+              San Francisco, CA 94105
     .small-12.columns.text-center
       %p.copyright
         © #{Date.today.year} hackEDU, a 501(c)(3) non-profit [Tax ID

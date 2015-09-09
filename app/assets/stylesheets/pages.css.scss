@@ -319,24 +319,46 @@ $include-html-global-classes: false;
   }
 }
 
-.rackspace {
+.footer {
   background-color: $hackedu-black;
-  color: $text-on-black;
-  padding: 10px 0 10px 0;
+  color: $hackedu-white;
+  font-weight: 300;
+  padding: 30px 0;
+
+  .nav {
+    h1 {
+      color: $hackedu-white;
+      font-size: rem-calc(18);
+      font-weight: 600;
+      margin-left: 5px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin-left: 0;
+
+      li {
+        color: $hackedu-white;
+        font-weight: inherit;
+        list-style-type: none;
+        padding: 5px;
+
+        a {
+          color: $hackedu-white;
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .link:hover {
+        background-color: scale-color($hackedu-black, $lightness: -10%);
+      }
+    }
+  }
 
   p {
-    font-size: rem-calc(14);
-    margin: 7.5px 0 7.5px 0;
-
-    @media #{$medium-up} {
-      font-size: rem-calc(18);
-      margin: 15px 0 15px;
-    }
-
-    a {
-      color: scale-color($text-on-black, $lightness: 10%);
-      text-decoration: underline;
-    }
+    font-weight: inherit;
   }
 }
 
