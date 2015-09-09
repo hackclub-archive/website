@@ -10,13 +10,6 @@ describe 'Static pages' do
     it { should have_title(full_title('')) }
   end
 
-  describe 'Attributions page' do
-    before { visit attributions_path }
-
-    it { should have_content('Attributions') }
-    it { should have_title(full_title('Attributions')) }
-  end
-
   describe 'Team page' do
     before { visit team_path }
 
