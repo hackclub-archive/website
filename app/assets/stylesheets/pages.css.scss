@@ -141,7 +141,6 @@ $include-html-global-classes: false;
 
 .publications {
   background: $hackedu-black;
-  color: $text-on-black;
   padding: 5px 0;
 
   @media #{$medium-up} {
@@ -259,7 +258,7 @@ $include-html-global-classes: false;
   }
 
   .button {
-    background-color: #fff;
+    background-color: $hackedu-white;
     color: scale-color($hackedu-green, $lightness: -10%);
     font-size: rem-calc(20);
 
@@ -269,7 +268,7 @@ $include-html-global-classes: false;
   }
 
   .outline-outward:before {
-    border-color: #fff;
+    border-color: $hackedu-white;
   }
 }
 
