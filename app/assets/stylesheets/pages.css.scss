@@ -11,7 +11,7 @@ $include-html-global-classes: false;
   font-size: rem-calc(28);
 }
 
-.hackedu-logo {
+.hackclub-logo {
   font-family: "Amaranth", "Open Sans", "Helvetica Neue",  sans-serif;
   font-size: 100%;
   font-weight: bold;
@@ -30,10 +30,10 @@ $include-html-global-classes: false;
 }
 
 .colored-section {
-  color: $hackedu-white;
+  color: $hackclub-white;
 
   h1 {
-    color: $hackedu-white;
+    color: $hackclub-white;
   }
 }
 
@@ -93,20 +93,20 @@ $include-html-global-classes: false;
   }
 
   .start-a-club {
-    background: $hackedu-red;
-    color: $hackedu-white;
+    background: $hackclub-red;
+    color: $hackclub-white;
     margin-left: 0;
     margin-top: 30px;
   }
 
   .outline-outward:before {
-    border-color: $hackedu-red;
+    border-color: $hackclub-red;
   }
 }
 
 .impact {
   @extend .colored-section;
-  background-color: $hackedu-orange;
+  background-color: $hackclub-orange;
 
   .metric {
     .stat {
@@ -133,14 +133,14 @@ $include-html-global-classes: false;
     }
 
     .stat-comparison {
-      color: $hackedu-white;
+      color: $hackclub-white;
       font-size: rem-calc(12);
     }
   }
 }
 
 .publications {
-  background: $hackedu-black;
+  background: $hackclub-black;
   padding: 5px 0;
 
   @media #{$medium-up} {
@@ -180,7 +180,7 @@ $include-html-global-classes: false;
 }
 
 .description {
-  background-color: $hackedu-blue;
+  background-color: $hackclub-blue;
   text-align: left;
   color: white;
 
@@ -245,7 +245,7 @@ $include-html-global-classes: false;
 
 .join-us {
   @extend .colored-section;
-  background-color: $hackedu-green;
+  background-color: $hackclub-green;
 
   h1 {
     font-size: rem-calc(48);
@@ -258,8 +258,8 @@ $include-html-global-classes: false;
   }
 
   .button {
-    background-color: $hackedu-white;
-    color: scale-color($hackedu-green, $lightness: -10%);
+    background-color: $hackclub-white;
+    color: scale-color($hackclub-green, $lightness: -10%);
     font-size: rem-calc(20);
 
     @media #{$medium-up} {
@@ -268,12 +268,12 @@ $include-html-global-classes: false;
   }
 
   .outline-outward:before {
-    border-color: $hackedu-white;
+    border-color: $hackclub-white;
   }
 }
 
 .sponsors {
-  background-color: $hackedu-white;
+  background-color: $hackclub-white;
 
   li {
     margin-top: 30px;
@@ -288,7 +288,7 @@ $include-html-global-classes: false;
   }
 
   h1 {
-    color: $hackedu-black;
+    color: $hackclub-black;
   }
 
   p {
@@ -318,7 +318,7 @@ $include-html-global-classes: false;
 
 .email-form {
   @extend .colored-section;
-  background: $hackedu-purple;
+  background: $hackclub-purple;
 
   input {
     text-align: center;
@@ -326,20 +326,20 @@ $include-html-global-classes: false;
 
   input[type='submit'] {
     font-size: rem-calc(22);
-    color: $hackedu-purple;
+    color: $hackclub-purple;
     background: white;
   }
 }
 
 .footer {
-  background-color: $hackedu-black;
-  color: $hackedu-white;
+  background-color: $hackclub-black;
+  color: $hackclub-white;
   font-weight: 300;
   padding: 30px 0;
 
   .nav {
     h1 {
-      color: $hackedu-white;
+      color: $hackclub-white;
       font-size: rem-calc(18);
       font-weight: 600;
       margin-left: 5px;
@@ -350,13 +350,13 @@ $include-html-global-classes: false;
       margin-left: 0;
 
       li {
-        color: $hackedu-white;
+        color: $hackclub-white;
         font-weight: inherit;
         list-style-type: none;
         padding: 5px;
 
         a {
-          color: $hackedu-white;
+          color: $hackclub-white;
           display: block;
           height: 100%;
           width: 100%;
@@ -364,7 +364,7 @@ $include-html-global-classes: false;
       }
 
       .link:hover {
-        background-color: scale-color($hackedu-black, $lightness: -10%);
+        background-color: scale-color($hackclub-black, $lightness: -10%);
       }
     }
   }

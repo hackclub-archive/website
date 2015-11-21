@@ -14,6 +14,6 @@ deployment:
     branch: master
     commands:
       - convox login $CONVOX_HOST --password $CONVOX_PASSWORD
-      - git clone --recursive git://github.com/hackedu/packrat /tmp/packrat
-        && cd /tmp/packrat
+      - git clone --recursive git://github.com/hackclub/website /tmp/website
+        && cd /tmp/website
         && convox deploy | sed 's/docker .*/docker ********/'

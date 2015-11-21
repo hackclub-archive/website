@@ -32,7 +32,7 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
 
     it { should have_subject 'Application Confirmation' }
     it { should deliver_to application.mail_address.format }
-    it { should deliver_from 'Zach Latta <team@hackedu.us>' }
+    it { should deliver_from 'Zach Latta <team@hackclub.io>' }
 
     it_behaves_like 'a club application email'
   end
@@ -40,8 +40,8 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
   describe 'admin notification' do
     subject { ClubApplicationMailer.admin_notification(application) }
 
-    it { should have_subject 'hackEDU Application' }
-    it { should deliver_to 'Zach Latta <team@hackedu.us>' }
+    it { should have_subject 'Hack Club Application' }
+    it { should deliver_to 'Zach Latta <team@hackclub.io>' }
     it { should deliver_from application.mail_address.format }
 
     it_behaves_like 'a club application email'

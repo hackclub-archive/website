@@ -2,7 +2,7 @@
   .row
     .small-12.columns
       %h1.heading
-        hackEDU is the movement of student-led coding clubs.
+        Hack Club is the movement of student-led coding clubs.
       %p.subheading
         Start a club and be a part of the global hacker movement.
       = link_to 'Start a Hack Club', apply_path, class: 'button large outline-outward start-a-club'
@@ -50,7 +50,7 @@
   .row
     .small-11.small-centered.columns
       %p
-        %span.header hackEDU
+        %span.header Hack Club
         is a non-profit initiative that works with high school students to
         start and lead programming clubs at their schools. We provide all the
         tools for starting and leading clubs including a baseline coding
@@ -59,9 +59,9 @@
         Each club typically spans the school year, regularly meeting weekly or
         biweekly. Clubs are led by high school hackers who want to bring the
         hackathon culture back to their schools.
-      %h3 Why hackEDU?
+      %h3 Why Hack Club?
       %p
-        Instead of focusing on teaching a set curriculum at hack clubs, hackEDU
+        Instead of focusing on teaching a set curriculum at hack clubs, Hack Club
         focuses on building all-inclusive families where members build things
         together. This results in: (1) hack clubs engaging groups that are
         underrepresented in computer science and attracting members who might
@@ -170,27 +170,27 @@
         %h1 Get Involved
         %ul
           %li.link
-            #{link_to 'GitHub', 'https://github.com/hackedu'}
+            #{link_to 'GitHub', 'https://github.com/hackclub'}
           %li.link
-            = link_to 'Join us on IRC', 'https://kiwiirc.com/client/irc.freenode.net/?nick=Hacker%7C?#hackedu'
+            = link_to 'Join us on IRC', 'https://kiwiirc.com/client/irc.freenode.net/?nick=Hacker%7C?#hackclub'
       .small-12.medium-4.columns.nav
         %h1 Social
         %ul
           %li.link
             #{link_to 'Facebook', 'https://www.facebook.com/pages/hackEDU/741805665870458'}
           %li.link
-            #{link_to 'Twitter', 'https://twitter.com/starthackedu'}
+            #{link_to 'Twitter', 'https://twitter.com/starthackclub'}
       .small-12.medium-4.columns.nav
         %h1 Contact Us
         %ul
-          %li.link #{mail_to 'team@hackedu.us'}
+          %li.link #{mail_to 'team@hackclub.io'}
           %li
             %p
               44 Tehama Street<br>
               San Francisco, CA 94105
     .small-12.columns.text-center
       %p.copyright
-        © #{Date.today.year} hackEDU, a 501(c)(3) non-profit [Tax ID
+        © #{Date.today.year} Hack Club, a 501(c)(3) non-profit [Tax ID
         46-0945785].
 %script
   markersJSON = #{raw @clubs_hash.to_json}
