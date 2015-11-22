@@ -6,13 +6,14 @@ machine:
 
 dependencies:
   pre:
-    - go get github.com/remind101/emp
+    - curl -Ls https://install.convox.com/linux.zip > /tmp/convox.zip
+      && sudo unzip /tmp/convox.zip -d /usr/local/bin
 
 deployment:
   hub:
     branch: master
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - git clone git://github.com/hackedu/website /tmp/website && cd /tmp/website && docker build -t hackedu/website:$CIRCLE_SHA1 . && docker push hackedu/website:$CIRCLE_SHA1
-      - /usr/bin/expect -c "spawn /bin/bash; send \"emp login\r\"; expect email { send $EMP_USERNAME\r }; expect password { send $EMP_PASSWORD\r }; expect \"Logged in.\";" > /dev/null
-      - emp deploy hackedu/website:$CIRCLE_SHA1
+      - convox login $CONVOX_HOST --password $CONVOX_PASSWORD
+      - git clone --recursive git://github.com/hackedu/packrat /tmp/packrat
+        && cd /tmp/packrat
+        && convox deploy | sed 's/docker .*/docker ********/'

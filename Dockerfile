@@ -1,4 +1,4 @@
-FROM rails:4.1.1
+FROM rails:4.2.4
 MAINTAINER Zach Latta <zach@hackedu.us>
 
 WORKDIR /usr/src/app
@@ -6,14 +6,12 @@ WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 
-RUN bundle install --system
-
-ENV RAILS_ENV production
+RUN bundle install -j4 --system
 
 COPY . /usr/src/app/
 
-RUN bundle exec rake assets:precompile
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD ["./lib/launch_web"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
