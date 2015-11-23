@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Hackedu
+module HackClub
   class Application < Rails::Application
     # Redirect HTTP to HTTPS in production
     config.middleware.use Rack::SslEnforcer, only_environments: 'production'
