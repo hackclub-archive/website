@@ -5,3 +5,4 @@
 /tmp
 /config/application.yml
 /.git
+/.env
