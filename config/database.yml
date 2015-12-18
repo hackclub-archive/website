@@ -24,7 +24,7 @@ production:
   adapter: <%= ENV['DATABASE_ADAPTER'].presence || 'postgresql' %>
   encoding: <%= ENV['DATABASE_ENCODING'].presence || 'utf8' %>
   reconnect: <%= ENV['DATABASE_RECONNECT'].presence || 'true' %>
-  database: <%= ENV['DATABASE_NAME'].presence || 'hackedu' %>
+  database: <%= ENV['DATABASE_NAME'].presence || 'hackclub' %>
   pool: <%= ENV['DATABASE_POOL'].presence || '5' %>
   username: <%= ENV['DATABASE_USERNAME'].presence %>
   password: <%= ENV['DATABASE_PASSWORD'].presence %>
