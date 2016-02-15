@@ -19,7 +19,7 @@ RSpec.describe ClubApplicationsController, type: :controller do
         }.to change(ActionMailer::Base.deliveries, :size).by 2
 
         emails = ActionMailer::Base.deliveries.last(2)
-        my_email = 'team@hackclub.io'
+        my_email = 'team@hackclub.com'
 
         # make sure that one email was sent to the applicant and another to me
         expect(emails.find { |d| d.to.include? params[:email] }).to_not be nil
