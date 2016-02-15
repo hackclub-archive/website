@@ -1,5 +1,5 @@
 FROM rails:4.2.4
-MAINTAINER Zach Latta <zach@hackclub.io>
+MAINTAINER Zach Latta <zach@hackclub.com>
 
 WORKDIR /usr/src/app
 
