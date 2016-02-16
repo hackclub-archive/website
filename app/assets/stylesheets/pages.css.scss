@@ -320,6 +320,11 @@ $include-html-global-classes: false;
   @extend .colored-section;
   background: $hackclub-purple;
 
+  .call-to-action {
+    margin: auto;
+    max-width: 60ex;
+  }
+
   input {
     text-align: center;
   }
