@@ -12,7 +12,7 @@ You've stumbled upon Hack Club's website.
 
 ### Prerequisites
 
-*  Ruby 2.0+ with Rails
+- Ruby 2.0+ with Rails
 
 ### Install dependencies
 
@@ -30,25 +30,25 @@ Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro).
 Create `config/application.yml` containing the following keys and 
 corresponding values.
 
-* `SECRET_KEY_BASE`
+- `SECRET_KEY_BASE`
 
 #### Production Secrets
 
 The following secrets are also required for production.
 
-* `SMTP_ADDRESS`
-* `SMTP_PORT`
-* `SMTP_USERNAME`
-* `SMTP_PASSWORD`
-* `SMTP_DOMAIN`
+- `SMTP_ADDRESS`
+- `SMTP_PORT`
+- `SMTP_USERNAME`
+- `SMTP_PASSWORD`
+- `SMTP_DOMAIN`
 
 #### Optional Variables
 
-* `REFERRERS_TO_BLOCK`
-  * A list of regular expressions of hostnames to block, separated by `|`. This
+- `REFERRERS_TO_BLOCK`
+  - A list of regular expressions of hostnames to block, separated by `|`. This
     is used to prevent
     [referrer spam](https://en.wikipedia.org/wiki/Referer_spam)
-    * Examples: `.*\.spam\.com|\w+.spamwow.\w+`, `bad\.referrer\.com`
+    - Examples: `.*\.spam\.com|\w+.spamwow.\w+`, `bad\.referrer\.com`
 
 ### Start server
 
@@ -61,8 +61,8 @@ The website should now be running on your computer at http://localhost:3000.
 If you choose to use the `Procfile` for deployment, you _must_ set the
 following environment variables to appropriate values:
 
-* `PORT`
-* `RACK_ENV`
+- `PORT`
+- `RACK_ENV`
 
 ## License
 
