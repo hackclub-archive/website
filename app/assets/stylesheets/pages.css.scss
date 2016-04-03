@@ -104,6 +104,18 @@ $include-html-global-classes: false;
   }
 }
 
+.testimonial {
+  @extend .colored-section;
+  background-image: asset_url("testimonial_background.jpg");
+  background-size: cover;
+  padding: 25px 0;
+  text-align: left;
+
+  @media #{$medium-up} {
+    padding: 100px 0;
+  }
+}
+
 .impact {
   @extend .colored-section;
   background-color: $hackclub-orange;
