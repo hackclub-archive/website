@@ -4,7 +4,17 @@ class ClubApplication < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_email_format_of :email, message: 'not a valid email'
 
-  enum year: [:freshman, :sophomore, :junior, :senior]
+  enum year: {
+    below_high_school: 4,
+    nine: 0,
+    ten: 1,
+    eleven: 2,
+    twelve: 3,
+    college_student: 5,
+    teacher: 6,
+    parent_or_guardian: 7,
+    other: 8
+  }
 
   def mail_address
     expected = Mail::Address.new email
