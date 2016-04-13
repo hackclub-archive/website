@@ -2,7 +2,7 @@
   %h1 Donate
   %p 75% of students don't have access to coding education.
   %p Support the student-led movement that's changing that.
-  .donation-form
+  = form_tag donations_path, class: 'donation-form', id: 'donation-form' do
     %section
       %h3
         It costs us $3 each month to support a student in Hack Club.
@@ -16,16 +16,16 @@
           .medium-9.columns
             .row
               .small-4.medium-3.large-2.columns
-                %input#a5{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5'}
+                %input#a5{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '500'}
                   %label.button{for: 'a5'} $5
               .small-4.medium-3.large-2.columns
-                %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '15', checked: ''}
+                %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '1500', checked: ''}
                   %label.button{for: 'a15'} $15
               .small-4.medium-3.large-2.columns
-                %input#a30{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '30'}
+                %input#a30{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '3000'}
                   %label.button{for: 'a30'} $30
               .small-4.medium-3.large-2.columns
-                %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '50'}
+                %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5000'}
                   %label.button{for: 'a50'} $50
               .small-4.medium-3.columns
                 %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount'}
@@ -45,4 +45,3 @@
 
 -# For Stripe Checkout
 %script{src: 'https://checkout.stripe.com/checkout.js'}
-

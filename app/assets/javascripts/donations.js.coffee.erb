@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-DOLLAR_COST_PER_STUDENT = 3;
+PENNY_COST_PER_STUDENT = 300;
 IMPACT_DURATION_RECURRING = 'every month'
 IMPACT_DURATION_ONE_TIME = 'for a month'
 
@@ -10,6 +10,7 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
   impactCount = $('#donation-impact-count')
   impactDuration = $('#donation-impact-duration')
 
+  form = $('#donation-form')
   contributeBtn = $('#contribute')
   amountInput = $('input[name="amount"]')
   recurringInput = $('input[name="recurring"]')
@@ -17,18 +18,22 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
   amount = amountInput.filter(':checked').val()
   recurring = recurringInput.filter(':checked').val()
   stripeHandler = StripeCheckout.configure(
-    key: 'REPLACE_ME'
-    image: '<%= asset_url("logo.png") %>',
-    locale: 'auto',
-    panelLabel: 'Contribute {{amount}}',
+    key: '<%= Figaro.env.STRIPE_PUBLISHABLE_KEY %>'
+    image: '<%= asset_url("logo.png") %>'
+    locale: 'auto'
+    panelLabel: 'Contribute {{amount}}'
     token: (token) ->
-      # TODO?
+      # Add the Stripe token and email to the form, then submit it
+      tokenInput = $('<input type="hidden" name="stripe_token" />').val(token.id)
+      emailInput = $('<input type="hidden" name="stripe_email" />').val(token.email)
+
+      form.append(tokenInput).append(emailInput).submit()
   )
 
   # Adjust displayed impact count based on donation amount
   amountInput.change ->
     amount = parseInt this.value
-    count = Math.floor(amount / DOLLAR_COST_PER_STUDENT)
+    count = Math.floor(amount / PENNY_COST_PER_STUDENT)
     impactCount.text constructImpactCount(count)
 
   # Adjust displayed impact duration based on whether the donation is recurring
@@ -46,7 +51,7 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
     stripeHandler.open
       name: 'Hack Club',
       description: constructStripeCheckoutDescription recurring
-      amount: amount * 100 # Gotta convert it from dollars to pennies
+      amount: amount
     e.preventDefault()
 
   # Close Stripe Checkout on page navigation
