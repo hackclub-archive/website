@@ -40,12 +40,8 @@
             %label{for: 'r-false'} One Time
         .medium-offset-6.large-offset-8.columns
     %section
-      %button Contribute
-    -# .row#custom-amount
-    -#   .small-4.columns
-    -#     .row.collapse.prefix-radius
-    -#       .small-3.columns
-    -#         %span.prefix $
-    -#       .small-9.columns
-    -#         %input{'data-toggle' => 'button', type: 'text', name: 'amount', placeholder: '10'}
+      %button#contribute Contribute
+
+-# For Stripe Checkout
+%script{src: 'https://checkout.stripe.com/checkout.js'}
 
