@@ -30,8 +30,15 @@
                 %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5000'}
                   %label.button{for: 'a50'} $50
               .small-4.medium-3.columns
-                %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount'}
+                %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount', value: 'custom'}
                   %label.button{for: 'a-custom'} Custom
+              .small-4.medium-3.columns.hide#custom_amount
+                .row.collapse
+                  %label Custom Amount
+                  .small-3.columns
+                    %span.prefix $
+                  .small-9.columns
+                    %input{type: 'number', name: 'custom_amount', value: '10'}
               .small-offset-4.hide-for-medium-up.columns
     %section
       .row

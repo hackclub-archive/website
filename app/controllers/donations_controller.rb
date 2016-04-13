@@ -3,7 +3,13 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @amount = params[:amount].to_i
+    @amount = 0
+
+    if params[:amount] == 'custom'
+      @amount = (params[:custom_amount].to_f * 100).to_i # Gotta convert it to pennies
+    else
+      @amount = params[:amount].to_i
+    end
 
     # Gotta convert it from a string to a boolean
     recurring = (params[:recurring] == 'true')
