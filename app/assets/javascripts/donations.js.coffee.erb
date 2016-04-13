@@ -18,8 +18,9 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
   recurring = recurringInput.filter(':checked').val()
   stripeHandler = StripeCheckout.configure(
     key: 'REPLACE_ME'
-    image: 'TODO',
+    image: '<%= asset_url("logo.png") %>',
     locale: 'auto',
+    panelLabel: 'Contribute {{amount}}',
     token: (token) ->
       # TODO?
   )
