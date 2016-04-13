@@ -1,0 +1,51 @@
+.row
+  %h1 Donate
+  %p 75% of students don't have access to coding education.
+  %p Support the student-led movement that's changing that.
+  .donation-form
+    %section
+      %h3
+        Your contribution allows us to support
+        <span id="donation-impact-count">5 students</span>
+        in Hack Clubs
+        <span id="donation-impact-duration">every month</span>
+    %section
+      .button-group.toggle{'data-toggle' => 'buttons-radio'}
+        .row
+          .medium-9.columns
+            .row
+              .small-4.medium-3.large-2.columns
+                %input#a5{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5'}
+                  %label.button{for: 'a5'} $5
+              .small-4.medium-3.large-2.columns
+                %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '15', checked: ''}
+                  %label.button{for: 'a15'} $15
+              .small-4.medium-3.large-2.columns
+                %input#a30{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '30'}
+                  %label.button{for: 'a30'} $30
+              .small-4.medium-3.large-2.columns
+                %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '50'}
+                  %label.button{for: 'a50'} $50
+              .small-4.medium-3.columns
+                %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount'}
+                  %label.button{for: 'a-custom'} Custom
+              .small-offset-4.hide-for-medium-up.columns
+    %section
+      .row
+        .small-12.medium-3.large-2.columns
+          %input#r-true{type: 'radio', name: 'recurring', value: 'true', checked: ''}
+            %label{for: 'r-true'} Monthly
+        .small-12.medium-3.large-2.columns
+          %input#r-false{type: 'radio', name: 'recurring', value: 'false'}
+            %label{for: 'r-false'} One Time
+        .medium-offset-6.large-offset-8.columns
+    %section
+      %button Contribute
+    -# .row#custom-amount
+    -#   .small-4.columns
+    -#     .row.collapse.prefix-radius
+    -#       .small-3.columns
+    -#         %span.prefix $
+    -#       .small-9.columns
+    -#         %input{'data-toggle' => 'button', type: 'text', name: 'amount', placeholder: '10'}
+
