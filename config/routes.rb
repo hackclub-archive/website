@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'apply', to: 'club_applications#new'
   post 'apply', to: 'club_applications#create'
 
-  resources :donations, only: [:new, :create]
+  get 'donate', to: 'donations#new'
+  post 'donate', to: 'donations#create'
 
   %w[sponsor team].each do |page|
     get page, controller: 'pages', action: page
