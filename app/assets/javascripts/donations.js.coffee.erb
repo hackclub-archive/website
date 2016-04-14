@@ -7,6 +7,10 @@ IMPACT_DURATION_RECURRING = 'every month'
 IMPACT_DURATION_ONE_TIME = 'for a month'
 
 @['donations#new'] = (data) ->
+  # Load Stripe Checkout before doing anything else
+  $.getScript 'https://checkout.stripe.com/checkout.js', donationLogic
+
+donationLogic = ->
   contributionAmount = $('#contribution-amount')
   impactCount = $('#donation-impact-count')
   impactDuration = $('#donation-impact-duration')
@@ -85,39 +89,39 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
   $(window).on 'popstate', ->
     stripeHandler.close()
 
-constructImpactCount = (count) =>
-  if count == 1
-    count + ' student'
-  else
-    count + ' students'
+  constructImpactCount = (count) =>
+    if count == 1
+      count + ' student'
+    else
+      count + ' students'
 
-# Formats a given amount in pennies for display. Ex. turns 1500 into $15
-#
-# More examples:
-#
-# 1212 -> $12.12
-# 300 -> $3
-# 4300 -> $43
-# 4201 -> $42.01
-formatAmount = (amount) =>
-  floatingAmount = amount * 0.01
+  # Formats a given amount in pennies for display. Ex. turns 1500 into $15
+  #
+  # More examples:
+  #
+  # 1212 -> $12.12
+  # 300 -> $3
+  # 4300 -> $43
+  # 4201 -> $42.01
+  formatAmount = (amount) =>
+    floatingAmount = amount * 0.01
 
-  if floatingAmount % 1 != 0
-    "$#{floatingAmount.toFixed(2)}"
-  else
-    "$#{floatingAmount.toFixed(0)}"
+    if floatingAmount % 1 != 0
+      "$#{floatingAmount.toFixed(2)}"
+    else
+      "$#{floatingAmount.toFixed(0)}"
 
-updateImpactCount = (amount, impactCount) =>
-  count = Math.floor(amount / PENNY_COST_PER_STUDENT)
-  impactCount.text constructImpactCount(count)
+  updateImpactCount = (amount, impactCount) =>
+    count = Math.floor(amount / PENNY_COST_PER_STUDENT)
+    impactCount.text constructImpactCount(count)
 
-updateContributionAmount = (amount, contributionAmount) =>
-  contributionAmount.text formatAmount amount
+  updateContributionAmount = (amount, contributionAmount) =>
+    contributionAmount.text formatAmount amount
 
-constructStripeCheckoutDescription = (recurring) =>
-  suffix = 'Hack Club contribution'
+  constructStripeCheckoutDescription = (recurring) =>
+    suffix = 'Hack Club contribution'
 
-  if recurring
-    'Monthly ' + suffix
-  else
-    'One time ' + suffix
+    if recurring
+      'Monthly ' + suffix
+    else
+      'One time ' + suffix
