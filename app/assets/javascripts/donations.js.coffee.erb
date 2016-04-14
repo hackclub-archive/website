@@ -7,6 +7,11 @@ IMPACT_DURATION_RECURRING = 'every month'
 IMPACT_DURATION_ONE_TIME = 'for a month'
 
 @['donations#new'] = (data) ->
+  # If this page is being loaded after a successful donation, trigger the
+  # confirmation modal
+  if data != undefined && data.donation_successful == true
+    $('#confirmation-modal').foundation('reveal', 'open')
+
   # Load Stripe Checkout before doing anything else
   $.getScript 'https://checkout.stripe.com/checkout.js', donationLogic
 
