@@ -1,1 +1,4 @@
-%h1 Thank you for your generous contribution of #{@amount}
+.row
+  %h1
+    Thank you for your contribution of
+    #{number_to_currency(@amount / 100)}

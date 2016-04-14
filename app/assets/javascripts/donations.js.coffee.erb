@@ -7,12 +7,13 @@ IMPACT_DURATION_RECURRING = 'every month'
 IMPACT_DURATION_ONE_TIME = 'for a month'
 
 @['donations#new'] = (data) ->
+  contributionAmount = $('#contribution-amount')
   impactCount = $('#donation-impact-count')
   impactDuration = $('#donation-impact-duration')
 
   form = $('#donation-form')
   contributeBtn = $('#contribute')
-  customAmountDiv = $('#custom_amount')
+  customAmountDiv = $('#custom-amount')
   amountInput = $('input[name="amount"]')
   customAmountInput = $('input[name="custom_amount"]')
   recurringInput = $('input[name="recurring"]')
@@ -38,11 +39,13 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
 
       amount = Math.round(parseFloat(customAmountInput.val()) * 100) || 0
       updateImpactCount(amount, impactCount)
+      updateContributionAmount(amount, contributionAmount)
     else
       customAmountDiv.addClass 'hide'
 
       amount = parseInt this.value
       updateImpactCount(amount, impactCount)
+      updateContributionAmount(amount, contributionAmount)
 
   # Adjust amount and impact count for custom donation amount
   customAmountInput.on 'input', ->
@@ -58,6 +61,7 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
       # Convert to pennies or set to 0 if empty
       amount = Math.round(givenAmount * 100) || 0
       updateImpactCount(amount, impactCount)
+      updateContributionAmount(amount, contributionAmount)
 
   # Adjust displayed impact duration based on whether the donation is recurring
   recurringInput.change ->
@@ -87,9 +91,28 @@ constructImpactCount = (count) =>
   else
     count + ' students'
 
+# Formats a given amount in pennies for display. Ex. turns 1500 into $15
+#
+# More examples:
+#
+# 1212 -> $12.12
+# 300 -> $3
+# 4300 -> $43
+# 4201 -> $42.01
+formatAmount = (amount) =>
+  floatingAmount = amount * 0.01
+
+  if floatingAmount % 1 != 0
+    "$#{floatingAmount.toFixed(2)}"
+  else
+    "$#{floatingAmount.toFixed(0)}"
+
 updateImpactCount = (amount, impactCount) =>
   count = Math.floor(amount / PENNY_COST_PER_STUDENT)
   impactCount.text constructImpactCount(count)
+
+updateContributionAmount = (amount, contributionAmount) =>
+  contributionAmount.text formatAmount amount
 
 constructStripeCheckoutDescription = (recurring) =>
   suffix = 'Hack Club contribution'

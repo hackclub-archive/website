@@ -1,4 +1,5 @@
 @import "variables";
+@import "foundation/components/global";
 
 // Modified from http://zurb.com/building-blocks/radio-button-group-selection
 input[data-toggle] {
@@ -19,7 +20,55 @@ input[data-toggle]:checked + label:active {
   }
 }
 
+.donation-header {
+    background-image: asset_url("hack_huddle.jpg");
+    background-size: cover;
+    background-position: center;
+
+    padding: 25px 0;
+    color: $hackclub-white;
+    text-align: left;
+
+    h1 {
+        color: $hackclub-white;
+    }
+
+    @media #{$medium-up} {
+        padding: 100px 0;
+    }
+
+    .heading {
+        font-size: rem-calc(28);
+        font-weight: bold;
+
+        @media #{$medium-up} {
+            font-size: rem-calc(42);
+        }
+
+        @media #{$large-up} {
+            font-size: rem-calc(56);
+        }
+    }
+
+    .subheading {
+        font-size: rem-calc(18);
+        margin-top: 25px;
+
+        @media #{$medium-up} {
+            font-size: rem-calc(32);
+        }
+    }
+}
+
 // Custom donation form styles
+.donation-form {
+    margin-top: 1.1em;;
+
+  @media #{$medium-up} {
+    margin-top: 2.5em;
+  }
+}
+
 .donation-form .button {
     width: 100%;
     margin-left: 0;
@@ -29,4 +78,15 @@ input[data-toggle]:checked + label:active {
 
 .donation-form section {
     margin-bottom: 1em;
+}
+
+.donation-form .donation-impact {
+  @media #{$medium-up} {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+.donation-form #contribute {
+    background-color: $hackclub-blue;
 }

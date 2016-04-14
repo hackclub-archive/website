@@ -6,12 +6,14 @@ class DonationsController < ApplicationController
     @amount = 0
 
     if params[:amount] == 'custom'
-      @amount = (params[:custom_amount].to_f * 100).to_i # Gotta convert it to pennies
+      # The user gives us a floating point number for the amount. Here we
+      # convert it to pennies.
+      @amount = (params[:custom_amount].to_f * 100).to_i
     else
       @amount = params[:amount].to_i
     end
 
-    # Gotta convert it from a string to a boolean
+    # Convert whether the payment is recurring to a boolean
     recurring = (params[:recurring] == 'true')
 
     # Create the Stripe customer
