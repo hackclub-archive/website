@@ -6,12 +6,16 @@ input[data-toggle] {
   display: none;
 }
 
+input[data-toggle] + label:hover {
+  background-color: scale-color($hackclub-blue, $lightness: 25%);
+}
+
 input[data-toggle]:checked + label,
 input[data-toggle]:checked + label:active {
   color: $hackclub-white;
   background-color: $hackclub-blue;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 
-              0 1px 2px rgba(0, 0, 0, 0.05);
+    0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .button-group.toggle {
@@ -21,48 +25,48 @@ input[data-toggle]:checked + label:active {
 }
 
 .donation-header {
-    background-image: asset_url("hack_huddle.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: asset_url("hack_huddle.jpg");
+  background-size: cover;
+  background-position: center;
 
-    padding: 25px 0;
+  padding: 25px 0;
+  color: $hackclub-white;
+  text-align: left;
+
+  h1 {
     color: $hackclub-white;
-    text-align: left;
+  }
 
-    h1 {
-        color: $hackclub-white;
-    }
+  @media #{$medium-up} {
+    padding: 100px 0;
+  }
+
+  .heading {
+    font-size: rem-calc(28);
+    font-weight: bold;
 
     @media #{$medium-up} {
-        padding: 100px 0;
+      font-size: rem-calc(42);
     }
 
-    .heading {
-        font-size: rem-calc(28);
-        font-weight: bold;
-
-        @media #{$medium-up} {
-            font-size: rem-calc(42);
-        }
-
-        @media #{$large-up} {
-            font-size: rem-calc(56);
-        }
+    @media #{$large-up} {
+      font-size: rem-calc(56);
     }
+  }
 
-    .subheading {
-        font-size: rem-calc(18);
-        margin-top: 25px;
+  .subheading {
+    font-size: rem-calc(18);
+    margin-top: 25px;
 
-        @media #{$medium-up} {
-            font-size: rem-calc(32);
-        }
+    @media #{$medium-up} {
+      font-size: rem-calc(32);
     }
+  }
 }
 
 // Custom donation form styles
 .donation-form {
-    margin-top: 1.1em;;
+  margin-top: 1.1em;;
 
   @media #{$medium-up} {
     margin-top: 2.5em;
@@ -70,18 +74,14 @@ input[data-toggle]:checked + label:active {
 }
 
 .donation-form .button {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: .4em;
-}
-
-.donation-form .button:hover {
-    background-color: scale-color($hackclub-blue, $lightness: 25%);
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: .4em;
 }
 
 .donation-form section {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .donation-form .donation-impact {
@@ -92,5 +92,5 @@ input[data-toggle]:checked + label:active {
 }
 
 .donation-form #contribute {
-    background-color: $hackclub-blue;
+  background-color: $hackclub-blue;
 }
