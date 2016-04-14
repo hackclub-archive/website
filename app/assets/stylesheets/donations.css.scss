@@ -76,6 +76,10 @@ input[data-toggle]:checked + label:active {
     margin-bottom: .4em;
 }
 
+.donation-form .button:hover {
+    background-color: scale-color($hackclub-blue, $lightness: 25%);
+}
+
 .donation-form section {
     margin-bottom: 1em;
 }
