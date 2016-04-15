@@ -13,9 +13,10 @@ IMPACT_DURATION_ONE_TIME = 'for a month'
     $('#confirmation-modal').foundation('reveal', 'open')
 
   # Load Stripe Checkout before doing anything else
-  $.getScript 'https://checkout.stripe.com/checkout.js', donationLogic
+  $.getScript 'https://checkout.stripe.com/checkout.js', ->
+    donationLogic data
 
-donationLogic = ->
+donationLogic = (data) ->
   contributionAmount = $('#contribution-amount')
   impactCount = $('#donation-impact-count')
   impactDuration = $('#donation-impact-duration')
@@ -30,8 +31,8 @@ donationLogic = ->
   amount = amountInput.filter(':checked').val()
   recurring = recurringInput.filter(':checked').val()
   stripeHandler = StripeCheckout.configure(
-    key: '<%= Figaro.env.STRIPE_PUBLISHABLE_KEY %>'
-    image: '<%= asset_url("logo.png") %>'
+    key: data.stripe_publishable_key,
+    image: data.logo_url,
     locale: 'auto'
     token: (token) ->
       # Add the Stripe token and email to the form, then submit it

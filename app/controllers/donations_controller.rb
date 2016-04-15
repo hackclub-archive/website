@@ -1,5 +1,9 @@
 class DonationsController < ApplicationController
   def new
+    pluggable_js(
+      stripe_publishable_key: Figaro.env.STRIPE_PUBLISHABLE_KEY,
+      logo_url: view_context.asset_url('logo.png')
+    )
   end
 
   def create
@@ -48,7 +52,9 @@ class DonationsController < ApplicationController
     end
 
     pluggable_js(
-      donation_successful: true
+      donation_successful: true,
+      stripe_publishable_key: Figaro.env.STRIPE_PUBLISHABLE_KEY,
+      logo_url: view_context.asset_url('logo.png')
     )
 
     render :new
