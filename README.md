@@ -31,6 +31,8 @@ Create `config/application.yml` containing the following keys and
 corresponding values.
 
 - `SECRET_KEY_BASE`
+- `STRIPE_PUBLISHABLE_KEY` - Publishable key for [Stripe](https://stripe.com/)
+- `STRIPE_SECRET_KEY` - Secret key for [Stripe](https://stripe.com/)
 
 #### Production Secrets
 

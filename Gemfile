@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'redcarpet'
 gem 'rack-ssl-enforcer'
 gem 'rack-attack'
+gem 'unf_ext'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -24,6 +25,7 @@ gem 'enum_help'
 gem 'pluggable_js'
 gem 'figaro'
 gem 'validates_email_format_of'
+gem 'stripe'
 
 group :development, :test do
   gem 'sqlite3'

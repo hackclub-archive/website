@@ -1,0 +1,74 @@
+= provide :title, 'Donate'
+
+-# This page is also rendered after a successful donation. If we're loading this
+-# page after a successful donation, this modal will be triggered.
+#confirmation-modal.reveal-modal{'aria-hidden' => 'true',
+                                 'aria-labelledby' => 'confirmationTitle',
+                                 'data-reveal' => '',
+                                 :role => 'dialog'}
+  %h2#confirmationTitle You're Awesome
+  %p.lead
+    Thank you for your contribution. We've sent a confirmation receipt to
+    your email.
+  %a.close-reveal-modal{"aria-label" => "Close"} ×
+
+.donation-header
+  .row
+    .small-12.columns
+      %h1.heading
+        Hack Club brings free coding clubs to high schools worldwide.
+      %p.subheading
+        It costs us $3 each month to support a student in Hack Club. Join us,
+        your contribution matters.
+.row
+  .small-12.columns
+    = form_tag donate_path, class: 'donation-form', id: 'donation-form' do
+      %section.donation-impact
+        %h3
+          Your <span id="contribution-amount">$15</span> contribution allows us to support
+          <span id="donation-impact-count">5 students</span>
+          in Hack Club
+          <span id="donation-impact-duration">every month</span>.
+      %section
+        .button-group.toggle{'data-toggle' => 'buttons-radio'}
+          .row
+            .medium-9.columns
+              .row
+                .small-4.medium-3.large-2.columns
+                  %input#a5{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '500'}
+                    %label.button{for: 'a5'} $5
+                .small-4.medium-3.large-2.columns
+                  %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '1500', checked: ''}
+                    %label.button{for: 'a15'} $15
+                .small-4.medium-3.large-2.columns
+                  %input#a30{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '3000'}
+                    %label.button{for: 'a30'} $30
+                .small-4.medium-3.large-2.columns
+                  %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5000'}
+                    %label.button{for: 'a50'} $50
+                .small-4.medium-3.columns
+                  %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount', value: 'custom'}
+                    %label.button{for: 'a-custom'} Custom
+                .small-4.medium-3.columns.hide#custom-amount
+                  .row.collapse
+                    %label Amount
+                    .small-3.columns
+                      %span.prefix $
+                    .small-9.columns
+                      %input{type: 'number', name: 'custom_amount', value: '10'}
+                .small-offset-4.hide-for-medium-up.columns
+      %section
+        .row
+          .small-12.medium-3.large-2.columns
+            %input#r-true{type: 'radio', name: 'recurring', value: 'true', checked: ''}
+              %label{for: 'r-true'} Monthly
+          .small-12.medium-3.large-2.columns
+            %input#r-false{type: 'radio', name: 'recurring', value: 'false'}
+              %label{for: 'r-false'} One Time
+          .medium-offset-6.large-offset-8.columns
+      %section
+        %button#contribute Contribute
+      %section
+        %p
+          Hack Club is a registered 501(c)(3) nonprofit organization. Your
+          contribution is tax deductible.
