@@ -16,11 +16,24 @@ class DonationsController < ApplicationController
     # Convert whether the payment is recurring to a boolean
     recurring = (params[:recurring] == 'true')
 
-    # Create the Stripe customer
-    customer = Stripe::Customer.create(
-      email: params[:stripe_email],
-      source: params[:stripe_token]
-    )
+    # Get the Stripe customer object so we can charge the user.
+    #
+    # We use the Donor model to keep track of all of our existing donors. If the
+    # person has previously donated, then we use their existing customer object
+    # in Stripe. If they're a first time donor, then we create a new customer
+    # object in Stripe and create a new Donor object with their Stripe info.
+    donor = Donor.find_by(email: params[:stripe_email])
+    customer = nil
+    if donor == nil # Create a new donor object & customer
+      customer = Stripe::Customer.create(
+        email: params[:stripe_email],
+        source: params[:stripe_token]
+      )
+
+      Donor.create!(email: customer.email, stripe_id: customer.id)
+    else # Retrieve existing customer
+      customer = Stripe::Customer.retrieve(donor.stripe_id)
+    end
 
     if recurring
       plan = plan_for(@amount)
