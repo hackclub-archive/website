@@ -1,5 +1,7 @@
 %meta{name: 'title', content: 'Hack Club'}
-%meta{name: 'description', content: 'Be a part of the global movement of free student-led coding clubs.'}
+- default = 'Be a part of the global movement of free student-led coding clubs.'
+- @description = (content_for?(:description) ? yield(:description) : default)
+%meta{name: 'description', content: @description}
 %meta{name: 'og:type', content: "website"}
 %meta{name: 'og:url', content: "https://hackclub.com"}
 %meta{name: 'og:image', content: "#{ image_path('group_photo_no_gradient.jpg') }"}
