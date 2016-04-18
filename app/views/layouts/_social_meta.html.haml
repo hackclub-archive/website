@@ -1,6 +1,6 @@
 %meta{name: 'title', content: 'Hack Club'}
-- content_for?(:description) ? @description = yield(:description) :
-- @description = 'Be a part of the global movement of free student-led coding clubs.'
+- default = 'Be a part of the global movement of free student-led coding clubs.'
+- @description = (content_for?(:description) ? yield(:description) : default)
 %meta{name: 'description', content: @description}
 %meta{name: 'og:type', content: "website"}
 %meta{name: 'og:url', content: "https://hackclub.com"}
