@@ -22,7 +22,7 @@
         .small-6.columns
           = f.input :high_school, placeholder: 'Visalia High School'
         .small-6.columns
-          = f.input :year, as: :select,
+          = f.input :year, label: 'Current year', as: :select,
               collection: ClubApplication.years.to_a.map { |y| [y[0].humanize, y[0]] },
               include_blank: true
       .row
