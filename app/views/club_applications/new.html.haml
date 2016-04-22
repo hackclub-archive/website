@@ -25,7 +25,7 @@
         .small-6.columns
           = f.input :high_school, placeholder: 'Visalia High School'
         .small-6.columns
-          = f.input :year, as: :select,
+          = f.input :year, label: 'Current year', as: :select,
               collection: ClubApplication.years.to_a.map { |y| [y[0].humanize, y[0]] },
               include_blank: true
       .row
@@ -50,7 +50,7 @@
           = f.input :interesting_project, label: 'Please tell us about an interesting project, preferably outside of class, that you created or worked on.'
       .row
         .columns
-          = f.input :system_hacked, label: 'Please tell us about the time you most successfully hacked some (non-computer) system to your advantage.'
+          = f.input :system_hacked, label: 'Please tell us about the time you most successfully hacked some (non-computer) system to your advantage. Click <a href="https://www.quora.com/When-have-you-most-successfully-hacked-some-non-computer-system-to-your-advantage">here</a> for the sorts of responses we\'re looking for.'.html_safe
       .row
         .columns
           = f.input :steps_taken, label: 'What steps have you taken so far in starting your club?'
