@@ -14,6 +14,12 @@ module HackClub
     # Block referer spam
     config.middleware.use Rack::Attack
 
+    # Compress Rails-generated responses
+    config.middleware.use Rack::Deflater
+
+    # Also use Rack::Deflater for runtime asset compression
+    config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
