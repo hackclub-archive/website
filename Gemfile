@@ -19,7 +19,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'rails-assets-Hover'
 gem 'rails-assets-underscore'
-gem 'gmaps4rails'
 gem 'simple_form'
 gem 'enum_help'
 gem 'pluggable_js'
