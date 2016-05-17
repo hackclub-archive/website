@@ -160,6 +160,10 @@ $include-html-global-classes: false;
   }
 
   .publication {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     height: 100px;
     opacity: 0.6;
     transition: 0.25s;
@@ -168,16 +172,7 @@ $include-html-global-classes: false;
       height: 175px;
     }
 
-    .helper {
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
-
     a > img {
-      margin-left: auto;
-      margin-right: auto;
-      vertical-align: middle;
       width: 75px;
 
       @media #{$medium-up} {
