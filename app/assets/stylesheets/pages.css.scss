@@ -290,9 +290,16 @@ a {
 
   .links {
     margin: 1rem 0 0 1.5rem;
-    font-size: 1rem!important;
+    font-size: 1rem !important;
+
     a {
-      color: $hackclub-red;
+      color: $hackclub-white;
+      text-decoration: underline;
+
+      @media #{$large-up} {
+        color: $hackclub-red;
+        text-decoration: none;
+      }
     }
   }
 
