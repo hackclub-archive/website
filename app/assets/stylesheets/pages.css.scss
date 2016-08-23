@@ -44,7 +44,7 @@ a {
 }
 
 .faded {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .hackclub-logo {
@@ -101,8 +101,8 @@ a {
 }
 
 .links a:not(.button) {
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   &:hover {
     text-decoration: underline;
   }
@@ -123,7 +123,7 @@ a {
   background: $hackclub-white;
   color: $hackclub-black;
   margin-bottom: 1em;
-  
+
   .card-image {
     display: block;
     height: 8rem;
@@ -134,7 +134,7 @@ a {
   }
 
   h1, h2, h3, h4, h5 {
-    padding-top: .75rem;
+    padding-top: 0.75rem;
   }
 
   .card-heading {
@@ -143,8 +143,8 @@ a {
   }
 
   p {
-    margin: .75rem .5rem;
-    font-size: .85rem!important;
+    margin: 0.75rem .5rem;
+    font-size: 0.85rem!important;
     @media #{$medium-up} {
       min-height: 4rem;
     }
@@ -193,7 +193,7 @@ a {
         text-align: left;
         text-decoration: underline;
         display: inline-block;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
         margin: 1rem 0 2rem;
       }
     }
@@ -273,7 +273,7 @@ a {
 
   h1 {
     border: 4px solid $hackclub-red;
-    padding: .5rem .5rem 3rem .5rem;
+    padding: 0.5rem .5rem 3rem .5rem;
     border-radius: 4px;
     margin-bottom: -3rem;
     line-height: 1.35em;
@@ -312,7 +312,7 @@ a {
 
   .introduction-photo-caption {
     text-align: right;
-    font-size: .75rem;
+    font-size: 0.75rem;
     margin-top: 1em;
     margin-bottom: -1em;
   }
@@ -443,7 +443,7 @@ a {
     width: 100%;
     bottom: 0;
     left: 0;
-    padding: .5rem 1rem .75rem;
+    padding: 0.5rem 1rem .75rem;
     text-align: center;
     line-height: 1em;
     text-decoration: none;
@@ -457,12 +457,12 @@ a {
       margin-bottom: 0;
       color: inherit;
       font-weight: bold;
-      font-size: .85rem!important;
+      font-size: 0.85rem!important;
     }
 
     p, u {
       margin-bottom: 0;
-      font-size: .85rem!important;
+      font-size: 0.85rem!important;
     }
   }
 
@@ -473,7 +473,7 @@ a {
     height: 100%;
     top: 0;
     left: 0;
-    opacity: .0;
+    opacity: 0.0;
     background: $hackclub-red;
     transition: 150ms all linear;
   }
@@ -485,7 +485,6 @@ a {
     }
 
     &:after {
-      opacity: .5;
     }
 
   }
@@ -636,7 +635,7 @@ a {
       vertical-align: middle;
       transition: 300ms ease opacity;
       &:hover {
-        opacity: .65;
+        opacity: 0.65;
       }
     }
   }
@@ -723,7 +722,7 @@ a {
             width: 1rem;
             display: inline-block;
             vertical-align: text-top;
-            margin-right: .25rem;
+            margin-right: 0.25rem;
           }
         }
       }
