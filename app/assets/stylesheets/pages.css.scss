@@ -243,7 +243,7 @@ a {
   @extend .main-section;
   @extend .colored-section;
   text-align: center;
-  background-image: url("/assets/photos/december_hack_night.jpg");
+  background-image: asset_url("photos/december_hack_night.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
@@ -252,7 +252,7 @@ a {
   @media #{$large-up} {
     text-align: left;
     background-color: $hackclub-lightgray;
-    background-image: url("/assets/patterns/hack_pattern@3x.png");
+    background-image: asset_url("patterns/hack_pattern@3x.png");
     background-size: 450px;
     color: $hackclub-black;
     background-repeat: repeat;
@@ -607,7 +607,7 @@ a {
   @extend .main-section;
   text-align: center;
   background-color: $hackclub-lightgray;
-  background-image: url("/assets/patterns/hack_pattern@3x.png");
+  background-image: asset_url("patterns/hack_pattern@3x.png");
   background-size: 450px;
   color: $hackclub-black;
   background-repeat: repeat;
