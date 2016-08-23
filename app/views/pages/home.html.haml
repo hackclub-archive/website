@@ -70,7 +70,9 @@
           = image_tag 'slices/venue-bw.svg', class: 'card-image-fx-normal'
           = image_tag 'slices/venue-red.svg', class: 'card-image-fx-hover'
         %h3.card-heading.card-heading-taller Venue
-        %p We work with your school and our partners to get it the support it needs
+        %p
+          We work with your school and our partners to get it the support it
+          needs
         = link_to 'Securing a Venue',
           'https://github.com/hackclub/hackclub/blob/master/clubs/README.md',
           class: 'button card-button'
@@ -94,37 +96,37 @@
       By starting a Hack Club, you are joining a diverse international
       community of passionate coders.
   .row.row-larger.margin-bottom
-    .medium-4.small-6.columns.club-photo{ 'href' => '#' }
+    .medium-4.small-6.columns.club-photo{ href: '#' }
       = image_tag 'photos/debugging.jpg'
       -# .club-overlay
         %h5 George Washington High School
         %p Philadelphia, PA
         %u Visit Website
-    .medium-4.small-6.columns.club-photo{ 'href' => '#' }
+    .medium-4.small-6.columns.club-photo{ href: '#' }
       = image_tag 'photos/group.jpg'
       -# .club-overlay
         %h5 George Washington High School
         %p Philadelphia, PA
         %u Visit Website
-    .medium-4.small-6.columns.club-photo{ 'href' => '#' }
+    .medium-4.small-6.columns.club-photo{ href: '#' }
       = image_tag 'photos/lecture.jpg'
       -# .club-overlay
         %h5 George Washington High School
         %p Philadelphia, PA
         %u Visit Website
-    .medium-4.small-6.columns.club-photo{ 'href' => '#' }
+    .medium-4.small-6.columns.club-photo{ href: '#' }
       = image_tag 'photos/piano.jpg'
       -# .club-overlay
         %h5 George Washington High School
         %p Philadelphia, PA
         %u Visit Website
-    .medium-4.columns.hide-for-small-only.club-photo{ 'href' => '#' }
+    .medium-4.columns.hide-for-small-only.club-photo{ href: '#' }
       = image_tag 'photos/talk.jpg'
       -# .club-overlay
         %h5 George Washington High School
         %p Philadelphia, PA
         %u Visit Website
-    .medium-4.columns.hide-for-small-only.club-photo{ 'href' => '#' }
+    .medium-4.columns.hide-for-small-only.club-photo{ href: '#' }
       = image_tag 'photos/vr.jpg'
       -# .club-overlay
         %h5 George Washington High School
@@ -132,15 +134,14 @@
         %u Visit Website
   .row
     %p
-      The impact of Hack Club reaches far and wide across the world,
-      with <br> <b>82 schools</b> across <b>16 states</b> and <b>7
-      countries</b>.
+      The impact of Hack Club reaches far and wide across the world, with <br>
+      <b>82 schools</b> across <b>16 states</b> and <b>7 countries</b>.
     -# %p.links.margin-bottom
       = link_to 'Our Diversity in Numbers ➡', '#'
   .tabs-content
     -# Filler, no content here
-    #map-usa.content.active
-    #map-international.content
+    .content.active#map-usa
+    .content#map-international
   .row-larger.margin-bottom
     %ul.tabs{ 'data-tab' => '' }
       %li.tab-title.active
@@ -160,41 +161,41 @@
       websites, and more. <b>Jump in to our most popular workshops:</b>
     %p.links.margin-bottom
       = link_to 'For First Time Coders ➡',
-        'https://github.com/hackclub/hackclub/tree/master/workshops#initial-track'
+          'https://workshops.hackclub.com#workshop-order'
       = link_to 'Browse All Workshops ➡',
-        'https://workshops.hackclub.com/'
+          'https://workshops.hackclub.com/'
     .row.hide-for-small-only
       .large-3.medium-6.columns
         .card
-          .card-image{ 'style' => 'background-image:url(https://github.com/hackclub/hackclub/raw/master/workshops/personal_website/img/final_screenshot.png)' }
+          .card-image{style: 'background-image:url(https://workshops.hackclub.com/personal_website/img/final_screenshot.png)'}
           %h4.card-heading Build a Website
           %p Learn how build a website showcasing yourself.
           = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/personal_website/README.md',
+            'https://workshops.hackclub.com/personal_website/',
             class: 'button card-button card-button-black'
       .large-3.medium-6.columns
         .card
-          .card-image{ 'style' => 'background-image:url(https://github.com/hackclub/hackclub/raw/master/workshops/soccer/img/5_mini.gif)' }
+          .card-image{style: 'background-image:url(https://workshops.hackclub.com/soccer/img/5_mini.gif)'}
           %h4.card-heading Soccer Game
           %p Create a fun single player game in Javascript.
           = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/soccer/README.md',
+            'https://workshops.hackclub.com/soccer/',
             class: 'button card-button card-button-black'
       .large-3.medium-6.columns
         .card
-          .card-image{ 'style' => 'background-image:url(https://github.com/hackclub/hackclub/raw/master/workshops/swiper/img/box.gif)' }
+          .card-image{ style: 'background-image:url(https://workshops.hackclub.com/swiper/img/box.gif)' }
           %h4.card-heading Swiper!
           %p Build an addictive iPhone game using Swift.
           = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/swiper/README.md',
+            'https://workshops.hackclub.com/swiper/',
             class: 'button card-button card-button-black'
       .large-3.medium-6.columns
         .card
-          .card-image{ 'style' => 'background-image:url(https://github.com/hackclub/hackclub/raw/master/workshops/that_was_easy/img/easy_screenshot.png)' }
+          .card-image{style: 'background-image:url(https://workshops.hackclub.com/that_was_easy/img/easy_screenshot.png)'}
           %h4.card-heading Easy Button
           %p Build a dead simple Easy button, complete with audio!
           = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/that_was_easy/README.md',
+            'https://workshops.hackclub.com/that_was_easy/',
             class: 'button card-button card-button-black'
 #resources
   .row
@@ -402,9 +403,9 @@
           %li.link
             #{link_to 'Start a Hack Club!', apply_path}
           %li.link
-            #{link_to 'Workshops', 'https://workshops.hackclub.com/' }
+            #{ link_to 'Workshops', 'https://workshops.hackclub.com/' }
           %li.link
-            #{link_to 'Blog', 'https://blog.hackclub.com' }
+            #{ link_to 'Blog', 'https://blog.hackclub.com' }
           %li.link
             #{link_to 'Donate', donate_path}
       .small-12.medium-4.columns.nav

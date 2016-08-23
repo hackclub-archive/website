@@ -615,20 +615,21 @@ a {
   li {
     margin-top: 30px;
     list-style-type: none;
+  }
 
-    a {
-      display: initial;
-    }
+  li a {
+    display: initial;
+  }
 
-    img {
-      margin-bottom: 2em;
-      max-height: 100%;
-      max-width: 100%;
-      vertical-align: middle;
-      transition: 300ms ease opacity;
-      &:hover {
-        opacity: 0.65;
-      }
+  li img {
+    margin-bottom: 2em;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+    transition: 300ms ease opacity;
+
+    &:hover {
+      opacity: 0.65;
     }
   }
 
