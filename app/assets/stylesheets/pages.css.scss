@@ -105,13 +105,13 @@ a {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 
-  &:hover {
+  &::hover {
     text-decoration: underline;
   }
 }
 
 .link {
-  &:hover {
+  &::hover {
     text-decoration: underline;
   }
 }
@@ -159,7 +159,7 @@ a {
     display: block;
     margin: 0;
 
-    &:hover {
+    &::hover {
       background: scale-color($hackclub-red, $lightness: -20%);
     }
   }
@@ -168,7 +168,7 @@ a {
     background: $hackclub-black;
     color: $hackclub-white;
 
-    &:hover {
+    &::hover {
       background: scale-color($hackclub-black, $lightness: -20%);
     }
   }
@@ -236,7 +236,7 @@ a {
         }
       }
 
-      &:hover {
+      &::hover {
         background: $hackclub-white;
         color: $hackclub-red;
         outline: 4px solid $hackclub-red;
@@ -251,14 +251,14 @@ a {
 }
 
 #introduction {
+  @extend .colored-section;
+  @extend .main-section;
   background-blend-mode: overlay;
   background-color: transparentize($hackclub-black, 0.5);
   background-image: asset_url("photos/december_hack_night.jpg");
   background-position: center;
   background-size: cover;
   color: white;
-  @extend .main-section;
-  @extend .colored-section;
   padding-top: 25px;
   text-align: center;
 
@@ -336,24 +336,24 @@ a {
   background: $hackclub-red;
   color: $white;
 
-  &:hover {
+  &::hover {
     background: scale-color($hackclub-red, $lightness: -14%);
   }
 
-  &.outline-outward:before {
+  &.outline-outward::before {
     border-color: $hackclub-lightgray;
     transition: 300ms ease all;
   }
 
-  &.outline-outward:hover:before {
+  &.outline-outward::hover::before {
     border-color: scale-color($hackclub-red, $lightness: -14%);
   }
 }
 
 #quote {
+  @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
-  @extend .main-section;
 
   p {
     border-left: 4px solid $hackclub-white;
@@ -375,7 +375,7 @@ a {
   .card {
     background: none;
 
-    &:hover {
+    &::hover {
       background: $hackclub-white;
     }
   }
@@ -480,7 +480,7 @@ a {
     }
   }
 
-  &:after {
+  &::after {
     background: $hackclub-red;
     content: " ";
     height: 100%;
@@ -492,21 +492,21 @@ a {
     width: 100%;
   }
 
-  &:hover {
+  &::hover {
     .club-overlay {
       transform: rotateX(0deg);
     }
 
-    &:after {
+    &::after {
       opacity: 0.5;
     }
   }
 }
 
 #workshops {
-  background: $hackclub-red;
   @extend .colored-section;
   @extend .main-section;
+  background: $hackclub-red;
   text-align: center;
 }
 
@@ -528,9 +528,9 @@ a {
 }
 
 #faq {
+  @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
-  @extend .main-section;
 
   h1, h2, h3, h4 {
     color: $hackclub-white;
@@ -625,12 +625,12 @@ a {
 }
 
 #supporters {
+  @extend .main-section;
   background-color: $hackclub-lightgray;
   background-image: asset_url("patterns/hack_pattern@3x.png");
   background-repeat: repeat;
   background-size: 450px;
   color: $hackclub-black;
-  @extend .main-section;
   text-align: center;
 
   li {
@@ -647,7 +647,7 @@ a {
         transition: 300ms ease opacity;
         vertical-align: middle;
 
-        &:hover {
+        &::hover {
           opacity: 0.65;
         }
       }
@@ -680,9 +680,9 @@ a {
 }
 
 #email-form {
-  background: $hackclub-red;
   @extend .colored-section;
   @extend .small-section;
+  background: $hackclub-red;
   text-align: center;
 
   .call-to-action {
@@ -741,7 +741,7 @@ a {
         }
       }
 
-      .link:hover {
+      .link::hover {
         background-color: scale-color($hackclub-black, $lightness: -10%);
       }
     }
