@@ -5,14 +5,14 @@ $include-html-global-classes: false;
 
 ::selection {
   background: $hackclub-red;
-  color: white;
+  color: $hackclub-white;
   opacity: 1;
   text-shadow: none;
 }
 
 ::-moz-selection {
   background: $hackclub-red;
-  color: #3c3836;
+  color: $hackclub-white;
   opacity: 1;
   text-shadow: none;
 }
@@ -316,7 +316,7 @@ a {
 
   .introduction-photo {
     border-radius: 0;
-    box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 10px $hackclub-gray;
     margin-top: -15px;
   }
 
@@ -343,15 +343,14 @@ a {
     border-color: scale-color($hackclub-red, $lightness: -14%);
   }
 }
-
 #quote {
   @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
 
   p {
-    padding: 1em 0 1em 1em;
     border-left: 4px solid $hackclub-white;
+    padding: 1em 0 1em 1em;
   }
 }
 
@@ -360,48 +359,48 @@ a {
   text-align: center;
 
   .subheading {
-    text-align: center;
     font-size: 1.75rem;
     font-style: italic;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
 
   .card {
     background: none;
+
     &:hover {
       background: $hackclub-white;
     }
   }
 
   @media #{$large-up} {
-
     .card-heading-longer {
-      min-height: 3.25em!important;
+      min-height: 3.25em !important;
       vertical-align: middle;
     }
 
     .card-heading-taller {
       line-height: 2.5em;
-      min-height: 3.25em!important;
+      min-height: 3.25em !important;
       vertical-align: middle;
     }
 
     .pluses {
       pointer-events: none;
+
       .columns {
         position: relative;
+
         img {
+          height: 50px;
           position: absolute;
           right: -25px;
           top: 120px;
-          height: 50px;
           width: 50px;
         }
       }
     }
-
   }
-
 }
 
 #map {
@@ -410,10 +409,9 @@ a {
   text-align: center;
 
   .tabs {
-
     .tab-title {
-      float: initial;
       display: inline-block;
+      float: initial;
 
       a {
         transition: 150ms all linear;
@@ -421,8 +419,8 @@ a {
     }
 
     .tab-title.active a {
-        background: $hackclub-red;
-        color: $white;
+      background: $hackclub-red;
+      color: $white;
     }
   }
 
@@ -433,8 +431,8 @@ a {
 
 #diversity {
   @extend .main-section;
-  text-align: center;
   padding-bottom: 0;
+  text-align: center;
 }
 
 .club-photo {
@@ -447,48 +445,47 @@ a {
   }
 
   .club-overlay {
-    position: absolute;
-    z-index: 50;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    padding: 0.5rem 1rem .75rem;
-    text-align: center;
-    line-height: 1em;
-    text-decoration: none;
     background: $hackclub-red;
+    bottom: 0;
     color: $hackclub-white;
-    transition: 200ms all ease;
+    left: 0;
+    line-height: 1em;
+    padding: 0.5rem 1rem 0.75rem;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
     transform: rotateX(90deg);
     transform-origin: bottom;
+    transition: 200ms all ease;
+    width: 100%;
+    z-index: 50;
 
     h5, strong {
-      margin-bottom: 0;
       color: inherit;
+      font-size: 0.85rem !important;
       font-weight: bold;
-      font-size: 0.85rem!important;
+      margin-bottom: 0;
     }
 
     p, u {
+      font-size: 0.85rem !important;
       margin-bottom: 0;
-      font-size: 0.85rem!important;
     }
   }
 
   &:after {
+    background: $hackclub-red;
     content: ' ';
-    position: absolute;
-    width: 100%;
     height: 100%;
-    top: 0;
     left: 0;
     opacity: 0.0;
-    background: $hackclub-red;
+    position: absolute;
+    top: 0;
     transition: 150ms all linear;
+    width: 100%;
   }
 
   &:hover {
-
     .club-overlay {
       transform: rotateX(0deg);
     }
@@ -496,13 +493,12 @@ a {
     &:after {
       opacity: 0.5;
     }
-
   }
 }
 
 #workshops {
-  @extend .main-section;
   @extend .colored-section;
+  @extend .main-section;
   background: $hackclub-red;
   text-align: center;
 }
@@ -534,8 +530,8 @@ a {
   }
 
   a {
-    text-decoration: underline;
     color: inherit;
+    text-decoration: underline;
   }
 
   p {
@@ -548,10 +544,10 @@ a {
   text-align: center;
 
   .row-of-people {
+    border-bottom: 4px solid #4a4a4a;
+    height: 260px;
     margin-bottom: -50px;
     overflow: hidden;
-    height: 260px;
-    border-bottom: 4px solid #4a4a4a;
   }
 }
 
@@ -580,25 +576,25 @@ a {
   }
 
   .profile-img {
-    width: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    width: 200px;
   }
 
   .heading {
     margin-bottom: 10px;
 
     h1 {
+      display: inline-block;
       font-size: rem-calc(18);
       font-weight: bold;
-      display: inline-block;
       margin-right: 5px;
     }
 
     h2 {
-      font-size: rem-calc(16);
       color: #7c7c7c;
       display: inline-block;
+      font-size: rem-calc(16);
     }
   }
 
@@ -609,9 +605,9 @@ a {
   .advisor {
     .heading {
       h1 {
-        margin-top: 7px;
-        margin-right: 0;
         margin-bottom: 0;
+        margin-right: 0;
+        margin-top: 7px;
       }
 
       h2 {
@@ -623,31 +619,31 @@ a {
 
 #supporters {
   @extend .main-section;
-  text-align: center;
   background-color: $hackclub-lightgray;
-  background-image: asset_url("patterns/hack_pattern@3x.png");
+  background-image: asset_url('patterns/hack_pattern@3x.png');
+  background-repeat: repeat;
   background-size: 450px;
   color: $hackclub-black;
-  background-repeat: repeat;
+  text-align: center;
 
   li {
-    margin-top: 30px;
     list-style-type: none;
-  }
+    margin-top: 30px;
 
-  li a {
-    display: initial;
-  }
+    a {
+      display: initial;
 
-  li img {
-    margin-bottom: 2em;
-    max-height: 100%;
-    max-width: 100%;
-    vertical-align: middle;
-    transition: 300ms ease opacity;
+      img {
+        margin-bottom: 2em;
+        max-height: 100%;
+        max-width: 100%;
+        transition: 300ms ease opacity;
+        vertical-align: middle;
 
-    &:hover {
-      opacity: 0.65;
+        &:hover {
+          opacity: 0.65;
+        }
+      }
     }
   }
 
@@ -677,14 +673,14 @@ a {
 }
 
 #email-form {
-  @extend .small-section;
-  @extend .colored-section;
   background: $hackclub-red;
+  @extend .colored-section;
+  @extend .small-section;
   text-align: center;
 
   .call-to-action {
     margin: auto;
-    max-width: 60ex;
+    max-width: 60px;
   }
 
   input {
@@ -692,9 +688,9 @@ a {
   }
 
   input[type='submit'] {
-    font-size: rem-calc(22);
+    background: $hackclub-white;
     color: $hackclub-red;
-    background: white;
+    font-size: rem-calc(22);
   }
 }
 
@@ -729,11 +725,11 @@ a {
           width: 100%;
 
           img {
-            height: 1.25rem;
-            width: 1rem;
             display: inline-block;
-            vertical-align: text-top;
+            height: 1.25rem;
             margin-right: 0.25rem;
+            vertical-align: text-top;
+            width: 1rem;
           }
         }
       }
@@ -751,18 +747,18 @@ a {
 
 .pricing-table {
   .invalid-item {
+    color: $hackclub-lightgray;
     text-decoration: line-through;
-    color: #aeadad;
   }
 
   .price {
-    background-color: #fafafa;
+    background-color: $hackclub-lightgray;
   }
 
   .title {
-    color: white;
+    background-color: $hackclub-red;
+    color: $hackclub-white;
     font-size: 150%;
-    background-color: #d4595c;
   }
 }
 

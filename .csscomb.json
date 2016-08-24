@@ -2,7 +2,7 @@
   "always-semicolon": true,
   "leading-zero": true,
   "quotes": "single",
-  "sort-order": ["foo"],
+  "sort-order": ["$extend"],
   "sort-order-fallback": "abc",
   "space-after-combinator": 1,
   "space-between-declarations": "\n ",
