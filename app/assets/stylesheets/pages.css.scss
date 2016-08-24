@@ -358,6 +358,8 @@ a {
   @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
+  margin: auto;
+  max-width: 700px;
 
   p {
     border-left: 4px solid $hackclub-white;
