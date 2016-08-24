@@ -69,11 +69,15 @@ a {
     font-size: rem-calc(15);
   }
 
+  p.lead {
+    font-size: rem-calc(20);
+  }
+
   @media #{$medium-up} {
     padding: 50px 5px;
 
     p {
-      font-size: rem-calc(20);
+      font-size: rem-calc(15);
     }
   }
 }
@@ -687,7 +691,7 @@ a {
 
   .call-to-action {
     margin: auto;
-    max-width: 60px;
+    max-width: 600px;
   }
 
   input {
