@@ -63,20 +63,20 @@ a {
 }
 
 .main-section {
-  padding: 25px 5px;
+  padding: 50px 5px;
 
-  p {
+  .row > .columns > p {
     font-size: rem-calc(15);
   }
 
-  p.lead {
+  .row > .columns > p.lead {
     font-size: rem-calc(20);
   }
 
-  @media #{$medium-up} {
-    padding: 50px 5px;
+  @media #{$small-only} {
+    padding: 25px 5px;
 
-    p {
+    p.lead {
       font-size: rem-calc(15);
     }
   }
@@ -148,7 +148,7 @@ a {
     font-weight: bold;
   }
 
-  p {
+  p, p.card-body {
     font-size: 0.85rem;
     margin: 0.75rem 0.5rem;
 
@@ -691,7 +691,7 @@ a {
 
   .call-to-action {
     margin: auto;
-    max-width: 600px;
+    max-width: 650px;
   }
 
   input {
