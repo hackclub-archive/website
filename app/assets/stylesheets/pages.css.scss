@@ -22,6 +22,7 @@ $include-html-global-classes: false;
     padding: 0 10px;
   }
 }
+
 h1, h2, h3, h4 {
   color: inherit;
   letter-spacing: -1px;
@@ -144,7 +145,7 @@ a {
   }
 
   p {
-    font-size: 0.85rem !important;
+    font-size: 0.85rem;
     margin: 0.75rem 0.5rem;
 
     @media #{$medium-up} {
@@ -249,44 +250,47 @@ a {
   }
 }
 
-
 #introduction {
+  background-blend-mode: overlay;
+  background-color: transparentize($hackclub-black, 0.5);
+  background-image: asset_url('photos/december_hack_night.jpg');
+  background-position: center;
+  background-size: cover;
+  color: white;
   @extend .main-section;
   @extend .colored-section;
+  padding-top: 25px;
   text-align: center;
-  background-image: asset_url("photos/december_hack_night.jpg");
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, .5);
-  color: white;
+
   @media #{$large-up} {
-    text-align: left;
+    background-blend-mode: initial;
     background-color: $hackclub-lightgray;
-    background-image: asset_url("patterns/hack_pattern@3x.png");
+    background-image: asset_url('patterns/hack_pattern@3x.png');
+    background-position: center;
+    background-repeat: repeat;
     background-size: 450px;
     color: $hackclub-black;
-    background-repeat: repeat;
-    background-position: center;
-    background-blend-mode: initial;
+    text-align: left;
   }
-  padding-top: 25px;
+
   @media #{$medium-up} {
     padding-top: 75px;
   }
 
   h1 {
     border: 4px solid $hackclub-red;
-    padding: 0.5rem .5rem 3rem .5rem;
     border-radius: 4px;
-    margin-bottom: -3rem;
-    line-height: 1.35em;
     color: inherit;
+    line-height: 1.35em;
+    margin-bottom: -3rem;
     max-width: 100%;
+    padding: 0.5rem 0.5rem 3rem 0.5rem;
+
     @media #{$medium-up} {
       font-size: 2.5rem;
       padding: 1rem 2rem 2.5rem 1rem;
     }
+
     @media #{$large-up} {
       font-size: 2.75rem;
     }
@@ -294,14 +298,14 @@ a {
 
   @media #{$large-up} {
     .button-start-a-club {
-      margin-left: 1.25rem;
       border: 4px solid $hackclub-lightgray;
+      margin-left: 1.25rem;
     }
   }
 
   .links {
+    font-size: 1rem;
     margin: 1rem 0 0 1.5rem;
-    font-size: 1rem !important;
 
     a {
       color: $hackclub-white;
@@ -321,32 +325,35 @@ a {
   }
 
   .introduction-photo-caption {
-    text-align: right;
     font-size: 0.75rem;
-    margin-top: 1em;
     margin-bottom: -1em;
+    margin-top: 1em;
+    text-align: right;
   }
-
 }
 
 .button-start-a-club {
-  background: $hackclub-red!important;
-  color: $white!important;
+  background: $hackclub-red;
+  color: $white;
+
   &:hover {
-    background: scale-color($hackclub-red, $lightness: -14%)!important;
+    background: scale-color($hackclub-red, $lightness: -14%);
   }
+
   &.outline-outward:before {
     border-color: $hackclub-lightgray;
     transition: 300ms ease all;
   }
+
   &.outline-outward:hover:before {
     border-color: scale-color($hackclub-red, $lightness: -14%);
   }
 }
+
 #quote {
-  @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
+  @extend .main-section;
 
   p {
     border-left: 4px solid $hackclub-white;
@@ -374,14 +381,14 @@ a {
   }
 
   @media #{$large-up} {
-    .card-heading-longer {
-      min-height: 3.25em !important;
+    .card .card-heading-longer {
+      min-height: 3.25em;
       vertical-align: middle;
     }
 
-    .card-heading-taller {
+    .card .card-heading-taller {
       line-height: 2.5em;
-      min-height: 3.25em !important;
+      min-height: 3.25em;
       vertical-align: middle;
     }
 
@@ -462,13 +469,13 @@ a {
 
     h5, strong {
       color: inherit;
-      font-size: 0.85rem !important;
+      font-size: 0.85rem;
       font-weight: bold;
       margin-bottom: 0;
     }
 
     p, u {
-      font-size: 0.85rem !important;
+      font-size: 0.85rem;
       margin-bottom: 0;
     }
   }
@@ -478,7 +485,7 @@ a {
     content: ' ';
     height: 100%;
     left: 0;
-    opacity: 0.0;
+    opacity: 0;
     position: absolute;
     top: 0;
     transition: 150ms all linear;
@@ -497,9 +504,9 @@ a {
 }
 
 #workshops {
+  background: $hackclub-red;
   @extend .colored-section;
   @extend .main-section;
-  background: $hackclub-red;
   text-align: center;
 }
 
@@ -521,9 +528,9 @@ a {
 }
 
 #faq {
-  @extend .main-section;
   background: $hackclub-red;
   color: $hackclub-white;
+  @extend .main-section;
 
   h1, h2, h3, h4 {
     color: $hackclub-white;
@@ -544,7 +551,7 @@ a {
   text-align: center;
 
   .row-of-people {
-    border-bottom: 4px solid #4a4a4a;
+    border-bottom: 4px solid $hackclub-outline;
     height: 260px;
     margin-bottom: -50px;
     overflow: hidden;
@@ -618,12 +625,12 @@ a {
 }
 
 #supporters {
-  @extend .main-section;
   background-color: $hackclub-lightgray;
   background-image: asset_url('patterns/hack_pattern@3x.png');
   background-repeat: repeat;
   background-size: 450px;
   color: $hackclub-black;
+  @extend .main-section;
   text-align: center;
 
   li {
@@ -768,10 +775,6 @@ a {
 
 .small-11.small-centered.columns {
   padding-top: 1.6rem;
-}
-
-.h3 {
-  font-size: 1.6875rem;
 }
 
 #sponsor-clubs-map {
