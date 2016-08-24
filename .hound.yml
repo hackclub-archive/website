@@ -1,3 +1,6 @@
+coffeescript:
+  config_file: coffeelint.json
+
 scss:
   config_file: .scss-lint.yml
 
