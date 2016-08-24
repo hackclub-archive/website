@@ -105,13 +105,13 @@ a {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 
-  &::hover {
+  &:hover {
     text-decoration: underline;
   }
 }
 
 .link {
-  &::hover {
+  &:hover {
     text-decoration: underline;
   }
 }
@@ -159,7 +159,7 @@ a {
     display: block;
     margin: 0;
 
-    &::hover {
+    &:hover {
       background: scale-color($hackclub-red, $lightness: -20%);
     }
   }
@@ -168,7 +168,7 @@ a {
     background: $hackclub-black;
     color: $hackclub-white;
 
-    &::hover {
+    &:hover {
       background: scale-color($hackclub-black, $lightness: -20%);
     }
   }
@@ -236,7 +236,7 @@ a {
         }
       }
 
-      &::hover {
+      &:hover {
         background: $hackclub-white;
         color: $hackclub-red;
         outline: 4px solid $hackclub-red;
@@ -284,7 +284,7 @@ a {
     line-height: 1.35em;
     margin-bottom: -3rem;
     max-width: 100%;
-    padding: 0.5rem 0.5rem 3rem 0.5rem;
+    padding: 0.5rem 0.5rem 3rem;
 
     @media #{$medium-up} {
       font-size: 2.5rem;
@@ -336,7 +336,7 @@ a {
   background: $hackclub-red;
   color: $white;
 
-  &::hover {
+  &:hover {
     background: scale-color($hackclub-red, $lightness: -14%);
   }
 
@@ -345,7 +345,7 @@ a {
     transition: 300ms ease all;
   }
 
-  &.outline-outward::hover::before {
+  &.outline-outward:hover::before {
     border-color: scale-color($hackclub-red, $lightness: -14%);
   }
 }
@@ -375,7 +375,7 @@ a {
   .card {
     background: none;
 
-    &::hover {
+    &:hover {
       background: $hackclub-white;
     }
   }
@@ -492,7 +492,7 @@ a {
     width: 100%;
   }
 
-  &::hover {
+  &:hover {
     .club-overlay {
       transform: rotateX(0deg);
     }
@@ -647,7 +647,7 @@ a {
         transition: 300ms ease opacity;
         vertical-align: middle;
 
-        &::hover {
+        &:hover {
           opacity: 0.65;
         }
       }
@@ -741,7 +741,7 @@ a {
         }
       }
 
-      .link::hover {
+      .link:hover {
         background-color: scale-color($hackclub-black, $lightness: -10%);
       }
     }
