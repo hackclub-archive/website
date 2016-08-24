@@ -63,14 +63,14 @@ a {
 }
 
 .main-section {
-  padding: 25px 5px 25px 5px;
+  padding: 25px 5px;
 
   p {
     font-size: rem-calc(15);
   }
 
   @media #{$medium-up} {
-    padding: 50px 5px 50px 5px;
+    padding: 50px 5px;
 
     p {
       font-size: rem-calc(20);
@@ -258,7 +258,7 @@ a {
   background-image: asset_url("photos/december_hack_night.jpg");
   background-position: center;
   background-size: cover;
-  color: white;
+  color: $hackclub-white;
   padding-top: 25px;
   text-align: center;
 
@@ -423,11 +423,11 @@ a {
       a {
         transition: 150ms all linear;
       }
-    }
 
-    .tab-title.active a {
-      background: $hackclub-red;
-      color: $white;
+      &.active a {
+        background: $hackclub-red;
+        color: $white;
+      }
     }
   }
 
@@ -694,7 +694,7 @@ a {
     text-align: center;
   }
 
-  input[type="submit"] {
+  input.button#mc-embedded-subscribe {
     background: $hackclub-white;
     color: $hackclub-red;
     font-size: rem-calc(22);
