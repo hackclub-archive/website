@@ -29,7 +29,7 @@ h1, h2, h3, h4 {
 }
 
 .title {
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .header {
@@ -49,7 +49,7 @@ a {
 }
 
 .hackclub-logo {
-  font-family: 'Amaranth', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Amaranth", "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 100%;
   font-weight: bold;
 }
@@ -253,7 +253,7 @@ a {
 #introduction {
   background-blend-mode: overlay;
   background-color: transparentize($hackclub-black, 0.5);
-  background-image: asset_url('photos/december_hack_night.jpg');
+  background-image: asset_url("photos/december_hack_night.jpg");
   background-position: center;
   background-size: cover;
   color: white;
@@ -265,7 +265,7 @@ a {
   @media #{$large-up} {
     background-blend-mode: initial;
     background-color: $hackclub-lightgray;
-    background-image: asset_url('patterns/hack_pattern@3x.png');
+    background-image: asset_url("patterns/hack_pattern@3x.png");
     background-position: center;
     background-repeat: repeat;
     background-size: 450px;
@@ -482,7 +482,7 @@ a {
 
   &:after {
     background: $hackclub-red;
-    content: ' ';
+    content: " ";
     height: 100%;
     left: 0;
     opacity: 0;
@@ -626,7 +626,7 @@ a {
 
 #supporters {
   background-color: $hackclub-lightgray;
-  background-image: asset_url('patterns/hack_pattern@3x.png');
+  background-image: asset_url("patterns/hack_pattern@3x.png");
   background-repeat: repeat;
   background-size: 450px;
   color: $hackclub-black;
@@ -694,7 +694,7 @@ a {
     text-align: center;
   }
 
-  input[type='submit'] {
+  input[type="submit"] {
     background: $hackclub-white;
     color: $hackclub-red;
     font-size: rem-calc(22);
