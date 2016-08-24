@@ -69,14 +69,14 @@ a {
     font-size: rem-calc(15);
   }
 
-  .row > .columns > p.lead {
+  p.lead, .row > .columns > p.lead {
     font-size: rem-calc(20);
   }
 
   @media #{$small-only} {
     padding: 25px 5px;
 
-    p.lead {
+    p.lead, .row > .columns > p.lead {
       font-size: rem-calc(15);
     }
   }
