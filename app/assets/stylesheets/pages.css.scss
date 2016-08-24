@@ -65,18 +65,18 @@ a {
 .main-section {
   padding: 50px 5px;
 
-  .row > .columns > p {
+  .row > .columns > p:not(.lead) {
     font-size: rem-calc(15);
   }
 
-  p.lead, .row > .columns > p.lead {
+  p.lead {
     font-size: rem-calc(20);
   }
 
   @media #{$small-only} {
     padding: 25px 5px;
 
-    p.lead, .row > .columns > p.lead {
+    p.lead {
       font-size: rem-calc(15);
     }
   }
@@ -148,7 +148,7 @@ a {
     font-weight: bold;
   }
 
-  p, p.card-body {
+  .card-body {
     font-size: 0.85rem;
     margin: 0.75rem 0.5rem;
 
