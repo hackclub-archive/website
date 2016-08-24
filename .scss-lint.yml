@@ -121,7 +121,7 @@ linters:
     prefix: _
 
   PropertyCount:
-    enabled: true
+    enabled: false
     include_nested: false
     max_properties: 10
 
