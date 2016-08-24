@@ -57,7 +57,7 @@ a {
 .colored-section {
   color: $hackclub-white;
 
-  h1, h2, h3, h4, a {
+  h1, h2, h3, h4, p a {
     color: inherit;
   }
 }
@@ -301,7 +301,7 @@ a {
   }
 
   @media #{$large-up} {
-    .button-start-a-club {
+    .button.button-start-a-club {
       border: 4px solid $hackclub-lightgray;
       margin-left: 1.25rem;
     }
@@ -336,7 +336,7 @@ a {
   }
 }
 
-.button-start-a-club {
+.button.button-start-a-club {
   background: $hackclub-red;
   color: $white;
 
