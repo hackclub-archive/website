@@ -156,7 +156,7 @@
     -# %p.links.margin-bottom
       = link_to 'Our Diversity in Numbers ➡', '#'
   .tabs-content
-    -# Filler, no content here
+    -# Filler for tabs, no content here
     .content.active#map-usa
     .content#map-international
   .row-larger.margin-bottom
@@ -286,10 +286,11 @@
         use coding skills to solve problems, not to crack into your
         bank account.
       %h4 Have any other questions?
-      = link_to 'Please send us an email', 'mailto:team@hackclub.com'
-      or
-      = link_to 'chat with us on the Hack Club Slack!',
-        'https://slack.hackclub.com/'
+      %p
+        = link_to 'Please send us an email', 'mailto:team@hackclub.com'
+        or
+        = link_to 'chat with us on the Hack Club Slack!',
+          'https://slack.hackclub.com/'
 #start-a-hack-club
   .row
     %h1 Start a Hack Club!
@@ -397,9 +398,9 @@
                    type: "text",
                   value: ""}
           .clear
-            %input.button.button-subscribe#mc-embedded-subscribe{ name: "subscribe",
-                                                type: "submit",
-                                               value: "Subscribe to Newsletter" }
+            %input.button.large.outline-outward.button-subscribe#mc-embedded-subscribe{ name:  "subscribe",
+              type: "submit",
+              value: "Subscribe to Newsletter" }
 .footer
   .row
     .small-12.medium-9.medium-centered.columns
