@@ -254,7 +254,7 @@ a {
   }
 }
 
-#introduction {
+#header {
   @extend .colored-section;
   @extend .main-section;
   background-blend-mode: overlay;
@@ -265,6 +265,8 @@ a {
   color: $hackclub-white;
   padding-top: 25px;
   text-align: center;
+  border-bottom: 10px solid $hackclub-red;
+  box-shadow: 0 0 10px $hackclub-red;
 
   @media #{$large-up} {
     background-blend-mode: initial;
@@ -354,22 +356,10 @@ a {
   }
 }
 
-#quote {
-  @extend .main-section;
-  background: $hackclub-red;
-  color: $hackclub-white;
-
-  p {
-    border-left: 4px solid $hackclub-white;
-    margin: auto;
-    max-width: 700px;
-    padding: 1em 0 1em 1em;
-  }
-}
-
 #how-it-works {
   @extend .main-section;
   text-align: center;
+  padding-bottom: 25px;
 
   .subheading {
     font-size: 1.75rem;
@@ -416,10 +406,26 @@ a {
   }
 }
 
-#map {
+#meet-the-clubs {
   @extend .main-section;
+  padding-top: 10px;
   padding-bottom: 0;
   text-align: center;
+
+  .description {
+    margin-bottom: 25px;
+  }
+}
+
+#map {
+  @extend .main-section;
+  padding-top: 25px;
+  padding-bottom: 0;
+  text-align: center;
+
+  .lead {
+    font-size: rem-calc(24);
+  }
 
   .tabs {
     .tab-title {
@@ -557,7 +563,6 @@ a {
   text-align: center;
 
   .row-of-people {
-    border-bottom: 4px solid $hackclub-outline;
     height: 260px;
     margin-bottom: -50px;
     overflow: hidden;
