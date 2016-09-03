@@ -3,50 +3,82 @@
 $include-html-global-classes: false;
 @import "foundation/components/global";
 
+::selection {
+  background: $hackclub-red;
+  color: $hackclub-white;
+  opacity: 1;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: $hackclub-red;
+  color: $hackclub-white;
+  opacity: 1;
+  text-shadow: none;
+}
+
+@media #{$medium-only} {
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    padding: 0 10px;
+  }
+}
+
+h1, h2, h3, h4 {
+  color: inherit;
+  letter-spacing: -1px;
+}
+
 .title {
-  font-family: "Open Sans", "Helvetica Neue",  sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .header {
   font-size: rem-calc(28);
 }
 
-.hackclub-logo {
-  font-family: "Amaranth", "Open Sans", "Helvetica Neue",  sans-serif;
-  font-size: 100%;
+h1 {
   font-weight: bold;
 }
 
-#home-map-jumbotron {
-  height: 200px;
+a {
+  display: inline-block;
+}
 
-  @media #{$medium-up} {
-    height: 400px;
-  }
+.faded {
+  opacity: 0.5;
+}
 
-  @media #{$large-up} {
-    height: 500px;
-  }
+.hackclub-logo {
+  font-family: "Amaranth", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 100%;
+  font-weight: bold;
 }
 
 .colored-section {
   color: $hackclub-white;
 
-  h1 {
-    color: $hackclub-white;
+  h1, h2, h3, h4, p a {
+    color: inherit;
   }
 }
 
 .main-section {
-  padding: 50px 0 50px 0;
-  text-align: center;
+  padding: 50px 5px;
 
-  p {
+  .row > .columns > p:not(.lead) {
+    font-size: rem-calc(15);
+  }
+
+  .lead {
     font-size: rem-calc(20);
   }
 
-  @media #{$medium-up} {
-    padding: 50px 0 50px 0;
+  @media #{$small-only} {
+    padding: 25px 5px;
+
+    .lead {
+      font-size: rem-calc(15);
+    }
   }
 }
 
@@ -59,140 +91,488 @@ $include-html-global-classes: false;
   }
 }
 
-.introduction {
-  @extend .colored-section;
-  background-image: asset_url("group_photo.jpg");
-  background-size: cover;
-  padding: 25px 0;
-  text-align: left;
+.row-larger {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+  width: 100%;
+}
 
-  @media #{$medium-up} {
-    padding: 100px 0;
+.row-fullwidth {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+  width: 100%;
+}
+
+.links a:not(.button) {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: $hackclub-white;
+  color: $hackclub-black;
+  margin-bottom: 1em;
+  text-align: center;
+
+  .card-image {
+    background-color: $hackclub-blue;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    height: 8rem;
+    width: 100%;
   }
 
-  .heading {
-    font-size: rem-calc(28);
+  h1, h2, h3, h4, h5 {
+    padding-top: 0.75rem;
+  }
+
+  .card-heading {
+    color: inherit;
     font-weight: bold;
+  }
+
+  .card-body {
+    font-size: 0.85rem;
+    margin: 0.75rem 0.5rem;
 
     @media #{$medium-up} {
-      font-size: rem-calc(42);
+      min-height: 4rem;
+    }
+  }
+
+  .button.card-button {
+    background: $hackclub-red;
+    color: $hackclub-white;
+    display: block;
+    margin: 0;
+
+    &:hover {
+      background: scale-color($hackclub-red, $lightness: -20%);
+    }
+  }
+
+  .button.card-button-black {
+    background: $hackclub-black;
+    color: $hackclub-white;
+
+    &:hover {
+      background: scale-color($hackclub-black, $lightness: -20%);
+    }
+  }
+
+  @media #{$small-only} {
+    &.card-has-hover {
+      padding-left: 80px;
+      text-align: left;
+
+      .card-image-fx {
+        .card-image-fx-normal {
+          float: left;
+          height: 75px;
+          margin: 18px 5px 0 -80px;
+          width: 75px;
+        }
+
+        .card-image-fx-hover {
+          display: none;
+        }
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .card-button {
+        display: inline-block;
+        margin: 1rem 0 2rem;
+        padding: 0.5rem 1rem;
+        text-align: left;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media #{$medium-up} {
+    &.card-has-hover {
+      .card-image-fx {
+        .card-image-fx-hover {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media #{$large-up} {
+    &.card-has-hover {
+      outline: 3px solid transparent;
+      padding: 2.5rem 0.75rem;
+      transition: 200ms ease all;
+
+      .card-image-fx {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+
+        .card-image-fx-hover {
+          display: block;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          transition: 400ms ease opacity;
+        }
+      }
+
+      &:hover {
+        background: $hackclub-white;
+        color: $hackclub-red;
+        outline: 4px solid $hackclub-red;
+        transform: translateY(-10px);
+
+        .card-image-fx .card-image-fx-hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+#introduction {
+  @extend .colored-section;
+  @extend .main-section;
+  background-blend-mode: overlay;
+  background-color: transparentize($hackclub-black, 0.5);
+  background-image: asset_url("photos/december_hack_night.jpg");
+  background-position: center;
+  background-size: cover;
+  color: $hackclub-white;
+  padding-top: 25px;
+  text-align: center;
+
+  @media #{$large-up} {
+    background-blend-mode: initial;
+    background-color: $hackclub-lightgray;
+    background-image: asset_url("patterns/hack_pattern@3x.png");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 450px;
+    color: $hackclub-black;
+    text-align: left;
+  }
+
+  @media #{$medium-up} {
+    padding-top: 75px;
+  }
+
+  h1 {
+    border: 4px solid $hackclub-red;
+    border-radius: 4px;
+    color: inherit;
+    line-height: 1.35em;
+    margin-bottom: -3rem;
+    max-width: 100%;
+    padding: 0.5rem 0.5rem 3rem;
+
+    @media #{$medium-up} {
+      font-size: 2.5rem;
+      padding: 1rem 2rem 2.5rem 1rem;
     }
 
     @media #{$large-up} {
-      font-size: rem-calc(56);
+      font-size: 2.75rem;
     }
   }
+
+  @media #{$large-up} {
+    .button.button-start-a-club {
+      border: 4px solid $hackclub-lightgray;
+      margin-left: 1.25rem;
+    }
+  }
+
+  .links {
+    font-size: 1rem;
+    margin: 1rem 0 0 1.5rem;
+
+    a {
+      color: $hackclub-white;
+      text-decoration: underline;
+
+      @media #{$large-up} {
+        color: $hackclub-red;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .introduction-photo {
+    border-radius: 0;
+    box-shadow: 0 0 10px $hackclub-gray;
+    margin-top: -15px;
+  }
+
+  .introduction-photo-caption {
+    font-size: 0.75rem;
+    margin-bottom: -1em;
+    margin-top: 1em;
+    text-align: right;
+  }
+}
+
+.button.button-start-a-club {
+  background: $hackclub-red;
+  color: $white;
+
+  &:hover {
+    background: scale-color($hackclub-red, $lightness: -14%);
+  }
+
+  &.outline-outward::before {
+    border-color: $hackclub-lightgray;
+    transition: 300ms ease all;
+  }
+
+  &.outline-outward:hover::before {
+    border-color: scale-color($hackclub-red, $lightness: -14%);
+  }
+}
+
+#quote {
+  @extend .main-section;
+  background: $hackclub-red;
+  color: $hackclub-white;
+
+  p {
+    border-left: 4px solid $hackclub-white;
+    margin: auto;
+    max-width: 700px;
+    padding: 1em 0 1em 1em;
+  }
+}
+
+#how-it-works {
+  @extend .main-section;
+  text-align: center;
 
   .subheading {
-    font-size: rem-calc(18);
-    margin-top: 25px;
+    font-size: 1.75rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
 
-    @media #{$medium-up} {
-      font-size: rem-calc(32);
+  .card {
+    background: none;
+
+    &:hover {
+      background: $hackclub-white;
     }
   }
 
-  .start-a-club {
+  @media #{$large-up} {
+    .card .card-heading-longer {
+      min-height: 3.25em;
+      vertical-align: middle;
+    }
+
+    .card .card-heading-taller {
+      line-height: 2.5em;
+      min-height: 3.25em;
+      vertical-align: middle;
+    }
+
+    .pluses {
+      pointer-events: none;
+
+      .columns {
+        position: relative;
+
+        img {
+          height: 50px;
+          position: absolute;
+          right: -25px;
+          top: 120px;
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+#map {
+  @extend .main-section;
+  padding-bottom: 0;
+  text-align: center;
+
+  .tabs {
+    .tab-title {
+      display: inline-block;
+      float: initial;
+
+      a {
+        transition: 150ms all linear;
+      }
+
+      &.active a {
+        background: $hackclub-red;
+        color: $white;
+      }
+    }
+  }
+
+  .tabs-content {
+    position: absolute;
+  }
+}
+
+#diversity {
+  @extend .main-section;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.club-photo {
+  padding: 0;
+  position: relative;
+
+  img {
+    display: block;
+    margin: 0;
+  }
+
+  .club-overlay {
     background: $hackclub-red;
+    bottom: 0;
     color: $hackclub-white;
-    margin-left: 0;
-    margin-top: 30px;
-  }
+    left: 0;
+    line-height: 1em;
+    padding: 0.5rem 1rem 0.75rem;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transition: 200ms all ease;
+    width: 100%;
+    z-index: 50;
 
-  .outline-outward:before {
-    border-color: $hackclub-red;
-  }
-}
-
-.testimonial {
-  @extend .colored-section;
-  background-image: asset_url("testimonial_background.jpg");
-  background-size: cover;
-  padding: 25px 0;
-  text-align: left;
-
-  @media #{$medium-up} {
-    padding: 100px 0;
-  }
-}
-
-.impact {
-  @extend .colored-section;
-  background-color: $hackclub-orange;
-
-  .metric {
-    .stat {
+    h5, strong {
+      color: inherit;
+      font-size: 0.85rem;
       font-weight: bold;
-      font-size: rem-calc(48);
       margin-bottom: 0;
-
-      @media #{$medium} {
-        font-size: rem-calc(72);
-      }
-
-      @media #{$large} {
-        font-size: rem-calc(84);
-      }
     }
 
-    .stat-desc {
-      font-size: rem-calc(24);
-      margin-bottom: rem-calc(6);
+    p, u {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+  }
 
-      @media #{$medium-up} {
-        font-size: rem-calc(28);
-      }
+  &::after {
+    background: $hackclub-red;
+    content: " ";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 150ms all linear;
+    width: 100%;
+  }
+
+  &:hover {
+    .club-overlay {
+      transform: rotateX(0deg);
     }
 
-    .stat-comparison {
-      color: $hackclub-white;
-      font-size: rem-calc(12);
+    &::after {
+      opacity: 0.5;
     }
   }
 }
 
-.publications {
-  background: $hackclub-black;
-  padding: 5px 0;
+#workshops {
+  @extend .colored-section;
+  @extend .main-section;
+  background: $hackclub-red;
+  text-align: center;
+}
+
+#resources {
+  @extend .main-section;
+  text-align: center;
+
+  .row-resources {
+    text-align: left;
+
+    h3, h4, h5 {
+      font-weight: bold;
+    }
+
+    img {
+      display: block;
+    }
+  }
+}
+
+#faq {
+  @extend .main-section;
+  background: $hackclub-red;
+  color: $hackclub-white;
+
+  h1, h2, h3, h4 {
+    color: $hackclub-white;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+#start-a-hack-club {
+  @extend .main-section;
+  text-align: center;
+
+  .row-of-people {
+    border-bottom: 4px solid $hackclub-outline;
+    height: 260px;
+    margin-bottom: -50px;
+    overflow: hidden;
+  }
+}
+
+#home-map-jumbotron {
+  height: 200px;
 
   @media #{$medium-up} {
-    padding: 25px 0;
+    height: 400px;
   }
 
-  .publication {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100px;
-    opacity: 0.6;
-    transition: 0.25s;
-
-    @media #{$medium-up} {
-      height: 175px;
-    }
-
-    a > img {
-      width: 75px;
-
-      @media #{$medium-up} {
-        width: 175px;
-      }
-    }
-  }
-
-  .publication:hover {
-    opacity: 1;
-  }
-}
-
-.description {
-  background-color: $hackclub-blue;
-  text-align: left;
-  color: white;
-
-  h3 {
-    color: white;
+  @media #{$large-up} {
+    height: 550px;
   }
 }
 
@@ -209,25 +589,25 @@ $include-html-global-classes: false;
   }
 
   .profile-img {
-    width: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    width: 200px;
   }
 
   .heading {
     margin-bottom: 10px;
 
     h1 {
-      font-size: rem-calc(18);
-      font-weight: 600;
       display: inline-block;
+      font-size: rem-calc(18);
+      font-weight: bold;
       margin-right: 5px;
     }
 
     h2 {
-      font-size: rem-calc(16);
       color: #7c7c7c;
       display: inline-block;
+      font-size: rem-calc(16);
     }
   }
 
@@ -238,9 +618,9 @@ $include-html-global-classes: false;
   .advisor {
     .heading {
       h1 {
-        margin-top: 7px;
-        margin-right: 0;
         margin-bottom: 0;
+        margin-right: 0;
+        margin-top: 7px;
       }
 
       h2 {
@@ -250,56 +630,38 @@ $include-html-global-classes: false;
   }
 }
 
-.join-us {
-  @extend .colored-section;
-  background-color: $hackclub-green;
-
-  h1 {
-    font-size: rem-calc(48);
-    margin-bottom: 15px;
-
-    @media #{$medium-up} {
-      font-weight: normal;
-      font-size: rem-calc(58);
-    }
-  }
-
-  .button {
-    background-color: $hackclub-white;
-    color: scale-color($hackclub-green, $lightness: -10%);
-    font-size: rem-calc(20);
-
-    @media #{$medium-up} {
-      font-size: rem-calc(24);
-    }
-  }
-
-  .outline-outward:before {
-    border-color: $hackclub-white;
-  }
-}
-
-.sponsors {
-  background-color: $hackclub-white;
+#supporters {
+  @extend .main-section;
+  background-color: $hackclub-lightgray;
+  background-image: asset_url("patterns/hack_pattern@3x.png");
+  background-repeat: repeat;
+  background-size: 450px;
+  color: $hackclub-black;
+  text-align: center;
 
   li {
-    margin-top: 30px;
     list-style-type: none;
+    margin-top: 30px;
 
-    img {
-      margin-bottom: 2em;
-      max-height: 100%;
-      max-width: 100%;
-      vertical-align: middle;
+    a {
+      display: initial;
+
+      img {
+        margin-bottom: 2em;
+        max-height: 100%;
+        max-width: 100%;
+        transition: 300ms ease opacity;
+        vertical-align: middle;
+
+        &:hover {
+          opacity: 0.65;
+        }
+      }
     }
   }
 
   h1 {
     color: $hackclub-black;
-  }
-
-  p {
-    font-size: rem-calc(28);
   }
 
   .big-supporters li {
@@ -323,37 +685,39 @@ $include-html-global-classes: false;
   }
 }
 
-.email-form {
+#email-form {
   @extend .colored-section;
-  background: $hackclub-purple;
+  @extend .small-section;
+  background: $hackclub-red;
+  text-align: center;
 
   .call-to-action {
     margin: auto;
-    max-width: 60ex;
+    max-width: 650px;
   }
 
   input {
     text-align: center;
   }
 
-  input[type='submit'] {
+  .button.button-subscribe {
+    background: $hackclub-white;
+    color: $hackclub-red;
     font-size: rem-calc(22);
-    color: $hackclub-purple;
-    background: white;
   }
 }
 
 .footer {
   background-color: $hackclub-black;
   color: $hackclub-white;
-  font-weight: 300;
+  font-weight: normal;
   padding: 30px 0;
 
   .nav {
     h1 {
       color: $hackclub-white;
       font-size: rem-calc(18);
-      font-weight: 600;
+      font-weight: bold;
       margin-left: 5px;
       text-transform: uppercase;
     }
@@ -372,6 +736,14 @@ $include-html-global-classes: false;
           display: block;
           height: 100%;
           width: 100%;
+
+          img {
+            display: inline-block;
+            height: 1.25rem;
+            margin-right: 0.25rem;
+            vertical-align: text-top;
+            width: 1rem;
+          }
         }
       }
 
@@ -388,18 +760,18 @@ $include-html-global-classes: false;
 
 .pricing-table {
   .invalid-item {
+    color: $hackclub-lightgray;
     text-decoration: line-through;
-    color: #aeadad;
   }
 
   .price {
-    background-color: #FAFAFA;
+    background-color: $hackclub-lightgray;
   }
 
   .title {
-    color: white;
+    background-color: $hackclub-red;
+    color: $hackclub-white;
     font-size: 150%;
-    background-color: rgb(212, 89, 92);
   }
 }
 
@@ -409,10 +781,6 @@ $include-html-global-classes: false;
 
 .small-11.small-centered.columns {
   padding-top: 1.6rem;
-}
-
-.h3 {
-  font-size: 1.6875rem;
 }
 
 #sponsor-clubs-map {

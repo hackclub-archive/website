@@ -1,0 +1,12 @@
+ {
+  "always-semicolon": true,
+  "leading-zero": true,
+  "quotes": "single",
+  "sort-order": ["$extend"],
+  "sort-order-fallback": "abc",
+  "space-after-combinator": 1,
+  "space-between-declarations": "\n ",
+  "space-after-selector-delimiter": 1,
+  "space-before-closing-brace": "\n",
+  "unitless-zero": true
+}

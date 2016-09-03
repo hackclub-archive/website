@@ -1,0 +1,11 @@
+coffeescript:
+  config_file: coffeelint.json
+
+haml:
+  config_file: .haml-lint.yml
+
+scss:
+  config_file: .scss-lint.yml
+
+ruby:
+  config_file: .rubocop.yml
