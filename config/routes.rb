@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'donate', to: 'donations#new'
   post 'donate', to: 'donations#create'
 
-  %w[sponsor team].each do |page|
+  %w[how_it_works sponsor team].each do |page|
     get page, controller: 'pages', action: page
   end
 end
