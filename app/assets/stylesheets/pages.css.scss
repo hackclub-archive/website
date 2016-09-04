@@ -412,10 +412,24 @@ a {
   }
 }
 
-#map {
+#meet-the-hack-clubs {
   @extend .main-section;
   padding-bottom: 0;
   text-align: center;
+}
+
+#map {
+  @extend .main-section;
+  padding-top: 20px;
+  padding-bottom: 0;
+  text-align: center;
+
+  @media #{$medium-up} {
+    .lead {
+      font-size: rem-calc(24);
+      margin-bottom: 40px;
+    }
+  }
 
   .tabs {
     .tab-title {
