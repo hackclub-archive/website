@@ -366,6 +366,7 @@ a {
 #how-it-works {
   @extend .main-section;
   text-align: center;
+  padding-bottom: 0;
 
   .subheading {
     font-size: 1.75rem;
@@ -416,6 +417,22 @@ a {
   @extend .main-section;
   padding-bottom: 0;
   text-align: center;
+
+  @media #{$large-up} {
+    padding-top: 25px;
+  }
+
+  .heading {
+    margin-bottom: 15px;
+
+    @media #{$large-up} {
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 #map {
