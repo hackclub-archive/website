@@ -63,11 +63,7 @@ a {
 }
 
 .main-section {
-  padding: 50px 5px;
-
-  .row > .columns > p:not(.lead) {
-    font-size: rem-calc(15);
-  }
+  padding: 50px 0;
 
   .lead {
     font-size: rem-calc(20);
@@ -789,4 +785,8 @@ a {
   @media #{$large-up} {
     height: 250px;
   }
+}
+
+.exit-off-canvas {
+  display: inline;
 }
