@@ -253,7 +253,6 @@
     .small-12.columns.text-center
       %p.copyright
         © #{Date.today.year} Hack Club. Please read our
-        = link_to 'code of conduct.',
-          'https://github.com/hackclub/hackclub/blob/master/CONDUCT.md'
+        #{link_to 'code of conduct', 'https://conduct.hackclub.com'}.
 %script
   markersJSON = #{raw @clubs_hash.to_json}

@@ -776,6 +776,11 @@ a {
     }
   }
 
+  a {
+    color: $hackclub-white;
+    text-decoration: underline;
+  }
+
   p {
     font-weight: inherit;
   }
