@@ -254,7 +254,7 @@ a {
   @extend .colored-section;
   @extend .main-section;
   background-blend-mode: overlay;
-  background-color: transparentize($hackclub-black, 0.5);
+  background-color: transparentize($hackclub-black, 0.1);
   background-image: asset_url("photos/december_hack_night.jpg");
   background-position: center;
   background-size: cover;
