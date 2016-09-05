@@ -10,10 +10,7 @@ dependencies:
       && sudo unzip /tmp/convox.zip -d /usr/local/bin
 
 deployment:
-  hub:
+  production:
     branch: master
-    commands:
-      - convox login $CONVOX_HOST --password $CONVOX_PASSWORD
-      - git clone --recursive git://github.com/hackclub/website /tmp/website
-        && cd /tmp/website
-        && convox deploy | sed 's/docker .*/docker ********/'
+    heroku:
+      appname: website-hackclub
