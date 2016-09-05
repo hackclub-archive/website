@@ -1392,7 +1392,7 @@ $topbar-link-font-size: rem-calc(16);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: $charcoal;
-$topbar-link-bg-hover: scale-color($topbar-bg-color, $lightness: -3%);
+$topbar-link-bg-hover: scale-color($topbar-bg-color, $lightness: -10%);
 $topbar-link-bg-active: scale-color($topbar-bg-color, $lightness: -4%);
 $topbar-link-bg-active-hover: scale-color($topbar-bg-color, $lightness: -7%);
 // $topbar-link-font-family: $body-font-family;
