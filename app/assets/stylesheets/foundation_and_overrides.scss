@@ -822,8 +822,8 @@ $font-weight-bold: bold !default;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
-// $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
+$off-canvas-bg: $hackclub-black;
+$off-canvas-bg-hover: scale-color($off-canvas-bg, $lightness: -30%);
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
