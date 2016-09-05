@@ -98,7 +98,6 @@ $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 
 // We use these as default colors throughout
-$primary-color: $hackclub-red;
 // $secondary-color: #008CBA;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -823,8 +822,8 @@ $primary-color: $hackclub-red;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
-// $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
+$off-canvas-bg: $hackclub-black;
+$off-canvas-bg-hover: scale-color($off-canvas-bg, $lightness: -30%);
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);

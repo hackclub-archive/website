@@ -2,20 +2,19 @@
   .row
     .large-6.medium-12.columns
       %h1 We help high schoolers start awesome after-school coding clubs.
-      = link_to 'Start a Hack Club!', apply_path,
-        class: 'button large outline-outward button-start-a-club'
+      = link_to apply_path,
+        class: 'button large outline-outward button-start-a-club' do
+        Start a Hack Club <span class="raquo">&raquo;</span>
       %p.links.lead
         Learn more:
-        = link_to 'How It Works', '#how-it-works', class: ''
-        = link_to 'What We Provide', '#workshops', class: ''
-        = link_to 'Team', team_path, class: ''
-        = link_to 'Donate', donate_path, class: ''
+        = link_to 'How It Works', '#how-it-works'
+        = link_to 'See The Clubs', '#map'
+        = link_to 'Our Team', team_path
+        = link_to 'Donate', donate_path
     .large-6.medium-12.columns.show-for-large-up
       = image_tag 'photos/december_hack_night.jpg', class: 'introduction-photo'
 #quote
   .row
-    -# .large-6.medium-12.columns.show-for-large-up
-    -#   Picture goes here
     .large-12.medium-12.columns
       %p.lead
         In the US alone, <b>3 in 4 high schools don’t offer any coding
@@ -48,9 +47,8 @@
           = image_tag 'slices/leader-red.svg', class: 'card-image-fx-hover'
         %h3.card-heading.card-heading-taller Leader
         %p.card-body
-          It takes only one passionate student to start a hack club -
-          that could be you!
-        = link_to 'Start a Hack Club!', apply_path, class: 'button card-button'
+          It takes only one passionate student to start a Hack Club &ndash; that
+          could be you!
     .large-3.medium-6.small-12.columns
       .card.card-has-hover.plus-after
         .card-image-fx
@@ -60,9 +58,6 @@
         %p.card-body
           Anyone who is interested in learning how to build cool apps &
           games are welcome to join!
-        = link_to 'Speading the Word',
-          'https://github.com/hackclub/hackclub/blob/master/clubs/README.md#student-sign-ups',
-          class: 'button card-button'
     .large-3.medium-6.small-12.columns
       .card.card-has-hover.plus-after
         .card-image-fx
@@ -72,9 +67,6 @@
         %p.card-body
           We work with your school and our partners to get it the support it
           needs
-        = link_to 'Securing a Venue',
-          'https://github.com/hackclub/hackclub/blob/master/clubs/README.md',
-          class: 'button card-button'
     .large-3.medium-6.small-12.columns
       .card.card-has-hover
         .card-image-fx
@@ -86,8 +78,6 @@
         %p.card-body
           We provide the resources to run your club, including workshops,
           partnerships, and community.
-        = link_to 'See the Resources', '#resources',
-          class: 'button card-button'
 #meet-the-hack-clubs
   .row.heading
     %h1 Meet the Hack Clubs
@@ -108,8 +98,8 @@
       = image_tag 'photos/vr.jpg'
       .club-overlay
         %p
-          Students love to work with the latest and
-          greatest innovations, such as <b>virtual reality.</b>
+          Students work with the latest and greatest innovations, such as
+          <b>virtual reality.</b>
         -# %h5 George Washington High School
         -# Philadelphia, PA
         -# %u Visit Website
@@ -117,8 +107,7 @@
       = image_tag 'photos/group.jpg'
       .club-overlay
         %p
-          Hack Club's <b>workshops</b> provides hours
-          of hands-on instruction.
+          Hack Club's <b>workshops</b> provides hours of hands-on instruction.
         // %h5 George Washington High School
         // Philadelphia, PA
         // %u Visit Website
@@ -126,8 +115,7 @@
       = image_tag 'photos/piano.jpg'
       .club-overlay
         %p
-          Code can be created for physical
-          hardware like <b>musical instruments.</b>
+          Anything can be programmed, from apps to <b>musical instruments.</b>
         // %h5 George Washington High School
         // Philadelphia, PA
         // %u Visit Website
@@ -135,7 +123,8 @@
       = image_tag 'photos/talk.jpg'
       .club-overlay
         %p
-          We bring in <b>industry professions</b> to give talks and lead discussions.
+          We bring in <b>industry professionals</b> to give talks and lead
+          discussions.
         // %h5 George Washington High School
         // Philadelphia, PA
         // %u Visit Website
@@ -153,8 +142,6 @@
     %p.lead
       The impact of Hack Club reaches far and wide across the world, with <br>
       <b>95 schools</b> across <b>16 states</b> and <b>7 countries</b>.
-    -# %p.links.margin-bottom
-      = link_to 'Our Diversity in Numbers ➡', '#'
   .tabs-content
     -# Filler for tabs, no content here
     .content.active#map-usa
@@ -174,8 +161,9 @@
     %h3 Interested in bringing a coding club to your school?
     %h3 All it takes to start a Hack Club is you!
     %p.links
-      = link_to 'Start a Hack Club!', apply_path,
-        class: 'button large outline-outward button-start-a-club'
+      = link_to apply_path,
+        class: 'button large outline-outward button-start-a-club' do
+        Start a Hack Club <span class="raquo">&raquo;</span>
   .row.text-center.row-of-people.show-for-medium-up
     = image_tag 'people/person_1.svg'
     = image_tag 'people/person_2.svg'
@@ -193,8 +181,8 @@
         We're a San Francisco based nonprofit that works with high schoolers to
         start after-school coding clubs. We provide everything needed to start a
         successful chapter at your school &ndash; curriculum for club meetings,
-        facilitation guidelines and recommendations, and an online community of
-        club leaders from around the globe.
+        facilitation guidelines, and an online community of club leaders from
+        around the globe.
       %h4 What does a Hack Club look like?
       %p
         Hack Clubs meet after-school once or twice a week for an hour and a
@@ -213,7 +201,7 @@
       %p
         = link_to 'Please send us an email', 'mailto:team@hackclub.com'
         or
-        = link_to 'chat with us on the Hack Club Slack!',
+        = link_to 'chat with us on our Slack!',
           'https://slack.hackclub.com/'
 .footer
   .row
@@ -233,7 +221,7 @@
         %h1 Useful Links
         %ul
           %li.link
-            #{link_to 'Start a Hack Club!', apply_path}
+            #{link_to 'Start a Hack Club', apply_path}
           %li.link
             #{ link_to 'Workshops', 'https://workshops.hackclub.com/' }
           %li.link
@@ -262,7 +250,6 @@
     .small-12.columns.text-center
       %p.copyright
         © #{Date.today.year} Hack Club. Please read our
-        = link_to 'code of conduct.',
-          'https://github.com/hackclub/hackclub/blob/master/CONDUCT.md'
+        #{link_to 'code of conduct', 'https://conduct.hackclub.com'}.
 %script
   markersJSON = #{raw @clubs_hash.to_json}

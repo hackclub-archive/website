@@ -1,8 +1,8 @@
 !!!
 %html
   %head
-    %meta{charset: 'utf-8'}
-    %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
+    %meta{ charset: 'utf-8' }
+    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
     = render 'layouts/social_meta'
     %title= full_title(yield(:title))
 
@@ -11,21 +11,23 @@
         'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .off-canvas-wrap{'data-offcanvas' => ''}
+    .off-canvas-wrap{ 'data-offcanvas' => '' }
       .inner-wrap
-        %nav.top-bar.hide-for-small{'data-topbar' => ''}
+        %nav.top-bar.hide-for-small{ 'data-topbar' => '' }
           %ul.title-area
             %li.name
               %h1.title
-                %a{href: '/'} <span class="hackclub-logo">Hack Club</span>
+                %a{ href: '/' }
+                  = image_tag 'text_logo.svg', alt: 'Hack Club', class: 'hackclub-logo'
           %section.top-bar-section
             %ul.right= render 'layouts/nav'
         %nav.tab-bar.show-for-small
           %section.left-small
-            %a.left-off-canvas-toggle.menu-icon{href: '#'}
+            %a.left-off-canvas-toggle.menu-icon{ href: '#' }
               %span
           %section.middle.tab-bar-section
-            %h1.title <span class="hackclub-logo">Hack Club</span>
+            %h1.title
+              = image_tag 'text_logo.svg', alt: 'Hack Club', class: 'hackclub-logo'
         %aside.left-off-canvas-menu
           %ul.off-canvas-list
             %li

@@ -1,0 +1,7 @@
+.top-bar-section ul li.primary > a {
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

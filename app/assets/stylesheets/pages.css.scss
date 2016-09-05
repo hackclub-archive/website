@@ -49,9 +49,13 @@ a {
 }
 
 .hackclub-logo {
-  font-family: "Amaranth", "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 100%;
-  font-weight: bold;
+  height: 17.5px;
+  margin-bottom: 3px;
+
+  @media #{$medium-up} {
+    height: 25px;
+    margin-bottom: 5px;
+  }
 }
 
 .colored-section {
@@ -254,7 +258,7 @@ a {
   @extend .colored-section;
   @extend .main-section;
   background-blend-mode: overlay;
-  background-color: transparentize($hackclub-black, 0.5);
+  background-color: transparentize($hackclub-black, 0.1);
   background-image: asset_url("photos/december_hack_night.jpg");
   background-position: center;
   background-size: cover;
@@ -776,6 +780,11 @@ a {
     }
   }
 
+  a {
+    color: $hackclub-white;
+    text-decoration: underline;
+  }
+
   p {
     font-weight: inherit;
   }
@@ -816,4 +825,9 @@ a {
 
 .exit-off-canvas {
   display: inline;
+}
+
+.raquo {
+  font-size: 24px;
+  line-height: 0;
 }
