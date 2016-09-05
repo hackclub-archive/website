@@ -12,7 +12,6 @@
         = link_to 'Donate', donate_path, class: ''
     .large-6.medium-12.columns.show-for-large-up
       = image_tag 'photos/december_hack_night.jpg', class: 'introduction-photo'
-      .introduction-photo-caption Hack Club Hack Night, December 2015
 #quote
   .row
     -# .large-6.medium-12.columns.show-for-large-up
@@ -83,43 +82,43 @@
             class: 'card-image-fx-normal'
           = image_tag 'slices/resources-red.svg',
             class: 'card-image-fx-hover'
-        %h3.card-heading.card-heading-larger Hack Club's Resources
+        %h3.card-heading.card-heading-taller Our Resources
         %p.card-body
-          We’ll provide the resources to run your club, including
-          workshops, partnerships, and community.
+          We provide the resources to run your club, including workshops,
+          partnerships, and community.
         = link_to 'See the Resources', '#resources',
           class: 'button card-button'
-#map
-  .row
+#meet-the-hack-clubs
+  .row.heading
     %h1 Meet the Hack Clubs
     %p.lead
-      By starting a Hack Club, you are joining a diverse international
-      community of passionate coders.
+      When you start a Hack Club, you join a diverse community of coders from
+      around the world.
   .row.row-larger.margin-bottom
-    .medium-4.small-6.columns.club-photo{ href: '#' }
-      = image_tag 'photos/debugging.jpg'
-      .club-overlay
-        %p
-          We believe that coding can be a very
-          <b>collaborative activity.</b>
-        // %h5 George Washington High School
-        // Philadelphia, PA
-        // %u Visit Website
-    .medium-4.small-6.columns.club-photo{ href: '#' }
-      = image_tag 'photos/group.jpg'
-      .club-overlay
-        %p
-          Hack Club's <b>workshops</b> provides hours
-          of hands-on instruction.
-        // %h5 George Washington High School
-        // Philadelphia, PA
-        // %u Visit Website
     .medium-4.small-6.columns.club-photo{ href: '#' }
       = image_tag 'photos/lecture.jpg'
       .club-overlay
         %p
           We host events like <b>Demo Night</b> for
           students to show off their projects.
+        // %h5 George Washington High School
+        // Philadelphia, PA
+        // %u Visit Website
+    .medium-4.columns.hide-for-small-only.club-photo{ href: '#' }
+      = image_tag 'photos/vr.jpg'
+      .club-overlay
+        %p
+          Students love to work with the latest and
+          greatest innovations, such as <b>virtual reality.</b>
+        -# %h5 George Washington High School
+        -# Philadelphia, PA
+        -# %u Visit Website
+    .medium-4.small-6.columns.club-photo{ href: '#' }
+      = image_tag 'photos/group.jpg'
+      .club-overlay
+        %p
+          Hack Club's <b>workshops</b> provides hours
+          of hands-on instruction.
         // %h5 George Washington High School
         // Philadelphia, PA
         // %u Visit Website
@@ -140,15 +139,16 @@
         // %h5 George Washington High School
         // Philadelphia, PA
         // %u Visit Website
-    .medium-4.columns.hide-for-small-only.club-photo{ href: '#' }
-      = image_tag 'photos/vr.jpg'
+    .medium-4.small-6.columns.club-photo{ href: '#' }
+      = image_tag 'photos/debugging.jpg'
       .club-overlay
         %p
-          Students love to work with the latest and
-          greatest innovations, such as <b>Virtual Reality.</b>
-        -# %h5 George Washington High School
-        -# Philadelphia, PA
-        -# %u Visit Website
+          We believe that coding can be a very
+          <b>collaborative activity.</b>
+        // %h5 George Washington High School
+        // Philadelphia, PA
+        // %u Visit Website
+#map
   .row
     %p.lead
       The impact of Hack Club reaches far and wide across the world, with <br>
@@ -168,95 +168,20 @@
         = link_to 'Worldwide', '#map-international',
           id: 'focus-map-international'
   #home-map-jumbotron
-#workshops
+#start-a-hack-club
   .row
-    %h1 Free Workshops
-    %p.lead
-      Hack Club offers a free in-depth curriculum featuring over 85+
-      simple-to-follow walkthroughs designed with students in mind. We
-      have workshops for a variety of topics, ranging from apps, games,
-      websites, and more. <b>Jump in to our most popular workshops:</b>
-    %p.links.margin-bottom.lead
-      = link_to 'For First Time Coders ➡',
-          'https://workshops.hackclub.com#workshop-order'
-      = link_to 'Browse All Workshops ➡',
-          'https://workshops.hackclub.com/'
-    .row.hide-for-small-only
-      .large-3.medium-6.columns
-        .card
-          .card-image{ style: "background-image:url(https://workshops.hackclub.com/personal_website/img/final_screenshot.png)" }
-          %h4.card-heading Build a Website
-          %p.card-body Learn how build a website showcasing yourself.
-          = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/personal_website/',
-            class: 'button card-button card-button-black'
-      .large-3.medium-6.columns
-        .card
-          .card-image{ style: "background-image:url(https://workshops.hackclub.com/soccer/img/5_mini.gif)" }
-          %h4.card-heading Soccer Game
-          %p.card-body Create a fun single player game in Javascript.
-          = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/soccer/',
-            class: 'button card-button card-button-black'
-      .large-3.medium-6.columns
-        .card
-          .card-image{ style: "background-image:url(https://workshops.hackclub.com/swiper/img/box.gif)" }
-          %h4.card-heading Swiper!
-          %p.card-body Build an addictive iPhone game using Swift.
-          = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/swiper/',
-            class: 'button card-button card-button-black'
-      .large-3.medium-6.columns
-        .card
-          .card-image{ style: "background-image:url(https://workshops.hackclub.com/that_was_easy/img/easy_screenshot.png)" }
-          %h4.card-heading Easy Button
-          %p.card-body Build a dead simple Easy button, complete with audio!
-          = link_to 'Get Started ➡',
-            'https://workshops.hackclub.com/that_was_easy/',
-            class: 'button card-button card-button-black'
-#resources
-  .row
-    %h1 Hack Club's Resources
-    %p.lead
-      In addition to workshops, we provide all the tools you'll need to
-      foster and lead a successful coding club.
-    .small-12.medium-12.large-10.medium-centered.columns
-      .large-4.medium-4.columns
-        .card.card-has-hover
-          .card-image-fx
-            = image_tag 'slices/chat-bw.svg',
-              class: 'card-image-fx-normal'
-            = image_tag 'slices/chat-red.svg',
-              class: 'card-image-fx-hover'
-          %h3.card-heading Community
-          %p.card-body
-            You’ll join a network of large network of Hack Clubs,
-            students in Hack Clubs &amp; more!
-          = link_to 'Join the Slack', 'https://slack.hackclub.com/',
-            class: 'button card-button'
-      .large-4.medium-4.columns
-        .card.card-has-hover
-          .card-image-fx
-            = image_tag 'slices/partnerships-bw.svg',
-              class: 'card-image-fx-normal'
-            = image_tag 'slices/partnerships-red.svg',
-              class: 'card-image-fx-hover'
-          %h3.card-heading Partnerships
-          %p.card-body You'll get free software & tools from our partnerships.
-          = link_to 'See our Supporters', '#supporters',
-            class: 'button card-button'
-      .large-4.medium-4.columns
-        .card.card-has-hover
-          .card-image-fx
-            = image_tag 'slices/events-alt-bw.svg',
-              class: 'card-image-fx-normal'
-            = image_tag 'slices/events-alt-red.svg',
-              class: 'card-image-fx-hover'
-          %h3.card-heading Events
-          %p.card-body We host online and in-person events for clubs.
-          = link_to 'Upcoming events',
-            'https://www.facebook.com/Hack-Club-741805665870458/events',
-            class: 'button card-button'
+    %h1 Start a Hack Club!
+    %h3 Interested in bringing a coding club to your school?
+    %h3 All it takes to start a Hack Club is you!
+    %p.links
+      = link_to 'Start a Hack Club!', apply_path,
+        class: 'button large outline-outward button-start-a-club'
+  .row.text-center.row-of-people.show-for-medium-up
+    = image_tag 'people/person_1.svg'
+    = image_tag 'people/person_2.svg'
+    = image_tag 'people/person_3.svg'
+    = image_tag 'people/person_4.svg'
+    = image_tag 'people/person_5.svg'
 #faq
   .row
     .small-12.medium-12.large-7.medium-centered.columns
@@ -265,142 +190,31 @@
       %br
       %h4 What is Hack Club?
       %p
-        We help high schoolers start after-school coding clubs. We'll
-        provide absolutely everything needed to start and run a club
-        from scratch—curriculum, community, leadership training, and
-        events... a club-in-a-box. Our primary goal is to make it easy
-        for club leaders to focus on cultivating a fantastic club
-        community—we'll handle the rest.
+        We're a San Francisco based nonprofit that works with high schoolers to
+        start after-school coding clubs. We provide everything needed to start a
+        successful chapter at your school &ndash; curriculum for club meetings,
+        facilitation guidelines and recommendations, and an online community of
+        club leaders from around the globe.
       %h4 What does a Hack Club look like?
       %p
-        Each Hack Club meets weekly for an hour and a half. The
-        structure varies club to club, but most meetings involve
-        members building projects and  sharing them with one another.
-        Club leaders use our curriculum to teach new members to code
-        while they're working on projects.
-      %h4 What is Hacking?
+        Hack Clubs meet after-school once or twice a week for an hour and a
+        half. The structure varies club to club, but most meetings involve
+        members learning to code by working on real projects, like apps,
+        websites, and games.
+      %h4 What is hacking?
       %p
-        When we say "hack", we're referring to the "life hack" type of
-        hacking. Simply put, hacking is creative problem solving—and it
-        often includes code. Hack Club teaches students to code and to
-        use coding skills to solve problems, not to crack into your
-        bank account.
+        When we say "hack", we're referring to solving problems cleverly with
+        code &ndash; just like "life hacking", except with computers. We're not
+        here to break into anyone's bank accounts.
+      %p
+        When members of Hack Clubs hack, they're building apps, websites, games,
+        and anything else you can imagine.
       %h4 Have any other questions?
       %p
         = link_to 'Please send us an email', 'mailto:team@hackclub.com'
         or
         = link_to 'chat with us on the Hack Club Slack!',
           'https://slack.hackclub.com/'
-#start-a-hack-club
-  .row
-    %h1 Start a Hack Club!
-    %h3 Interested in bringing a coding club to your school?
-    %h3 All it takes to start a Hack Club is you!
-    %h3.faded (We'll help you every step of the way.)
-    %p.links
-      = link_to 'Start a Hack Club!', apply_path,
-        class: 'button large outline-outward button-start-a-club'
-    %p.links.lead
-      = link_to 'About Us ➡', team_path
-      = link_to 'Donate ➡', donate_path
-  .row.text-center.row-of-people.show-for-medium-up
-    = image_tag 'people/person_1.svg'
-    = image_tag 'people/person_2.svg'
-    = image_tag 'people/person_3.svg'
-    = image_tag 'people/person_4.svg'
-    = image_tag 'people/person_5.svg'
-.show-for-medium-up#supporters
-  .row
-    %h1 Supporters
-    %p.lead
-      These are the organizations that keep Hack Club free to your
-      schools by providing donations and community resources.
-    %ul.big-supporters.small-block-grid-1.medium-block-grid-2.columns
-      %li
-        = link_to "http://www.loganfdn.org/" do
-          = image_tag('sponsors/logan_foundation.jpg')
-      %li
-        = link_to "http://thielfoundation.org/" do
-          = image_tag('sponsors/thiel_foundation.svg')
-    %ul.small-supporters.small-block-grid-2.medium-block-grid-3
-      %li
-        = link_to "https://taplytics.com/" do
-          = image_tag('sponsors/taplytics.svg')
-      %li
-        = link_to "http://www.hackreactor.com/" do
-          = image_tag('sponsors/hack_reactor.png')
-      %li
-        = link_to "https://workflowy.com/" do
-          = image_tag('sponsors/workflowy.png')
-      %li
-        = link_to "https://sourcegraph.com/" do
-          = image_tag('sponsors/sourcegraph.png')
-      %li
-        = link_to "https://www.makeschool.com" do
-          = image_tag('sponsors/make_school.svg')
-      %li
-        = link_to "https://www.nitrous.io/" do
-          = image_tag('sponsors/nitrousio.svg')
-      %li
-        = link_to "http://www.crystalknows.com/" do
-          = image_tag('sponsors/crystal.png')
-      %li
-        = link_to "https://codehs.com/" do
-          = image_tag('sponsors/codehs.png')
-      %li
-        = link_to "http://firstcodeacademy.com/" do
-          = image_tag('sponsors/first_code_academy.png')
-      %li
-        = link_to "http://www.getcloudapp.com/" do
-          = image_tag('sponsors/cloudapp.svg')
-      %li
-        = link_to "http://get.tech/" do
-          = image_tag('sponsors/dot_tech.svg')
-      %li
-        = link_to "http://www.galvanize.com/" do
-          = image_tag('sponsors/galvanize.svg')
-      %li
-        = link_to "https://stripe.com/" do
-          = image_tag('sponsors/stripe.svg')
-      %li
-        = link_to "https://zapier.com/" do
-          = image_tag('sponsors/zapier.svg')
-      %li
-        = link_to "http://www.missionbit.com/" do
-          = image_tag('sponsors/mission_bit.png')
-#email-form
-  .row
-    %h1 Stay in the Loop
-    %p.call-to-action.lead
-      Follow along as hundreds of amazing people across the world band
-      together to build the communities they've always wished existed.
-    .small-11.medium-6.small-centered.columns
-      / MailChimp Signup Form
-      #mc_embed_signup
-      %form#mc-embedded-subscribe-form.validate{action: "//hackedu.us10.list-manage.com/subscribe/post?u=738aabcd5284a4d3df761a981&id=4c8d1b3833",
-                                                method: "post",
-                                                  name: "mc-embedded-subscribe-form",
-                                            novalidate: "",
-                                                target: "_blank"}
-        #mc_embed_signup_scroll
-          .mc-field-group
-            %input#mce-EMAIL.required.email{name: "EMAIL",
-                                            type: "email",
-                                           value: "",
-                                     placeholder: "zaphod@beeblebrox.com"}
-          #mce-responses.clear
-            .response#mce-error-response{ style: "display: none" }
-            .response#mce-success-response{ style: "display: none" }
-          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
-          %div{ style: "position: absolute; left: -5000px;" }
-            %input{name: "b_738aabcd5284a4d3df761a981_4c8d1b3833",
-               tabindex: "-1",
-                   type: "text",
-                  value: ""}
-          .clear
-            %input.button.large.outline-outward.button-subscribe#mc-embedded-subscribe{ name:  "subscribe",
-              type: "submit",
-              value: "Subscribe to Newsletter" }
 .footer
   .row
     .small-12.medium-9.medium-centered.columns
@@ -448,7 +262,7 @@
     .small-12.columns.text-center
       %p.copyright
         © #{Date.today.year} Hack Club. Please read our
-        = link_to 'Code of Conduct.',
+        = link_to 'code of conduct.',
           'https://github.com/hackclub/hackclub/blob/master/CONDUCT.md'
 %script
   markersJSON = #{raw @clubs_hash.to_json}

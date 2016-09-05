@@ -323,13 +323,6 @@ a {
     box-shadow: 0 0 10px $hackclub-gray;
     margin-top: -15px;
   }
-
-  .introduction-photo-caption {
-    font-size: 0.75rem;
-    margin-bottom: -1em;
-    margin-top: 1em;
-    text-align: right;
-  }
 }
 
 .button.button-start-a-club {
@@ -366,6 +359,7 @@ a {
 #how-it-works {
   @extend .main-section;
   text-align: center;
+  padding-bottom: 0;
 
   .subheading {
     font-size: 1.75rem;
@@ -412,10 +406,40 @@ a {
   }
 }
 
-#map {
+#meet-the-hack-clubs {
   @extend .main-section;
   padding-bottom: 0;
   text-align: center;
+
+  @media #{$large-up} {
+    padding-top: 25px;
+  }
+
+  .heading {
+    margin-bottom: 15px;
+
+    @media #{$large-up} {
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+#map {
+  @extend .main-section;
+  padding-bottom: 0;
+  padding-top: 20px;
+  text-align: center;
+
+  @media #{$medium-up} {
+    .lead {
+      font-size: rem-calc(24);
+      margin-bottom: 40px;
+    }
+  }
 
   .tabs {
     .tab-title {
@@ -538,6 +562,10 @@ a {
     color: $hackclub-white;
   }
 
+  h4 {
+    font-weight: bold;
+  }
+
   a {
     color: inherit;
     text-decoration: underline;
@@ -553,7 +581,6 @@ a {
   text-align: center;
 
   .row-of-people {
-    border-bottom: 4px solid $hackclub-outline;
     height: 260px;
     margin-bottom: -50px;
     overflow: hidden;

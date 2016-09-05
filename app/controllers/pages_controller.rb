@@ -7,6 +7,9 @@ class PagesController < ApplicationController
     @clubs_hash = clubs_markers(Club.all)
   end
 
+  def how_it_works
+  end
+
   def team
   end
 
