@@ -82,6 +82,30 @@ a {
   }
 }
 
+.red-main-section {
+  @extend .main-section;
+  background: $hackclub-red;
+  color: $hackclub-white;
+
+  // Weird bug, but for some reason browsers don't use full opacity for the
+  // background color unless it's specified with a very high opacity (but not a
+  // full opacity) in RGBA format. Using this as the white background gets
+  // around it.
+  $white-with-hacked-opacity: rgba(255, 255, 255, 0.99);
+
+  ::selection {
+    background: $white-with-hacked-opacity;
+    color: $hackclub-red;
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    background: $white-with-hacked-opacity;
+    color: $hackclub-red;
+    text-shadow: none;
+  }
+}
+
 .small-section {
   @extend .main-section;
   padding: 20px 0 20px 0;
@@ -348,9 +372,7 @@ a {
 }
 
 #quote {
-  @extend .main-section;
-  background: $hackclub-red;
-  color: $hackclub-white;
+  @extend .red-main-section;
 
   p {
     border-left: 4px solid $hackclub-white;
@@ -558,9 +580,7 @@ a {
 }
 
 #faq {
-  @extend .main-section;
-  background: $hackclub-red;
-  color: $hackclub-white;
+  @extend .red-main-section;
 
   h1, h2, h3, h4 {
     color: $hackclub-white;
