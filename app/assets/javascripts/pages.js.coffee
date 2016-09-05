@@ -1,5 +1,8 @@
 @['pages#home'] = (data) ->
-  handler = Gmaps.build('Google')
+  # The markers: clusterer: undefined argument makes it so items on the map don't cluster.
+  #
+  # See docs at https://github.com/apneadiving/Google-Maps-for-Rails/wiki/Customized-Cluster-Icons#disable-clusterer-icons
+  handler = Gmaps.build('Google', markers: clusterer: undefined)
   handler.buildMap
     provider:
       center:
