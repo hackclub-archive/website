@@ -49,9 +49,13 @@ a {
 }
 
 .hackclub-logo {
-  font-family: "Amaranth", "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 100%;
-  font-weight: bold;
+  height: 17.5px;
+  margin-bottom: 3px;
+
+  @media #{$medium-up} {
+    height: 25px;
+    margin-bottom: 5px;
+  }
 }
 
 .colored-section {
