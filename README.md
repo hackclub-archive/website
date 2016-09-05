@@ -33,6 +33,7 @@ corresponding values.
 - `SECRET_KEY_BASE`
 - `STRIPE_PUBLISHABLE_KEY` - Publishable key for [Stripe](https://stripe.com/)
 - `STRIPE_SECRET_KEY` - Secret key for [Stripe](https://stripe.com/)
+- `GOOGLE_MAPS_KEY` - JavaScript API key for Google Maps
 
 #### Production Secrets
 

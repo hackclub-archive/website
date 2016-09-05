@@ -108,21 +108,18 @@
             ]
           }
         ]
-
     internal:
       id: 'home-map-jumbotron'
-
-    google.maps.event.addDomListener document.getElementById('focus-map-usa'), 'click', ->
-      handler.getMap().setCenter new (google.maps.LatLng)(40, -95)
-      handler.getMap().setZoom 4
-      return
-    google.maps.event.addDomListener document.getElementById('focus-map-international'), 'click', ->
-      handler.getMap().setCenter new (google.maps.LatLng)(32, 0)
-      handler.getMap().setZoom 2
-      return
-
     ->
       handler.addMarkers markersJSON
+
+      google.maps.event.addDomListener document.getElementById('focus-map-usa'), 'click', ->
+        handler.getMap().setCenter new (google.maps.LatLng)(40, -95)
+        handler.getMap().setZoom 4
+
+      google.maps.event.addDomListener document.getElementById('focus-map-international'), 'click', ->
+        handler.getMap().setCenter new (google.maps.LatLng)(32, 0)
+        handler.getMap().setZoom 2
 
   $ ->
     $('a[href*="#"]:not([href="#"]):not([href="#map-usa"]):not([href="#map-international"])').click ->
