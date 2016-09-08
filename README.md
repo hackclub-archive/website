@@ -1,34 +1,20 @@
-<a name="top"></a>
-<a href="https://www.irccloud.com/invite?channel=%23hackclub&amp;hostname=irc.freenode.net&amp;port=6697&amp;ssl=1" target="_blank"><img src="https://www.irccloud.com/invite-svg?channel=%23hackclub&amp;hostname=irc.freenode.net&amp;port=6697&amp;ssl=1"  height="18"></a> [![Circle CI](https://circleci.com/gh/hackclub/website.svg?style=svg)](https://circleci.com/gh/hackclub/website)
+# Hack Club's Website [![Circle CI](https://circleci.com/gh/hackclub/website.svg?style=svg)](https://circleci.com/gh/hackclub/website)
 
--------------------------------------------------------------------------------
-
-<p align="center"><img src="https://raw.githubusercontent.com/hackclub/dinosaurs/68ccf2b66be441748ee0639df01deb3ea354cfc7/code_dinosaur.png" alt="Hack Club Website" /></p>
-<h1 align="center">Hack Club's Website</h1>
-
-You've stumbled upon Hack Club's website.
+Congratulations, you've stumbled upon Hack Club's website. Achievement get!
 
 ## Getting Started
 
-### Prerequisites
+Our website is developed using [Docker Compose](https://docs.docker.com/compose/). If you don't already have it installed, do that now.
 
-- Ruby 2.0+ with Rails
+Once you've cloned the repo, run the following commands to get the basics set up:
 
-### Install dependencies
-
-After cloning the repo:
-
-    $ bundle install
-
-### Database migrations
-
-    $ rake db:migrate
+    $ docker-compose build
+    $ docker-compose run web bundle install
+    $ docker-compose run web rake db:create db:migrate
 
 ### Secrets
 
-Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro).
-Create `config/application.yml` containing the following keys and 
-corresponding values.
+Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro). Create `config/application.yml` containing the following keys and corresponding values.
 
 - `SECRET_KEY_BASE`
 - `STRIPE_PUBLISHABLE_KEY` - Publishable key for [Stripe](https://stripe.com/)
@@ -48,21 +34,18 @@ The following secrets are also required for production.
 #### Optional Variables
 
 - `REFERRERS_TO_BLOCK`
-  - A list of regular expressions of hostnames to block, separated by `|`. This
-    is used to prevent
-    [referrer spam](https://en.wikipedia.org/wiki/Referer_spam)
+  - A list of regular expressions of hostnames to block, separated by `|`. This is used to prevent [referrer spam](https://en.wikipedia.org/wiki/Referer_spam)
     - Examples: `.*\.spam\.com|\w+.spamwow.\w+`, `bad\.referrer\.com`
 
 ### Start server
 
-    $ rails serve
+    $ docker-compose up
 
-The website should now be running on your computer at http://localhost:3000.
+The website should now be up and running!
 
 ## Deployment
 
-If you choose to use the `Procfile` for deployment, you _must_ set the
-following environment variables to appropriate values:
+If you choose to use the `Procfile` for deployment, you _must_ set the following environment variables to appropriate values:
 
 - `PORT`
 - `RACK_ENV`
