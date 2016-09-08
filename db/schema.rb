@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160415005500) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "club_applications", force: true do |t|
     t.string   "first_name",          null: false
     t.string   "last_name",           null: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160415005500) do
     t.text     "referer"
   end
 
-  add_index "club_applications", ["email"], name: "index_club_applications_on_email", unique: true
+  add_index "club_applications", ["email"], name: "index_club_applications_on_email", unique: true, using: :btree
 
   create_table "clubs", force: true do |t|
     t.string   "school"
