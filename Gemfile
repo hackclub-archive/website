@@ -48,4 +48,5 @@ group :production do
   gem 'puma'
   gem 'rack-timeout'
   gem 'pg'
+  gem 'rails_12factor'
 end
