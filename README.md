@@ -48,7 +48,7 @@ The website should now be up and running!
 If you choose to use the `Procfile` for deployment, you _must_ set the following environment variables to appropriate values:
 
 - `PORT`
-- `RACK_ENV`
+- `RAILS_ENV`
 
 ## License
 
