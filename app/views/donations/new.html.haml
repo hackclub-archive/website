@@ -38,17 +38,17 @@
             .medium-9.columns
               .row
                 .small-4.medium-3.large-2.columns
-                  %input#a5{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '500'}
-                    %label.button{for: 'a5'} $5
-                .small-4.medium-3.large-2.columns
-                  %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '1500', checked: ''}
+                  %input#a15{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '1500'}
                     %label.button{for: 'a15'} $15
                 .small-4.medium-3.large-2.columns
-                  %input#a30{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '3000'}
-                    %label.button{for: 'a30'} $30
-                .small-4.medium-3.large-2.columns
-                  %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5000'}
+                  %input#a50{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '5000', checked: ''}
                     %label.button{for: 'a50'} $50
+                .small-4.medium-3.large-2.columns
+                  %input#a150{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '15000'}
+                    %label.button{for: 'a150'} $150
+                .small-4.medium-3.large-2.columns
+                  %input#a300{'data-toggle' => 'button', type: 'radio', name: 'amount', value: '30000'}
+                    %label.button{for: 'a300'} $300
                 .small-4.medium-3.columns
                   %input#a-custom{'data-toggle' => 'button', type: 'radio', name: 'amount', value: 'custom'}
                     %label.button{for: 'a-custom'} Custom
@@ -58,7 +58,7 @@
                     .small-3.columns
                       %span.prefix $
                     .small-9.columns
-                      %input{type: 'number', name: 'custom_amount', value: '10'}
+                      %input{type: 'number', name: 'custom_amount', value: '25'}
                 .small-offset-4.hide-for-medium-up.columns
       %section
         .row
