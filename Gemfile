@@ -26,6 +26,7 @@ gem 'pluggable_js'
 gem 'figaro'
 gem 'validates_email_format_of'
 gem 'stripe'
+gem 'faraday'
 
 group :development, :test do
   gem 'sqlite3'
