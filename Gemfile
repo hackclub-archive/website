@@ -27,6 +27,7 @@ gem 'figaro'
 gem 'validates_email_format_of'
 gem 'stripe'
 gem 'faraday'
+gem 'rack-proxy'
 
 group :development, :test do
   gem 'sqlite3'
@@ -34,6 +35,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'byebug'
 
   gem 'rspec-rails'
   gem 'guard-rspec'

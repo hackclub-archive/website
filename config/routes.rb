@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   %w[how_it_works sponsor team].each do |page|
     get page, controller: 'pages', action: page
   end
+
+  match '*path', to: AppProxy.new, via: :all
 end
