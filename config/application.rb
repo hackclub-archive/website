@@ -20,6 +20,9 @@ module HackClub
     # Also use Rack::Deflater for runtime asset compression
     config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
 
+    # Autoload files from lib/
+    config.autoload_paths << Rails.root.join('lib')
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
