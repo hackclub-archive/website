@@ -2,7 +2,7 @@
   .row
     .large-6.medium-12.columns
       %h1 We help high schoolers start awesome after-school coding clubs.
-      = link_to apply_path,
+      = link_to '/start',
         class: 'button large outline-outward button-start-a-club' do
         Start a Hack Club <span class="raquo">&raquo;</span>
       %p.links.lead
@@ -162,7 +162,7 @@
     %h3 Interested in bringing a coding club to your school?
     %h3 All it takes to start a Hack Club is you!
     %p.links
-      = link_to apply_path,
+      = link_to '/start',
         class: 'button large outline-outward button-start-a-club' do
         Start a Hack Club <span class="raquo">&raquo;</span>
   .row.text-center.row-of-people.show-for-medium-up
@@ -222,7 +222,7 @@
         %h1 Useful Links
         %ul
           %li.link
-            #{link_to 'Start a Hack Club', apply_path}
+            #{link_to 'Start a Hack Club', '/start'}
           %li.link
             #{ link_to 'Workshops', 'https://workshops.hackclub.com/' }
           %li.link
