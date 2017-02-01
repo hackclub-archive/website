@@ -855,3 +855,24 @@ a {
   font-size: 24px;
   line-height: 0;
 }
+
+.apply-header {
+  font-size: 28px;
+  margin-top: 15px;
+  text-align: center;
+
+  @media #{$medium-up} {
+    font-size: 48px;
+    margin-top: 40px;
+  }
+}
+
+.apply-info {
+  margin-top: 10px;
+  text-align: center;
+
+  @media #{$medium-up} {
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+}
