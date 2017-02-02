@@ -1,4 +1,17 @@
 class AppProxy < Rack::Proxy
+  # See https://github.com/ncr/rack-proxy/issues/50#issuecomment-256563048 for
+  # the source of the implementations of call and rewrite_response.
+  def call(env)
+    @streaming = true
+    super
+  end
+
+  def rewrite_response(triplet)
+    status, headers, body = triplet
+    headers.delete "transfer-encoding"
+    triplet
+  end
+
   def rewrite_env(env)
     env['HTTP_HOST'] = 'new.hackclub.com'
     env['SERVER_PORT'] = '443'
