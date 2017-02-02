@@ -1,27 +1,27 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-gem 'rails', '4.1.1'
+gem 'rails', '~> 4.2.7.1' # This change was made via Snyk to fix a vulnerability
 gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 2.7.2' # This change was made via Snyk to fix a vulnerability
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer'
 gem 'haml-rails'
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.2.3' # This change was made via Snyk to fix a vulnerability
 gem 'rack-ssl-enforcer'
 gem 'rack-attack'
 gem 'unf_ext'
 
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.2.5' # This change was made via Snyk to fix a vulnerability
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'rails-assets-Hover'
 gem 'rails-assets-underscore'
 gem 'gmaps4rails'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0' # This change was made via Snyk to fix a vulnerability
 gem 'enum_help'
-gem 'pluggable_js'
+gem 'pluggable_js', '~> 2.0.4' # This change was made via Snyk to fix a vulnerability
 gem 'figaro'
 gem 'validates_email_format_of'
 gem 'stripe'
@@ -38,11 +38,11 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'shoulda'
-  gem 'factory_girl_rails'
-  gem 'capybara'
+  gem 'shoulda', '~> 3.5.0' # This change was made via Snyk to fix a vulnerability
+  gem 'factory_girl_rails', '~> 4.5.0' # This change was made via Snyk to fix a vulnerability
+  gem 'capybara', '~> 2.4.4' # This change was made via Snyk to fix a vulnerability
   gem 'faker'
-  gem 'email_spec'
+  gem 'email_spec', '~> 1.6.0' # This change was made via Snyk to fix a vulnerability
   gem 'rspec_junit_formatter'
 end
 
