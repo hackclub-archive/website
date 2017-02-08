@@ -9,6 +9,7 @@ RSpec.describe ClubApplication, type: :model do
   it { should respond_to :first_name }
   it { should respond_to :last_name }
   it { should respond_to :email }
+  it { should respond_to :phone_number }
   it { should respond_to :high_school }
   it { should respond_to :year }
   it { should respond_to :github }
