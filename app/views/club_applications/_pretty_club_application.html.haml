@@ -1,0 +1,60 @@
+.row.example-application
+  %fieldset
+    %legend Information
+    .row
+      .small-6.columns
+        %label First name
+        %input{:type=>'text', :readonly=>'true', :value=>app['first_name']}
+      .small-6.columns
+        %label Last name
+        %input{:type=>'text', :readonly=>'true', :value=>app['last_name']}
+    .row
+      .columns
+        %label Email name
+        %input{:type=>'email', :readonly=>'true', :value=>app['email']}
+    .row
+      .small-6.columns
+        %label High school
+        %input{:type=>'text', :readonly=>'true', :value=>app['high_school']}
+      .small-6.columns
+        %label Year
+        %input{:type=>'text', :readonly=>'true', :value=>app['year']}
+    .row
+      .large-6.columns
+        .row.collapse
+          %label GitHub
+          .small-4.columns
+            %span.prefix github.com/
+          .small-8.columns
+            %input{:type=>'text', :readonly=>'true', :value=>app['github']}
+      .large-6.columns
+        .row.collapse
+          %label Twitter
+          .small-4.columns
+            %span.prefix twitter.com/
+          .small-8.columns
+            %input{:type=>'text', :readonly=>'true', :value=>app['twitter']}
+  %fieldset
+    %legend Application
+    .row
+      .columns
+        %label Please tell us about an interesting project, preferably outside of class, that you created or worked on.
+
+        %textarea{:disabled=>'true', :rows=>'5', :column=>'80'} 
+          = app['interesting_project']
+      .columns
+        %label Please tell us about the time you most successfully hacked some (non-computer) system to your advantage. Click <a href="https://www.quora.com/When-have-you-most-successfully-hacked-some-non-computer-system-to-your-advantage">here</a> for the sorts of responses we're looking for.
+
+        %textarea{:disabled=>'true', :rows=>'6', :column=>'80'}
+          = app['system_hacked']
+    .row
+      .columns
+        %label What steps have you taken so far in starting your club?
+
+        %textarea{:disabled=>'true', :rows=>'3', :column=>'80'} 
+          = app['steps_taken']
+    .row
+      .columns
+        %label How did you hear about us?
+
+        %input{:type=>'text', :readonly=>'true', :value=> app['referer']}

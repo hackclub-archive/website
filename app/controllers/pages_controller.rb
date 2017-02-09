@@ -14,6 +14,12 @@ class PagesController < ApplicationController
   def team
   end
 
+  def example_applications
+    @example_applications = YAML.load_file 'lib/data/example_applications.yml'
+
+    render 'pages/example_applications'
+  end
+
   private
 
   def get_clubs
