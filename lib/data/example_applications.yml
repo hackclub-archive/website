@@ -1,0 +1,30 @@
+rachel:
+  first_name: 'Rachel'
+  last_name: 'Sterneck'
+  email: 'redacted@redacted.com'
+  high_school: 'Redacted High School'
+  year: 'Senior'
+  github: ''
+  twitter: ''
+  interesting_project: 'I am currently working on a Swift application for a social entrepreneurship competition. A friend and I recently discovered that about 40% of produce grown in the United States is wasted each year simply because the produce looks flawed, despite being perfectly healthy and tasty. We decided to create an app that would allow NYC local restaurants to buy "ugly" produce from local farmers, benefiting both parties by opening new and cheaper markets for restaurant owners and helping farmers sell produce that would otherwise be wasted. This project has been a new experience for me because it is my first time using database platforms such as Firebase, and it is extremely rewarding to see our project, which initially seemed extremely unrealistic, come to life.'
+  system_hacked: 'My most successful hack was actually the time I started a code club in my school. In my high school, it is a very difficult and onerous process for a student to start a club. Each year, quite a few students attempt to start a club, however it is very rare that one succeeds because there are legal barriers (by law, teachers must be paid for being a club advisors) in public schools and a club must be approved by administrators so that the club can be accounted for in the budget. I initially pitched the code club idea in the normal process, and I was quickly turned down. Because of my annoyingly tenacious personality, I began to speak with higher ups until someone realized that our school is falling behind in computer science, and that coding is an essential skill. After months, I finally had the attention of the administrators and they gladly agreed to create a coding club for high school students. I hacked the school system, skipping all the tedious steps to successfully accomplish my goal.'
+  steps_taken: 'As I explained above, a coding club has been approved in my high school. My computer science teacher volunteered to be a club advisor, and he is equally as passionate about the club as I am. We plan to officially launch our club with lessons and projects next year, however we will soon hold meetings to raise awareness about computer programming and attract students to join the club.'
+  referer: 'Research'
+megan: 
+  first_name: 'Megan'
+  last_name: 'Cui'
+  email: 'redacted.again@redacted.com'
+  high_school: 'Another Redacted High School'
+  year: 'Senior'
+  github: 'megancui'
+  twitter: 'megscui'
+  interesting_project: 'I built a Chrome extension called Hitchhikr that uses the temptation bundling theory to increase productivity. It was created using Javascript, HTML, CSS, and utilized Chrome-specific code as well. You can find it on the Chrome web store @ Hitchhikr under the extensions category. I submitted this to my science fair where I advanced to the regional level and won two computer science awards through UC CECH and Skanska.
+
+I also went to a university hackathon where my team created a meme generator that made memes using your webcam and analyzed your emotions (JS, CSS, HTML, Bootstrap, Affective SDK) to choose a specific "meme text" to cater to it. We won best high school hack and you can find it (and its strange alignment issues) @ megancui.github.com.'
+  system_hacked: "It's best explained by my extension Hitchhikr that I explained in the question before.
+
+Here's a lengthy story. Sorry, but it'll hopefully make more sense.
+
+For the longest time, I struggled a lot with time management. I had gotten away with absolutely no studying and no concentration or even effort on my part for success in my academic classes before, but as I slowly began gathering extracurriculars that ate away at my time, I found myself up until 1AM consistently trying to finish my homework I could've done a couple hours ago. My kryptonite? YouTube. And it wasn't even remotely OK how much time I spent there a day-- probably close to 3-4 hours before homework and another hour after. This lack of sleep caused me to feel pretty sucky all the time, constantly drained and sleepy. My dad went to a big conference one weekend and when he came back, he showed me all the speakers and their talks. While all of them talked about super innovative things, I found myself drawn to a study done my Dr. Katherine Milkman of Wharton, who coined the term 'temptation bundling' for the idea of using things you like to motivate you to do things you don't like. An example would be audiobooks and the gym. You love audiobooks but you hate the gym, so you could bundle the two by saying, 'I can only listen to an audiobook while I'm at the gym'. This idea influenced me to create my Chrome extension, which basically launches a random website (from a list of your productive websites) every time you enter an unproductive website (your own list of unproductive websites). For me, SAT vocab and YouTube were perfect for bundling. Now, every time I enter YouTube, I learn a new word via Quizlet. I would say that this is a pretty successful hack, as it serves as a reminder and as a bonus for when you try to do unproductive things. I've learned many new words: taciturn, loquacious, bombastic (just to name a few)."
+  steps_taken: 'I am planning a meeting with two others to talk to our computer programming department head this Thursday. I have also been extensively planning and have done research on how other clubs like this are run when I found this site. We have laid out a very strong basis for the general structure and focus of the club and have filled out the majority of the application to create a club at our high school and are planning on submitting it by next Wednesday.'
+  referer: 'Research'

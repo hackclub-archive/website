@@ -876,3 +876,9 @@ a {
     margin-top: 20px;
   }
 }
+
+.example-application {
+  input[readonly], textarea[disabled] {
+    background-color: $hackclub-white;
+  }
+}

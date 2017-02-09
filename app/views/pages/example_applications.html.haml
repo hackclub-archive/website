@@ -1,0 +1,30 @@
+:ruby
+  provide :title, 'Example Applications'
+  provide :description, 'These are some example applications which you can use'\
+                        " as a reference for when you're writing yours!"
+
+.row
+  %h1.apply-header Example Applications
+
+.row
+  .small-12.medium-9.small-centered.columns
+    %p.apply-info
+      These are some of the applications that real club leaders have applied with! We
+      recommend that you take inspiration from them, but don't feel like yours
+      has to be exactly the same!
+
+- @example_applications.each do |key, application|
+  .row
+    .columns
+      %h2 #{application['first_name']}'s Application
+  = render 'club_applications/pretty_club_application', app: application
+
+.row
+  .small-12.medium-9.small-centered.columns
+    %p.apply-info
+      Ready to start a Hack Club? Awesome.
+.row
+  .small-12.small-centered.columns.text-center
+    = link_to '/start',
+      class: 'button large outline-outward button-start-a-club' do
+      Start a Hack Club <span class="raquo">&raquo;</span>
