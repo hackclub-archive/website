@@ -373,7 +373,7 @@ a {
 #quote {
   @extend .red-main-section;
 
-  p.lead {
+  .lead {
     border-left: 4px solid $hackclub-white;
     margin: auto;
     max-width: 700px;
@@ -883,8 +883,6 @@ a {
 }
 
 .testimonials {
-  padding-top: 20px;
-
   h2 {
     text-align: center;
   }
@@ -896,17 +894,17 @@ a {
     }
 
     .quotee-img {
-      width: 100%;
       border-radius: 5%;
+      width: 100%;
     }
   }
 
   .quotation-mark {
-    display: block;
     content: "\201C";
-    font-size: 80px;
+    display: block;
+    font-size: 60px;
+    left: -10px;
     position: absolute;
-    top: -20px;
-    left: -25px;
+    top: -30px;
   }
 }
