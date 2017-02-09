@@ -1,5 +1,4 @@
 @import "variables";
-@import "fonts";
 $include-html-global-classes: false;
 @import "foundation/components/global";
 
@@ -374,7 +373,7 @@ a {
 #quote {
   @extend .red-main-section;
 
-  p {
+  p.lead {
     border-left: 4px solid $hackclub-white;
     margin: auto;
     max-width: 700px;
@@ -880,5 +879,34 @@ a {
 .example-application {
   input[readonly], textarea[disabled] {
     background-color: $hackclub-white;
+  }
+}
+
+.testimonials {
+  padding-top: 20px;
+
+  h2 {
+    text-align: center;
+  }
+
+  .testimonial {
+    p {
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .quotee-img {
+      width: 100%;
+      border-radius: 5%;
+    }
+  }
+
+  .quotation-mark {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    top: -20px;
+    left: -25px;
   }
 }
