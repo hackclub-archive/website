@@ -41,18 +41,18 @@
         %label Please tell us about an interesting project, preferably outside of class, that you created or worked on.
 
         %textarea{:disabled=>'true', :rows=>'5', :column=>'80'} 
-          = app['interesting_project']
+          ~ app['interesting_project']
       .columns
         %label Please tell us about the time you most successfully hacked some (non-computer) system to your advantage. Click <a href="https://www.quora.com/When-have-you-most-successfully-hacked-some-non-computer-system-to-your-advantage">here</a> for the sorts of responses we're looking for.
 
         %textarea{:disabled=>'true', :rows=>'6', :column=>'80'}
-          = app['system_hacked']
+          ~ app['system_hacked']
     .row
       .columns
         %label What steps have you taken so far in starting your club?
 
         %textarea{:disabled=>'true', :rows=>'3', :column=>'80'} 
-          = app['steps_taken']
+          ~ app['steps_taken']
     .row
       .columns
         %label How did you hear about us?
