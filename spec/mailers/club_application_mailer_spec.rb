@@ -42,7 +42,8 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
 
     it { should have_subject 'Hack Club Application' }
     it { should deliver_to 'Hack Club Team <team@hackclub.com>' }
-    it { should deliver_from application.mail_address.format }
+    it { should deliver_from 'Hack Club Team <team@hackclub.com>' }
+    it { should reply_to application.mail_address.format }
 
     it_behaves_like 'a club application email'
   end
