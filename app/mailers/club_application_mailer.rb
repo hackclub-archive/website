@@ -1,5 +1,5 @@
 class ClubApplicationMailer < ActionMailer::Base
-  default from: 'Zach Latta <team@hackclub.com>'
+  default from: 'Hack Club Team <team@hackclub.com>'
 
   def applicant_confirmation(application)
     @application = application
@@ -13,7 +13,7 @@ class ClubApplicationMailer < ActionMailer::Base
     @application = application
 
     to = Mail::Address.new 'team@hackclub.com'
-    to.display_name = 'Zach Latta'
+    to.display_name = 'Hack Club Team'
     mail(to: to.format, from: @application.mail_address.format,
          subject: 'Hack Club Application')
   end
