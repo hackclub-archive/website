@@ -40,7 +40,13 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
   describe 'admin notification' do
     subject { ClubApplicationMailer.admin_notification(application) }
 
-    it { should have_subject 'Hack Club Application' }
+    it 'has the correct subject' do
+      expected = 'Hack Club Application '\
+                 "(#{application.full_name}, #{application.high_school})"
+
+      expect(subject).to have_subject expected
+    end
+
     it { should deliver_to 'Hack Club Team <team@hackclub.com>' }
     it { should deliver_from 'Hack Club Team <team@hackclub.com>' }
     it { should reply_to application.mail_address.format }

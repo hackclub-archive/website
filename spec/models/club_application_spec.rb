@@ -36,9 +36,16 @@ RSpec.describe ClubApplication, type: :model do
 
   describe '#mail_address' do
     it 'returns a correctly formatted mail address' do
-      expected =
-        "#{subject.first_name} #{subject.last_name} <#{subject.email}>"
+      expected = "#{subject.full_name} <#{subject.email}>"
       expect(subject.mail_address.format).to eq expected
+    end
+  end
+
+  describe '#full_name' do
+    it 'returns a correctly formatted full name' do
+      expected = "#{subject.first_name} #{subject.last_name}"
+
+      expect(subject.full_name).to eq expected
     end
   end
 end
