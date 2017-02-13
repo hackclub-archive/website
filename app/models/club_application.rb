@@ -18,7 +18,11 @@ class ClubApplication < ActiveRecord::Base
 
   def mail_address
     expected = Mail::Address.new email
-    expected.display_name = "#{first_name} #{last_name}"
+    expected.display_name = full_name
     return expected
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

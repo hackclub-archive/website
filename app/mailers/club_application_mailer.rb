@@ -5,7 +5,7 @@ class ClubApplicationMailer < ActionMailer::Base
     @application = application
 
     to = Mail::Address.new @application.email
-    to.display_name = "#{@application.first_name} #{@application.last_name}"
+    to.display_name = @application.full_name
     mail(to: to.format, subject: 'Application Confirmation')
   end
 
@@ -14,7 +14,10 @@ class ClubApplicationMailer < ActionMailer::Base
 
     to = Mail::Address.new 'team@hackclub.com'
     to.display_name = 'Hack Club Team'
+
+    subject = "Hack Club Application (#{@application.full_name}, #{@application.high_school})"
+
     mail(to: to.format, reply_to: @application.mail_address.format,
-         subject: 'Hack Club Application')
+         subject: subject)
   end
 end
