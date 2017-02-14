@@ -9,16 +9,15 @@
 .row
   .small-12.medium-9.small-centered.columns
     %p.apply-info
-      We're currently accepting applications for the 2016 - 2017 school year. If
-      you have any questions, don't hesitate to email us at
-      #{ link_to 'apply@hackclub.com' }. We look for 2-3 sentence responses to
-      each question. Good luck!
-
+      We're currently accepting applications for the 2016 - 2017 school year.
+      If you have any questions, feel free to message us from the bottom
+      right-hand corner – we'll get back to you ASAP. You should probably be
+      writing over 3 sentences per response, just make sure you don't write an
+      essay!
     %p.apply-info
       Check out our
       = link_to 'example applications', '/example_applications'
       if you want some help!
-
 .row
   = simple_form_for @application, url: apply_path do |f|
     %fieldset
@@ -70,3 +69,5 @@
         .columns
           = f.input :referer, label: 'How did you hear about us?'
     = f.button :submit, 'Submit Application'
+
+    = render 'layouts/intercom'

@@ -20,6 +20,7 @@ Secret keys are handled with [Figaro](https://github.com/laserlemon/figaro). Cre
 - `STRIPE_PUBLISHABLE_KEY` - Publishable key for [Stripe](https://stripe.com/)
 - `STRIPE_SECRET_KEY` - Secret key for [Stripe](https://stripe.com/)
 - `GOOGLE_MAPS_KEY` - JavaScript API key for Google Maps
+- `INTERCOM_APP_KEY` - App key for [Intercom](https://intercom.com)
 
 #### Production Secrets
 
