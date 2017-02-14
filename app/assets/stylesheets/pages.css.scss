@@ -891,6 +891,10 @@ a {
     p {
       font-size: 18px;
       font-weight: 300;
+
+      @media #{$small-only} {
+        font-style: italic;
+      }
     }
 
     .quotee-img {
@@ -906,5 +910,9 @@ a {
     left: -10px;
     position: absolute;
     top: -30px;
+
+    @media #{$small-only} {
+      display: none;
+    }
   }
 }
