@@ -914,6 +914,10 @@ a {
   border: 0.75em solid $hackclub-black;
   background-color: $hackclub-white;
   color: $hackclub-black;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .chat-bubble-arrow {
