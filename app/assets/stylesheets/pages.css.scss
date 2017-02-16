@@ -911,7 +911,9 @@ a {
 
 .chat-bubble {
   padding: 0.5em;
-  border: 0.75em solid $hackclub-white;
+  border: 0.75em solid $hackclub-black;
+  background-color: $hackclub-white;
+  color: $hackclub-black;
 }
 
 .chat-bubble-arrow {
@@ -919,7 +921,7 @@ a {
   content: ' ';
   border: 40px solid;
   border-top-width: 0;
-  border-color: $hackclub-white $hackclub-white transparent transparent;
+  border-color: $hackclub-black $hackclub-black transparent transparent;
 
   @media #{$small-only} {
     margin-right: 0;
