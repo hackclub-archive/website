@@ -883,10 +883,6 @@ a {
 }
 
 .testimonials {
-  h2 {
-    text-align: center;
-  }
-
   .testimonial {
     p {
       font-size: 18px;
@@ -899,19 +895,14 @@ a {
     }
   }
 
-  .quotation-mark {
-    content: "\201C";
-    display: block;
-    font-size: 60px;
-    left: -10px;
-    position: absolute;
-    top: -30px;
+  h3 {
+    margin-bottom: 0;
   }
 }
 
 .chat-bubble {
-  padding: 0.5em;
-  border: 0.75em solid $hackclub-black;
+  padding: 0.75em;
+  border: 4px solid $hackclub-black;
   background-color: $hackclub-white;
   color: $hackclub-black;
 
@@ -921,13 +912,9 @@ a {
 }
 
 .chat-bubble-arrow {
-  margin-right: 10%;
+  margin-left: 80%;
   content: ' ';
   border: 40px solid;
   border-top-width: 0;
-  border-color: $hackclub-black $hackclub-black transparent transparent;
-
-  @media #{$small-only} {
-    margin-right: 0;
-  }
+  border-color: transparent transparent transparent $hackclub-black;
 }
