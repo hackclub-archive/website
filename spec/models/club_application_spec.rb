@@ -48,4 +48,15 @@ RSpec.describe ClubApplication, type: :model do
       expect(subject.full_name).to eq expected
     end
   end
+
+  describe '#is_spam?' do
+    it 'calls #is_spam? on ApplicationSpamService' do
+      service = ApplicationSpamService.new
+
+      expect(ApplicationSpamService).to receive(:new).and_return(service)
+      expect(service).to receive(:is_spam?).with(subject)
+
+      subject.is_spam?
+    end
+  end
 end

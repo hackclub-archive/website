@@ -23,6 +23,11 @@ RSpec.describe ClubApplicationMailer, type: :mailer do
         expect(subject).to_not have_body_text(f)
       end
     end
+
+    it 'shows whether the application is spam' do
+      text = "Suspected spam: #{application.is_spam?}"
+      expect(subject).to have_body_text(text)
+    end
   end
 
   let(:application) { create(:club_application) }
