@@ -25,4 +25,8 @@ class ClubApplication < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def is_spam?
+    ApplicationSpamService.new.is_spam?(self)
+  end
 end
