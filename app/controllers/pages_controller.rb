@@ -4,13 +4,6 @@ class PagesController < ApplicationController
     @clubs_hash = clubs_markers(@clubs)
   end
 
-  def sponsor
-    @clubs_hash = clubs_markers(get_clubs)
-  end
-
-  def how_it_works
-  end
-
   def team
   end
 

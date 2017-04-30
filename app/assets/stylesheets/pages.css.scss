@@ -813,39 +813,6 @@ a {
   }
 }
 
-.pricing-table {
-  .invalid-item {
-    color: $hackclub-lightgray;
-    text-decoration: line-through;
-  }
-
-  .price {
-    background-color: $hackclub-lightgray;
-  }
-
-  .title {
-    background-color: $hackclub-red;
-    color: $hackclub-white;
-    font-size: 150%;
-  }
-}
-
-.sponsorship {
-  padding: 1rem;
-}
-
-.small-11.small-centered.columns {
-  padding-top: 1.6rem;
-}
-
-#sponsor-clubs-map {
-  height: 100px;
-
-  @media #{$large-up} {
-    height: 250px;
-  }
-}
-
 .exit-off-canvas {
   display: inline;
 }
