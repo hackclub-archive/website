@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207021033) do
+ActiveRecord::Schema.define(version: 20170502211535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170207021033) do
     t.integer  "year"
     t.text     "referer"
     t.string   "phone_number"
+    t.text     "start_date"
   end
 
   add_index "club_applications", ["email"], name: "index_club_applications_on_email", unique: true, using: :btree

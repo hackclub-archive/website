@@ -21,6 +21,7 @@ class ClubApplicationsController < ApplicationController
   def club_application_params
     params.require(:club_application).permit(:first_name, :last_name, :email,
                                              :phone_number, :github, :twitter,
+                                             :start_date,
                                              :high_school, :year,
                                              :interesting_project,
                                              :system_hacked, :steps_taken,
