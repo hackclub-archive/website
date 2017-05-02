@@ -54,6 +54,10 @@
               %span.prefix twitter.com/
             .small-8.columns
               = f.input :twitter, label: false, placeholder: 'zaphod'
+      .row
+        .large-12.columns
+          = f.input :start_date, label: 'Start date', as: :select,
+            collection: ["ASAP"] + ClubApplication.next_12_months
     %fieldset
       %legend Application
       .row

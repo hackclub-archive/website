@@ -14,6 +14,7 @@ RSpec.describe ClubApplication, type: :model do
   it { should respond_to :year }
   it { should respond_to :github }
   it { should respond_to :twitter }
+  it { should respond_to :start_date }
   it { should respond_to :interesting_project }
   it { should respond_to :system_hacked }
   it { should respond_to :steps_taken }
