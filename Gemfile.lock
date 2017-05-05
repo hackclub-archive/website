@@ -230,6 +230,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sentry-raven (2.4.0)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.4.4)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -316,6 +318,7 @@ DEPENDENCIES
   rspec_junit_formatter
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  sentry-raven
   shoulda
   simple_form
   spring
@@ -327,4 +330,4 @@ DEPENDENCIES
   validates_email_format_of
 
 BUNDLED WITH
-   1.12.5
+   1.14.3

@@ -31,6 +31,7 @@ The following secrets are also required for production.
 - `SMTP_USERNAME`
 - `SMTP_PASSWORD`
 - `SMTP_DOMAIN`
+- `SENTRY_DSN` - DSN for Sentry (https://sentry.io)
 
 #### Optional Variables
 
