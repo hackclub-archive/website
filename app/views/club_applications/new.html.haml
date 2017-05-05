@@ -54,8 +54,8 @@
             .small-8.columns
               = f.input :twitter, label: false, placeholder: 'zaphod'
       .row
-        .large-6.small-12.columns
-          = f.input :start_date, label: 'When do you want to start your club?', as: :select,
+        .medium-6.medium-offset-3.small-12.columns
+          = f.input :start_date, label: 'When do to have your first club meeting?', as: :select,
             collection: ["ASAP"] + ClubApplication.next_12_months,
             selected: "ASAP"
     %fieldset
