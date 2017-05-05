@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
+gem 'sentry-raven'
 gem 'rails-assets-Hover'
 gem 'rails-assets-underscore'
 gem 'gmaps4rails'
