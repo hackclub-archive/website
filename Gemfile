@@ -27,7 +27,7 @@ gem 'figaro'
 gem 'validates_email_format_of'
 gem 'stripe'
 gem 'faraday'
-gem 'rack-proxy'
+gem 'rack-reverse-proxy', require: 'rack/reverse_proxy'
 
 group :development, :test do
   gem 'sqlite3'
