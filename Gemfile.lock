@@ -156,8 +156,11 @@ GEM
     rack (1.5.5)
     rack-attack (4.3.0)
       rack
-    rack-proxy (0.6.0)
+    rack-proxy (0.6.1)
       rack
+    rack-reverse-proxy (0.12.0)
+      rack (>= 1.0.0)
+      rack-proxy (~> 0.6, >= 0.6.1)
     rack-ssl-enforcer (0.2.8)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -306,7 +309,7 @@ DEPENDENCIES
   pluggable_js
   puma
   rack-attack
-  rack-proxy
+  rack-reverse-proxy
   rack-ssl-enforcer
   rack-timeout
   rails (= 4.1.1)
@@ -330,4 +333,4 @@ DEPENDENCIES
   validates_email_format_of
 
 BUNDLED WITH
-   1.14.3
+   1.14.6
