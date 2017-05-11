@@ -5,7 +5,6 @@ class AppProxy
     Rack::Builder.new do
       use Rack::ReverseProxy do
         reverse_proxy '/', 'https://new.hackclub.com'
-        reverse_proxy_options force_ssl: true
       end
 
       # Don't return for any request that somehow passes through the reverse
