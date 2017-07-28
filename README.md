@@ -1,4 +1,6 @@
-# Hack Club's Website [![Circle CI](https://circleci.com/gh/hackclub/website.svg?style=svg)](https://circleci.com/gh/hackclub/website)
+# Hack Club's Website [DEPRECATED] [![Circle CI](https://circleci.com/gh/hackclub/website.svg?style=svg)](https://circleci.com/gh/hackclub/website)
+
+__*Warning: This repo has been deprecated in favor of https://github.com/hackclub/monolith.*__
 
 Congratulations, you've stumbled upon Hack Club's website. Achievement get!
 
